@@ -8,9 +8,9 @@ Northstar / NS 的对外介绍页，纯静态 HTML、CSS 和 JavaScript，无构
 
 ## GitHub Pages
 
-在 `godcin/northstar` 的 **Settings → Pages → Build and deployment** 中选择 **GitHub Actions**。
+在 `godcin/ns` 的 **Settings → Pages → Build and deployment** 中选择 **GitHub Actions**。
 将本分支合入 `main` 后，`pages.yml` 发布 `website/`；也可从 Actions 手动运行该工作流。
-默认网址为 `https://godcin.github.io/northstar/`。工作流只上传 `website/`，不发布产品源码。
+网址为 `https://godcin.com/`。工作流只上传 `website/`，不发布产品源码。
 
 ## 接入视频
 

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0d0e11">
+    <meta name="description" content="Northstar 是对话驱动的 AI 研发协作平台。将需求分析、技术设计、代码实现、测试验收与发布确认，连接成一条有依据、可追溯的工作流。">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Northstar · 对话驱动的 AI 研发协作平台">
+    <meta property="og:description" content="Chat in. Ship out. 从产品想法到软件交付，让 PM、Dev、QA 在同一条工作流中协作。">
+    <meta property="og:image" content="https://godcin.github.io/northstar/assets/workbench-dev.webp">
+    <meta property="og:url" content="https://godcin.github.io/northstar/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://godcin.github.io/northstar/">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" as="image" href="assets/workbench-pm.webp">
+    <title>Northstar · 对话驱动的 AI 研发协作平台</title>
+    <script src="vendor/lucide.min.js" defer></script>
+    <script src="site-config.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳转到正文</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#" aria-label="Northstar 首页">
+          <span class="brand-mark" aria-hidden="true"><i data-lucide="sparkles"></i></span>
+          <span>Northstar<span class="brand-short"> / NS</span></span>
+        </a>
+        <nav class="desktop-nav" aria-label="主导航">
+          <a href="#demo">产品演示</a>
+          <a href="#workflow">工作流</a>
+          <a href="#principles">产品理念</a>
+        </nav>
+        <a class="header-github" href="https://github.com/godcin/northstar" target="_blank" rel="noopener noreferrer" aria-label="Northstar GitHub 项目">
+          <i data-lucide="github" aria-hidden="true"></i><span>GitHub</span><i data-lucide="arrow-up-right" aria-hidden="true"></i>
+        </a>
+        <button class="icon-button menu-toggle" type="button" aria-label="展开导航" aria-controls="mobile-nav" aria-expanded="false" title="展开导航">
+          <i data-lucide="menu" aria-hidden="true"></i>
+        </button>
+      </div>
+      <nav id="mobile-nav" class="mobile-nav" aria-label="移动端导航" hidden>
+        <a href="#demo">产品演示<i data-lucide="arrow-down" aria-hidden="true"></i></a>
+        <a href="#workflow">工作流<i data-lucide="arrow-down" aria-hidden="true"></i></a>
+        <a href="#principles">产品理念<i data-lucide="arrow-down" aria-hidden="true"></i></a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <p class="eyebrow">CHAT IN. SHIP OUT.</p>
+          <h1 id="hero-title">Northstar</h1>
+          <p class="hero-subtitle">对话驱动的 AI 研发协作平台</p>
+          <p class="hero-description">从一个产品想法，到一次有据可查的交付。<br class="desktop-break">让 PM、Dev、QA 在同一条工作流中，持续向前。</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#demo"><i data-lucide="monitor" aria-hidden="true"></i>查看产品演示<i data-lucide="arrow-down" aria-hidden="true"></i></a>
+            <a class="text-link" href="#workflow">了解工作流<i data-lucide="arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="showcase content-width" id="demo" aria-labelledby="demo-title">
+        <div class="showcase-heading">
+          <div>
+            <p class="section-label">NORTHSTAR AGENT / VIEWER</p>
+            <h2 id="demo-title">同一份上下文，各自的关注点。</h2>
+          </div>
+          <div class="showcase-tools">
+            <div class="role-tabs" role="tablist" aria-label="工作台角色">
+              <button id="tab-pm" role="tab" type="button" aria-selected="true" aria-controls="role-panel" data-role="pm">PM<span>产品</span></button>
+              <button id="tab-dev" role="tab" type="button" aria-selected="false" aria-controls="role-panel" data-role="dev" tabindex="-1">Dev<span>技术</span></button>
+              <button id="tab-qa" role="tab" type="button" aria-selected="false" aria-controls="role-panel" data-role="qa" tabindex="-1">QA<span>质量</span></button>
+            </div>
+            <button class="icon-button expand-demo" type="button" aria-label="放大工作台截图" title="放大工作台截图"><i data-lucide="expand" aria-hidden="true"></i></button>
+          </div>
+        </div>
+        <figure id="role-panel" class="product-view" role="tabpanel" aria-labelledby="tab-pm" tabindex="0">
+          <div class="media-stage">
+            <img id="workbench-image" src="assets/workbench-pm.webp" width="1600" height="1000" alt="Northstar Viewer 产品角色视图：左侧需求文档，中间产品需求说明，右侧待确认事项。内容为示例项目。" fetchpriority="high">
+            <video id="demo-video" controls playsinline preload="metadata" poster="assets/workbench-pm.webp" hidden aria-label="Northstar 产品演示视频"></video>
+          </div>
+          <figcaption>
+            <span class="demo-context"><span class="status-dot" aria-hidden="true"></span>Northstar Viewer <span class="caption-divider">/</span> 示例项目</span>
+            <span id="role-description">聚焦产品需求与待确认事项，让每个决策都有上下文。</span>
+          </figcaption>
+          <p id="video-error" class="media-error" role="status" hidden>视频暂时无法播放，可继续查看工作台演示。</p>
+        </figure>
+      </section>
+
+      <section class="workflow section-band" id="workflow" aria-labelledby="workflow-title">
+        <div class="content-width">
+          <div class="section-intro">
+            <p class="section-label">ONE CONNECTED WORKFLOW</p>
+            <h2 id="workflow-title">从想法到交付，<br>每一步都接得上。</h2>
+            <p>对话是入口。需求、设计、代码与验收，<br class="desktop-break">是持续积累的工程产物。</p>
+          </div>
+          <ol class="workflow-steps">
+            <li><span class="step-number">01</span><i data-lucide="messages-square" aria-hidden="true"></i><h3>需求分析</h3><p>澄清目标与范围，<br>形成清晰的产品需求。</p><span class="step-role">PM / 产品</span></li>
+            <li><span class="step-number">02</span><i data-lucide="git-branch" aria-hidden="true"></i><h3>技术设计</h3><p>连接需求与实现，<br>明确方案和影响范围。</p><span class="step-role role-dev">Dev / 技术</span></li>
+            <li><span class="step-number">03</span><i data-lucide="code-2" aria-hidden="true"></i><h3>代码实现</h3><p>围绕确认的方案开发，<br>保留执行与变更记录。</p><span class="step-role role-dev">Dev / 技术</span></li>
+            <li><span class="step-number">04</span><i data-lucide="list-checks" aria-hidden="true"></i><h3>测试验收</h3><p>关联测试与验收目标，<br>记录缺陷和质量证据。</p><span class="step-role role-qa">QA / 质量</span></li>
+            <li><span class="step-number">05</span><i data-lucide="flag" aria-hidden="true"></i><h3>发布确认</h3><p>核对交付与发布条件，<br>为复盘留下依据。</p><span class="step-role role-shared">PM · Dev · QA</span></li>
+          </ol>
+          <div class="workflow-note"><i data-lucide="arrow-right-left" aria-hidden="true"></i><p>需求有异议，回到产品确认；测试发现缺陷，交回开发修复。<span>协作不止向前，也能有依据地返回。</span></p></div>
+        </div>
+      </section>
+
+      <section class="principles section-band" id="principles" aria-labelledby="principles-title">
+        <div class="content-width">
+          <div class="principles-heading">
+            <div><p class="section-label">BUILT FOR ENGINEERING</p><h2 id="principles-title">让 AI 的工作，<br>成为可验证的工程。</h2></div>
+            <p>Northstar 用明确的职责、流程与证据，<br class="desktop-break">连接模型的理解能力和工程的确定性。</p>
+          </div>
+          <div class="principle-grid">
+            <article class="principle"><i data-lucide="users-round" aria-hidden="true"></i><div><h3>角色清晰，交接自然</h3><p>围绕 PM、Dev、QA 的职责组织任务与产物。切换角色时，继续当前需求真正需要处理的工作。</p></div></article>
+            <article class="principle"><i data-lucide="shield-check" aria-hidden="true"></i><div><h3>关键动作，按条件推进</h3><p>显式状态、流程检查与分级审批，让重要操作满足权限与交付条件，再继续下一步。</p></div></article>
+            <article class="principle"><i data-lucide="scan-line" aria-hidden="true"></i><div><h3>结果有依据，过程可追溯</h3><p>将工具执行、文件变更与质量证据关联起来。保留记录，核实产物，而不只依赖一句“已完成”。</p></div></article>
+            <article class="principle"><i data-lucide="blocks" aria-hidden="true"></i><div><h3>能力扩展，边界明确</h3><p>通过模块化 Skill、MCP 工具接入与模型适配扩展能力，同时沿用统一的执行与权限边界。</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="questions section-band" aria-labelledby="questions-title">
+        <div class="content-width questions-layout">
+          <div><p class="section-label">A LITTLE MORE CONTEXT</p><h2 id="questions-title">关于 Northstar</h2></div>
+          <div class="question-list">
+            <details><summary>Northstar 与普通编码助手有什么不同？<i data-lucide="plus" aria-hidden="true"></i></summary><p>Northstar 关注完整的研发交付过程：不仅生成代码，还围绕需求分析、技术设计、测试验收与发布确认，组织角色职责、工程产物和下一步工作。</p></details>
+            <details><summary>PM、Dev、QA 是怎样协作的？<i data-lucide="plus" aria-hidden="true"></i></summary><p>它们是同一工作流中的责任角色。PM 明确产品需求与验收方向，Dev 推进技术设计与实现，QA 建立测试与验收证据。异议与缺陷会交回对应角色处理。</p></details>
+            <details><summary>产品界面在哪里运行？<i data-lucide="plus" aria-hidden="true"></i></summary><p>Northstar Agent 以桌面客户端作为主要交互入口。Viewer 是查看项目、需求文档与协作事项的只读工作台；CLI 可用于调试与自动化。本页展示的是使用示例数据的 Viewer 界面。</p></details>
+            <details><summary>可以接入已有的模型和工具吗？<i data-lucide="plus" aria-hidden="true"></i></summary><p>Northstar 通过模型适配层、Skill 和 MCP 客户端接入扩展能力。可用模型和工具取决于实际配置；相关工具调用仍经过统一的权限、执行与记录流程。</p></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="explore section-band" aria-labelledby="explore-title">
+        <div class="content-width explore-inner">
+          <p class="eyebrow">YOUR NEXT IDEA, ONE STEP CLOSER.</p>
+          <h2 id="explore-title">让下一个想法，<br>向交付靠近。</h2>
+          <p>了解 Northstar，关注项目的下一步。</p>
+          <a class="button button-primary" href="https://github.com/godcin/northstar" target="_blank" rel="noopener noreferrer"><i data-lucide="github" aria-hidden="true"></i>查看 GitHub 项目<i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer content-width">
+      <a class="brand" href="#"><span class="brand-mark" aria-hidden="true"><i data-lucide="sparkles"></i></span><span>Northstar</span></a>
+      <p>Chat in. Ship out.</p>
+      <a class="text-link" href="https://github.com/godcin/northstar" target="_blank" rel="noopener noreferrer">GitHub<i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+    </footer>
+
+    <dialog id="image-dialog" aria-label="Northstar 工作台截图">
+      <div class="dialog-toolbar"><span>Northstar Viewer · 示例项目</span><button class="icon-button close-dialog" type="button" aria-label="关闭截图" title="关闭截图"><i data-lucide="x" aria-hidden="true"></i></button></div>
+      <img id="dialog-image" src="assets/workbench-pm.webp" width="1600" height="1000" alt="Northstar Viewer 产品角色工作台截图">
+    </dialog>
+    <noscript><p class="noscript-note">工作台角色切换需要 JavaScript。当前展示产品角色视图。</p></noscript>
+  </body>
+</html>

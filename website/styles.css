@@ -41,7 +41,6 @@ h3 { font-size: 18px; line-height: 1.5; font-weight: 600; }
 .brand { display: inline-flex; align-items: center; gap: 11px; font-size: 18px; font-weight: 600; white-space: nowrap; }
 .brand-mark { width: 31px; height: 31px; display: grid; place-items: center; color: var(--accent); }
 .brand-mark svg { width: 27px; height: 27px; }
-.brand-short { font: 11px ui-monospace, "SFMono-Regular", monospace; color: var(--dim); margin-left: 4px; }
 .desktop-nav { display: flex; justify-content: center; gap: 30px; margin-inline: auto; }
 .desktop-nav a, .header-github { font-size: 13px; color: var(--muted); transition: color 160ms; }
 .desktop-nav a:hover, .header-github:hover { color: var(--text); }
@@ -170,7 +169,6 @@ dialog img { width: 100%; height: auto; }
   .brand { font-size: 16px; gap: 7px; }
   .brand-mark { width: 25px; height: 25px; }
   .brand-mark svg { width: 23px; height: 23px; }
-  .brand-short { display: none; }
   .desktop-nav { display: none; }
   .header-github { margin-left: auto; }
   .header-github span, .header-github svg:last-child { display: none; }

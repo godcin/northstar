@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>02 · 核心价值 · Northstar 产品展示</title>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:#0d0e11;color:#f0f0f3;font:15px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+.layout{display:flex;min-height:100vh}
+.side{position:sticky;top:0;align-self:flex-start;flex:none;width:236px;height:100vh;overflow-y:auto;padding:36px 22px;border-right:1px solid rgba(255,255,255,.1)}
+.side .home{display:inline-block;margin-bottom:26px;font-size:13px;color:#9b9ca6;text-decoration:none}
+.side .home:hover{color:#f0f0f3}
+.side .brand{margin:0 0 12px;font-size:12px;color:#848590;letter-spacing:.04em}
+.side ul{list-style:none;margin:0;padding:0}
+.side li{margin:0 0 4px}
+.side a{display:block;padding:9px 12px;border-radius:8px;font-size:14px;line-height:1.5;color:#c9cad1;text-decoration:none;transition:background .16s,color .16s}
+.side a:hover{background:#15161b;color:#f0f0f3}
+.side a[aria-current="page"]{background:rgba(255,255,255,.08);color:#f0f0f3;font-weight:600}
+main{flex:1;min-width:0;max-width:820px;margin:0 auto;padding:48px 40px 80px}
+h1{font-size:34px;font-weight:600;margin:0 0 8px}
+h2{font-size:20px;font-weight:600;margin:40px 0 12px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
+blockquote{margin:16px 0;padding:4px 16px;border-left:3px solid #af87ff;color:#9b9ca6}
+p,li{color:#c9cad1}
+a{color:#af87ff}
+ul{padding-left:22px}
+ol{padding-left:22px}
+ol li{margin:6px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:14px}
+th,td{border:1px solid rgba(255,255,255,.12);padding:9px 12px;text-align:left;vertical-align:top}
+th{background:#15161b;color:#f0f0f3;font-weight:600}
+td{color:#c9cad1}
+code{background:#15161b;padding:2px 6px;border-radius:4px;font-size:13px}
+.lane-head{margin:24px 0 12px;font-size:13px;color:#9b9ca6}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px}
+.card{background:#15161b;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px 18px;cursor:pointer;transition:border-color .16s,transform .16s,background .16s}
+.card:hover{border-color:rgba(175,135,255,.45);background:#1a1b22;transform:translateY(-2px)}
+.tag{display:inline-block;font-size:11px;color:#e0b070;border:1px solid rgba(224,176,112,.35);border-radius:4px;padding:1px 8px}
+.card h3{font-size:15px;font-weight:600;line-height:1.5;margin:10px 0 6px;color:#f0f0f3}
+.card .meta{font-size:12px;color:#848590;margin:0;line-height:1.6}
+.card .more{display:inline-block;margin-top:12px;font-size:12px;color:#af87ff}
+.pager{display:flex;gap:12px;margin-top:56px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
+.pager-item{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;padding:14px 18px;border:1px solid rgba(255,255,255,.1);border-radius:10px;text-decoration:none;transition:border-color .16s,background .16s}
+.pager-item.prev{align-items:flex-start;text-align:left}
+.pager-item.next{align-items:flex-end;text-align:right}
+a.pager-item:hover{border-color:rgba(175,135,255,.45);background:#15161b}
+.pager-item .label{font-size:12px;color:#848590}
+.pager-item .title{font-size:15px;color:#f0f0f3}
+.pager-item.disabled{border-style:dashed;opacity:.45}
+@media (max-width:860px){
+  .layout{display:block}
+  .side{position:static;width:auto;height:auto;padding:18px 20px;border-right:0;border-bottom:1px solid rgba(255,255,255,.1)}
+  .side .home{margin-bottom:10px}
+  .side ul{display:flex;flex-wrap:wrap;gap:6px}
+  .side li{margin:0}
+  .side a{padding:6px 10px;font-size:13px}
+  main{padding:32px 24px 72px}
+}
+@media (max-width:560px){.pager{flex-direction:column}.pager-item.next{align-items:flex-start;text-align:left}}
+.author{margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:#848590;line-height:1.7}
+.author-name{margin:0;color:#f0f0f3;font-size:14px;font-weight:600}
+.author-role{margin:2px 0 8px}
+.author-contact{margin:0;display:flex;flex-wrap:wrap;gap:6px 18px}
+.author a{color:#af87ff}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="side"><a class="home" href="../">← 返回 Northstar 首页</a><p class="brand">Northstar 产品展示</p><nav aria-label="展示页面"><ul><li><a href="index.html">01 · 产品概览</a></li><li><a href="02-value.html" aria-current="page">02 · 核心价值</a></li><li><a href="03-rollback.html">03 · 回滚能力</a></li><li><a href="04-third-agent.html">04 · 三方 Agent 能力</a></li><li><a href="05-card-interaction.html">05 · 卡片式交互</a></li></ul></nav></aside>
+<main>
+<h1>02 · 核心价值</h1>
+<p>Northstar 用明确的职责、流程与证据，连接模型的理解能力和工程的确定性。</p>
+<h2>1. 角色清晰，交接自然</h2>
+<p>围绕 PM、Dev、QA 的职责组织任务与产物。切换角色时，继续当前需求真正需要处理的工作。</p>
+<ul>
+<li>PM 负责产品需求与验收方向。</li>
+<li>Dev 负责技术设计与实现。</li>
+<li>QA 负责测试与验收证据：测试计划、用例、验收标准与缺陷记录都保存在知识库中。</li>
+</ul>
+<h2>2. 关键动作，按条件推进</h2>
+<p>通过显式状态、流程检查与分级审批，让重要操作先满足权限与交付条件，再继续下一步。</p>
+<ul>
+<li>通过显式状态和流程检查，让关键操作有据可循。</li>
+<li>分级审批，让重要操作满足权限要求后再继续。</li>
+<li>语义理解交给模型；状态推进、确认、权限与审批由系统判定。</li>
+</ul>
+<h2>3. 结果有依据，过程可追溯</h2>
+<p>将工具执行、文件变更与质量证据关联起来。保留记录，核实产物，而不只依赖一句“已完成”。</p>
+<ul>
+<li>工具执行、文件变更与质量证据关联在一起。</li>
+<li>需求、设计、测试与验收文档共用一个产品知识库，而不是散落在各处。</li>
+<li>恢复点可以回到之前的状态，聊天和待确认步骤一并恢复。</li>
+</ul>
+<h2>4. 能力扩展，边界明确</h2>
+<p>通过模块化 Skill、MCP 工具接入与模型适配扩展能力，同时沿用统一的执行与权限边界。</p>
+<ul>
+<li>通过模块化 Skill 与 MCP 工具接入扩展能力。</li>
+<li>可用的模型和工具取决于实际配置，相关工具调用仍经过统一的权限、执行与记录流程。</li>
+</ul>
+<h2>5. 卡片式交互，结构化承载选择与确认</h2>
+<p>固定选择、摘要确认与风险确认以卡片呈现，而不是靠自由文本来回。</p>
+<ul>
+<li>卡片提交的是结构化内容，按动作与对象标识续接，不靠按钮文字猜测用户意图。</li>
+<li>设计上要求按钮点击不写入聊天记录，卡片出现时输入框仍然可用。</li>
+</ul>
+<h2>价值总结</h2>
+<table>
+<thead>
+<tr>
+<th>价值</th>
+<th>带来的结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>角色清晰，交接自然</td>
+<td>切换角色时，继续当前需求真正需要处理的工作</td>
+</tr>
+<tr>
+<td>关键动作，按条件推进</td>
+<td>重要操作在满足权限与交付条件后再继续</td>
+</tr>
+<tr>
+<td>结果有依据，过程可追溯</td>
+<td>保留记录，核实产物，而不只依赖一句“已完成”</td>
+</tr>
+<tr>
+<td>能力扩展，边界明确</td>
+<td>扩展能力时，仍沿用统一的执行与权限边界</td>
+</tr>
+<tr>
+<td>卡片式交互，结构化承载选择与确认</td>
+<td>选择与确认以结构化方式提交，不靠自由文本猜测</td>
+</tr>
+</tbody>
+</table>
+<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="index.html"><span class="label">← 上一页</span><span class="title">01 · 产品概览</span></a><a class="pager-item next" href="03-rollback.html"><span class="label">下一页 →</span><span class="title">03 · 回滚能力</span></a></nav>
+<footer class="author">
+<p class="author-name">Michael Cao</p>
+<p class="author-role">后端工程师 · 技术 Leader</p>
+<p class="author-contact"><a href="mailto:busygopher@gmail.com">busygopher@gmail.com</a><span>微信 michael2o24</span></p>
+</footer>
+</main>
+</div>
+<script>
+(function(){
+  var prev=document.querySelector('a.pager-item.prev');
+  var next=document.querySelector('a.pager-item.next');
+  document.addEventListener('keydown',function(e){
+    if(e.altKey||e.ctrlKey||e.metaKey||e.shiftKey)return;
+    var t=e.target;
+    if(t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)))return;
+    if(e.key==='ArrowLeft'&&prev){location.href=prev.getAttribute('href');}
+    else if(e.key==='ArrowRight'&&next){location.href=next.getAttribute('href');}
+  });
+})();
+</script>
+</body>
+</html>

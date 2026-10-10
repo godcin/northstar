@@ -128,6 +128,20 @@ figcaption { display: flex; justify-content: space-between; align-items: start; 
 .question-list summary svg { color: var(--dim); width: 16px; height: 16px; transition: transform 160ms; }
 .question-list details[open] summary svg { transform: rotate(45deg); color: var(--accent); }
 .question-list details p { font-size: 13px; color: var(--muted); padding: 0 35px 22px 0; line-height: 1.85; }
+.author { background: #111216; }
+.author-layout { display: grid; grid-template-columns: 1fr 1.7fr; gap: 72px; align-items: start; }
+.author h2 { margin-top: 14px; font-size: 28px; }
+.author-card { display: flex; justify-content: space-between; align-items: center; gap: 30px; padding: 25px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.author-identity { display: flex; align-items: center; gap: 16px; }
+.author-avatar { display: grid; place-items: center; width: 46px; height: 46px; border: 1px solid rgba(175, 135, 255, 0.4); border-radius: 50%; color: #d8c4ff; background: var(--accent-soft); font: 13px ui-monospace, "SFMono-Regular", Menlo, monospace; }
+.author-identity h3 { font-size: 17px; }
+.author-identity p { margin-top: 5px; color: var(--muted); font-size: 12px; }
+.author-details { display: grid; gap: 9px; margin: 0; min-width: 210px; }
+.author-details div { display: grid; grid-template-columns: 42px 1fr; gap: 12px; font-size: 12px; }
+.author-details dt { color: var(--dim); }
+.author-details dd { margin: 0; color: var(--muted); }
+.author-details a { color: #cdb8f2; }
+.author-details a:hover { color: var(--text); }
 .explore { text-align: center; padding-block: 70px; }
 .explore h2 { margin-top: 16px; font-size: 35px; }
 .explore-inner > p:not(.eyebrow) { color: var(--muted); margin-top: 17px; font-size: 13px; }
@@ -206,6 +220,10 @@ dialog img { width: 100%; height: auto; }
   .questions h2 { font-size: 25px; }
   .question-list summary { font-size: 13px; min-height: 66px; gap: 15px; }
   .question-list details p { font-size: 12px; padding-right: 0; }
+  .author-layout { grid-template-columns: 1fr; gap: 26px; }
+  .author h2 { font-size: 25px; }
+  .author-card { align-items: start; flex-direction: column; gap: 20px; padding-block: 22px; }
+  .author-details { min-width: 0; width: 100%; }
   .explore h2 { font-size: 29px; }
   .site-footer { flex-wrap: wrap; gap: 12px; padding-block: 23px; }
   .site-footer p { order: 3; width: 100%; padding-left: 32px; }

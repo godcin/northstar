@@ -25,9 +25,8 @@ window.NORTHSTAR_SITE = Object.freeze({ demoVideo: "assets/northstar-demo.mp4" }
 
 ## 演示图片
 
-图片来自 Northstar Agent 的真实 Viewer UI，使用隔离的示例项目数据，不代表线上服务或真实用户验收记录。
-可使用 `scripts/generate-viewer-assets.cjs` 重新生成，运行环境需要 Playwright、Chromium、`cwebp`（WebP 命令行工具）和相邻的 `northstar-agent` 源码。
-脚本支持 `NORTHSTAR_AGENT_ROOT` 指定源码目录、`NORTHSTAR_PLAYWRIGHT_MODULE` 指定 Playwright 模块、`NORTHSTAR_CHROMIUM` 指定浏览器程序、`NORTHSTAR_CWEBP` 指定 WebP 编码器。
+页面内的 Viewer 截图使用隔离的示例项目数据，仅用于说明界面结构，不代表线上服务或真实用户验收记录。
+已生成的图片位于 `assets/`，页面运行时不请求项目服务或用户数据。
 
 ## 图标
 

@@ -8,3 +8,5 @@
 - **能力可扩展**：支持模块化 Skill、MCP 工具接入与多模型适配，满足不同研发场景的需求。
 
 **技术栈**：Python · FastAPI · Electron
+
+**对外介绍页**：[`website/index.html`](website/index.html)。静态页面支持直接在浏览器中预览；GitHub Pages 发布和视频接入方式见 [`website/README.md`](website/README.md)。

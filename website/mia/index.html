@@ -23,6 +23,15 @@ th,td{border:1px solid rgba(255,255,255,.12);padding:9px 12px;text-align:left;ve
 th{background:#15161b;color:#f0f0f3;font-weight:600}
 td{color:#c9cad1}
 code{background:#15161b;padding:2px 6px;border-radius:4px;font-size:13px}
+.lane-head{margin:24px 0 12px;font-size:13px;color:#9b9ca6}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px}
+.card{background:#15161b;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px 18px;cursor:pointer;transition:border-color .16s,transform .16s,background .16s}
+.card:hover{border-color:rgba(175,135,255,.45);background:#1a1b22;transform:translateY(-2px)}
+.tag{display:inline-block;font-size:11px;color:#e0b070;border:1px solid rgba(224,176,112,.35);border-radius:4px;padding:1px 8px}
+.card h3{font-size:15px;font-weight:600;line-height:1.5;margin:10px 0 6px;color:#f0f0f3}
+.card .meta{font-size:12px;color:#848590;margin:0;line-height:1.6}
+.card .more{display:inline-block;margin-top:12px;font-size:12px;color:#af87ff}
+@media (max-width:640px){.cards{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -48,6 +57,23 @@ code{background:#15161b;padding:2px 6px;border-radius:4px;font-size:13px}
 <li><strong>角色协作</strong>：PM、Dev、QA 各自对产物负责，交接有明确依据。</li>
 <li><strong>可追溯</strong>：需求、设计、代码变更与验收证据保持关联。</li>
 </ul>
+<h2>卡片式交互</h2>
+<p>对话是入口，但需要明确选择或确认的事项，不靠自由输入来回确认，而是以卡片承载。</p>
+<ul>
+<li><strong>固定选择</strong>：流程需要在几个方向中选一个时，以卡片按钮呈现。</li>
+<li><strong>摘要确认与风险确认</strong>：要点和风险以卡片展示，由你确认后再继续。</li>
+<li><strong>不打断对话</strong>：设计上要求按钮点击不写入聊天记录，卡片出现时输入框仍然可用。</li>
+</ul>
+<p>Northstar 桌面端不做成卡片墙：侧边栏和输入区保持扁平，卡片只用于结构化交互。</p>
+<p>Viewer 是只读工作台，待确认事项以卡片汇总，每张卡片标明类型、所属需求编号和来源角色，并可进入「详情」查看。</p>
+<div class="lane-head">待你确认 · 本产品（4） · 只读</div>
+<div class="cards">
+  <div class="card"><span class="tag">产品问题</span><h3>确认外部协作者的需求可见范围</h3><p class="meta">REQ-00042 · 需求工作台 · 来自 Dev</p><span class="more">详情</span></div>
+  <div class="card"><span class="tag">范围确认</span><h3>明确角色交接的通知时机</h3><p class="meta">REQ-00043 · 角色交接与待办 · 来自 QA</p><span class="more">详情</span></div>
+  <div class="card"><span class="tag">优先级</span><h3>确认发布检查清单的首期范围</h3><p class="meta">REQ-00045 · 发布检查清单 · 来自 Dev</p><span class="more">详情</span></div>
+  <div class="card"><span class="tag">待评审</span><h3>评审需求工作台的验收标准</h3><p class="meta">REQ-00042 · 需求工作台 · 来自 PM</p><span class="more">详情</span></div>
+</div>
+
 <h2>下一页</h2>
 <ul>
 <li><a href="02-value.html">02 · 核心价值</a></li>

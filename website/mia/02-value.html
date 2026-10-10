@@ -23,6 +23,15 @@ th,td{border:1px solid rgba(255,255,255,.12);padding:9px 12px;text-align:left;ve
 th{background:#15161b;color:#f0f0f3;font-weight:600}
 td{color:#c9cad1}
 code{background:#15161b;padding:2px 6px;border-radius:4px;font-size:13px}
+.lane-head{margin:24px 0 12px;font-size:13px;color:#9b9ca6}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px}
+.card{background:#15161b;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px 18px;cursor:pointer;transition:border-color .16s,transform .16s,background .16s}
+.card:hover{border-color:rgba(175,135,255,.45);background:#1a1b22;transform:translateY(-2px)}
+.tag{display:inline-block;font-size:11px;color:#e0b070;border:1px solid rgba(224,176,112,.35);border-radius:4px;padding:1px 8px}
+.card h3{font-size:15px;font-weight:600;line-height:1.5;margin:10px 0 6px;color:#f0f0f3}
+.card .meta{font-size:12px;color:#848590;margin:0;line-height:1.6}
+.card .more{display:inline-block;margin-top:12px;font-size:12px;color:#af87ff}
+@media (max-width:640px){.cards{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -54,6 +63,12 @@ code{background:#15161b;padding:2px 6px;border-radius:4px;font-size:13px}
 <li>通过模块化 Skill 与 MCP 工具接入扩展能力。</li>
 <li>可用的模型和工具取决于实际配置，相关工具调用仍经过统一的权限、执行与记录流程。</li>
 </ul>
+<h2>5. 卡片式交互，结构化承载选择与确认</h2>
+<p>固定选择、摘要确认与风险确认以卡片呈现，而不是靠自由文本来回。</p>
+<ul>
+<li>卡片提交的是结构化内容，按动作与对象标识续接，不靠按钮文字猜测用户意图。</li>
+<li>设计上要求按钮点击不写入聊天记录，卡片出现时输入框仍然可用。</li>
+</ul>
 <h2>价值总结</h2>
 <table>
 <thead>
@@ -78,6 +93,10 @@ code{background:#15161b;padding:2px 6px;border-radius:4px;font-size:13px}
 <tr>
 <td>能力扩展，边界明确</td>
 <td>扩展能力时，仍沿用统一的执行与权限边界</td>
+</tr>
+<tr>
+<td>卡片式交互，结构化承载选择与确认</td>
+<td>选择与确认以结构化方式提交，不靠自由文本猜测</td>
 </tr>
 </tbody>
 </table>

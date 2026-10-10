@@ -18,6 +18,8 @@ blockquote{margin:16px 0;padding:4px 16px;border-left:3px solid #af87ff;color:#9
 p,li{color:#c9cad1}
 a{color:#af87ff}
 ul{padding-left:22px}
+ol{padding-left:22px}
+ol li{margin:6px 0}
 table{border-collapse:collapse;width:100%;margin:16px 0;font-size:14px}
 th,td{border:1px solid rgba(255,255,255,.12);padding:9px 12px;text-align:left;vertical-align:top}
 th{background:#15161b;color:#f0f0f3;font-weight:600}
@@ -31,7 +33,15 @@ code{background:#15161b;padding:2px 6px;border-radius:4px;font-size:13px}
 .card h3{font-size:15px;font-weight:600;line-height:1.5;margin:10px 0 6px;color:#f0f0f3}
 .card .meta{font-size:12px;color:#848590;margin:0;line-height:1.6}
 .card .more{display:inline-block;margin-top:12px;font-size:12px;color:#af87ff}
-@media (max-width:640px){.cards{grid-template-columns:1fr}}
+.pager{display:flex;gap:12px;margin-top:56px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
+.pager-item{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;padding:14px 18px;border:1px solid rgba(255,255,255,.1);border-radius:10px;text-decoration:none;transition:border-color .16s,background .16s}
+.pager-item.prev{align-items:flex-start;text-align:left}
+.pager-item.next{align-items:flex-end;text-align:right}
+a.pager-item:hover{border-color:rgba(175,135,255,.45);background:#15161b}
+.pager-item .label{font-size:12px;color:#848590}
+.pager-item .title{font-size:15px;color:#f0f0f3}
+.pager-item.disabled{border-style:dashed;opacity:.45}
+@media (max-width:560px){.pager{flex-direction:column}.pager-item.next{align-items:flex-start;text-align:left}}
 </style>
 </head>
 <body>
@@ -76,12 +86,20 @@ code{background:#15161b;padding:2px 6px;border-radius:4px;font-size:13px}
   <div class="card"><span class="tag">优先级</span><h3>确认发布检查清单的首期范围</h3><p class="meta">REQ-00045 · 发布检查清单 · 来自 Dev</p><span class="more">详情</span></div>
   <div class="card"><span class="tag">待评审</span><h3>评审需求工作台的验收标准</h3><p class="meta">REQ-00042 · 需求工作台 · 来自 PM</p><span class="more">详情</span></div>
 </div>
-
-<h2>页面导航</h2>
-<ul>
-<li>上一页：<a href="https://godcin.com/">返回 Northstar 首页</a></li>
-<li>下一页：<a href="02-value.html">02 · 核心价值</a></li>
-</ul>
+<nav class="pager" aria-label="页面翻页"><span class="pager-item prev disabled"><span class="label">← 上一页</span><span class="title">已是第一页</span></span><a class="pager-item next" href="02-value.html"><span class="label">下一页 →</span><span class="title">02 · 核心价值</span></a></nav>
 </main>
+<script>
+(function(){
+  var prev=document.querySelector('a.pager-item.prev');
+  var next=document.querySelector('a.pager-item.next');
+  document.addEventListener('keydown',function(e){
+    if(e.altKey||e.ctrlKey||e.metaKey||e.shiftKey)return;
+    var t=e.target;
+    if(t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)))return;
+    if(e.key==='ArrowLeft'&&prev){location.href=prev.getAttribute('href');}
+    else if(e.key==='ArrowRight'&&next){location.href=next.getAttribute('href');}
+  });
+})();
+</script>
 </body>
 </html>

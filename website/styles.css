@@ -42,11 +42,8 @@ h3 { font-size: 18px; line-height: 1.5; font-weight: 600; }
 .brand-mark { width: 31px; height: 31px; display: grid; place-items: center; color: var(--accent); }
 .brand-mark svg { width: 27px; height: 27px; }
 .desktop-nav { display: flex; justify-content: center; gap: 30px; margin-inline: auto; }
-.desktop-nav a, .header-github { font-size: 13px; color: var(--muted); transition: color 160ms; }
-.desktop-nav a:hover, .header-github:hover { color: var(--text); }
-.header-github { display: flex; align-items: center; gap: 8px; color: var(--text); }
-.header-github svg { width: 16px; height: 16px; }
-.header-github svg:last-child { width: 13px; height: 13px; color: var(--muted); }
+.desktop-nav a { font-size: 13px; color: var(--muted); transition: color 160ms; }
+.desktop-nav a:hover { color: var(--text); }
 .icon-button { width: 36px; height: 36px; flex: none; display: inline-grid; place-items: center; border-radius: 6px; border: 1px solid var(--line); background: transparent; color: var(--muted); transition: color 160ms, background 160ms; }
 .icon-button:hover { background: #22232a; color: var(--text); }
 .icon-button svg { width: 17px; height: 17px; }
@@ -170,10 +167,7 @@ dialog img { width: 100%; height: auto; }
   .brand-mark { width: 25px; height: 25px; }
   .brand-mark svg { width: 23px; height: 23px; }
   .desktop-nav { display: none; }
-  .header-github { margin-left: auto; }
-  .header-github span, .header-github svg:last-child { display: none; }
-  .header-github { min-width: 30px; min-height: 36px; justify-content: center; }
-  .menu-toggle { display: inline-grid; }
+  .menu-toggle { display: inline-grid; margin-left: auto; }
   .hero { padding: 42px 24px 44px; }
   .eyebrow { font-size: 10px; }
   .hero h1 { font-size: 54px; margin-top: 14px; }

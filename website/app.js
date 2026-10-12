@@ -29,6 +29,78 @@
     if (event.matches) closeMenu();
   });
 
+  const demoSection = document.querySelector("#desktop-journey");
+  const demoViewport = document.querySelector(".demo-carousel-viewport");
+  const demoTrack = document.querySelector(".demo-carousel-track");
+  const demoSlides = [...document.querySelectorAll("[data-demo-slide]")];
+  const demoTabs = [...document.querySelectorAll("[data-demo-tab]")];
+  let demoIndex = 0;
+  let swipeStart = null;
+  let suppressClickUntil = 0;
+
+  const resizeDemo = () => {
+    const height = `${demoSlides[demoIndex].getBoundingClientRect().height}px`;
+    if (demoViewport.style.height !== height) demoViewport.style.height = height;
+  };
+  const selectDemo = (index) => {
+    const focusInSlide = demoSlides[demoIndex].contains(document.activeElement);
+    demoIndex = (index + demoSlides.length) % demoSlides.length;
+    demoSlides.forEach((slide, slideIndex) => {
+      const active = slideIndex === demoIndex;
+      slide.inert = !active;
+      slide.setAttribute("aria-hidden", String(!active));
+    });
+    demoTabs.forEach((tab, tabIndex) => {
+      const active = tabIndex === demoIndex;
+      tab.setAttribute("aria-selected", String(active));
+      tab.tabIndex = active ? 0 : -1;
+    });
+    demoSection.setAttribute("aria-labelledby", demoSlides[demoIndex].querySelector("h2").id);
+    demoTrack.style.transform = `translateX(${-100 * demoIndex}%)`;
+    resizeDemo();
+    if (focusInSlide) demoTabs[demoIndex].focus({ preventScroll: true });
+  };
+  demoTabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => selectDemo(index));
+    tab.addEventListener("keydown", (event) => {
+      let next;
+      if (event.key === "ArrowRight") next = demoIndex + 1;
+      if (event.key === "ArrowLeft") next = demoIndex - 1;
+      if (event.key === "Home") next = 0;
+      if (event.key === "End") next = demoSlides.length - 1;
+      if (next === undefined) return;
+      event.preventDefault();
+      selectDemo(next);
+      demoTabs[demoIndex].focus({ preventScroll: true });
+    });
+  });
+  document.querySelector("[data-demo-prev]").addEventListener("click", () => selectDemo(demoIndex - 1));
+  document.querySelector("[data-demo-next]").addEventListener("click", () => selectDemo(demoIndex + 1));
+  demoViewport.addEventListener("pointerdown", (event) => {
+    if (event.isPrimary && event.pointerType !== "mouse") {
+      swipeStart = { x: event.clientX, y: event.clientY, id: event.pointerId };
+    }
+  });
+  demoViewport.addEventListener("pointerup", (event) => {
+    if (!swipeStart || swipeStart.id !== event.pointerId) return;
+    const dx = event.clientX - swipeStart.x;
+    const dy = event.clientY - swipeStart.y;
+    swipeStart = null;
+    if (Math.abs(dx) < Math.min(80, demoViewport.clientWidth * 0.18) || Math.abs(dx) < Math.abs(dy) * 1.25) return;
+    suppressClickUntil = performance.now() + 400;
+    selectDemo(demoIndex + (dx < 0 ? 1 : -1));
+  });
+  demoViewport.addEventListener("pointercancel", () => { swipeStart = null; });
+  demoViewport.addEventListener("click", (event) => {
+    if (performance.now() < suppressClickUntil) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }, true);
+  const demoResizeObserver = new ResizeObserver(resizeDemo);
+  demoSlides.forEach((slide) => demoResizeObserver.observe(slide));
+  selectDemo(0);
+
   const tabs = [...document.querySelectorAll(".role-tabs [role=tab]")];
   const panel = document.querySelector("#role-panel");
   const workbench = document.querySelector("#workbench-image");

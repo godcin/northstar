@@ -21,6 +21,15 @@ Northstar / NS 的对外介绍页，纯静态 HTML、CSS 和 JavaScript，无构
 
 仓库只提交页面、链接和真实封面；原始 `.mov` 和本地生成的 MP4 保留在本地，由 `.gitignore` 排除，不随网站发布。
 
+## Dev 技术交互流程演示视频
+
+技术演示接续 PM 签核后的需求，包含技术调研、TD 编写与评审、需求异议收口、同步 TD、再评审与技术收敛，以及实现步骤确认。
+
+- 视频：https://www.bilibili.com/video/BV16Qp962E1v/
+- 封面：`assets/video/dev-technical-workflow-poster.webp`，从真实录像的实现步骤确认界面提取。
+
+首页使用同一展示区切换 PM 和 Dev 演示，支持角色标签、左右箭头、标签键盘导航及触屏横向滑动。每段演示保留各自的标题、真实封面、B 站观看入口和章节链接。
+
 ## 可选 Viewer 视频
 
 将视频放入 `assets/`，在 `site-config.js` 中设置相对路径：

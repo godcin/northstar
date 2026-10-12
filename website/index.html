@@ -30,7 +30,7 @@
         </a>
         <nav class="desktop-nav" aria-label="主导航">
           <a href="#demo">产品演示</a>
-          <a href="#desktop-journey">PM 演示</a>
+          <a href="#desktop-journey">流程演示</a>
           <a href="#workflow">工作流</a>
           <a href="#principles">产品理念</a>
         </nav>
@@ -40,7 +40,7 @@
       </div>
       <nav id="mobile-nav" class="mobile-nav" aria-label="移动端导航" hidden>
         <a href="#demo">产品演示<i data-lucide="arrow-down" aria-hidden="true"></i></a>
-        <a href="#desktop-journey">PM 演示<i data-lucide="arrow-down" aria-hidden="true"></i></a>
+        <a href="#desktop-journey">流程演示<i data-lucide="arrow-down" aria-hidden="true"></i></a>
         <a href="#workflow">工作流<i data-lucide="arrow-down" aria-hidden="true"></i></a>
         <a href="#principles">产品理念<i data-lucide="arrow-down" aria-hidden="true"></i></a>
       </nav>
@@ -54,7 +54,7 @@
           <p class="hero-subtitle">对话驱动的 AI 研发协作平台</p>
           <p class="hero-description">从一个产品想法，到一次有据可查的交付。<br class="desktop-break">让 PM、Dev、QA 在同一条工作流中，持续向前。</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#desktop-journey"><i data-lucide="play" aria-hidden="true"></i>观看 PM 演示<i data-lucide="arrow-down" aria-hidden="true"></i></a>
+            <a class="button button-primary" href="#desktop-journey"><i data-lucide="play" aria-hidden="true"></i>观看流程演示<i data-lucide="arrow-down" aria-hidden="true"></i></a>
             <a class="text-link" href="#workflow">了解工作流<i data-lucide="arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
@@ -62,6 +62,19 @@
 
       <section class="desktop-journey section-band" id="desktop-journey" aria-labelledby="desktop-journey-title">
         <div class="content-width">
+          <div class="demo-carousel-controls">
+            <div class="demo-tabs" role="tablist" aria-label="流程演示角色">
+              <button id="demo-tab-pm" role="tab" type="button" aria-selected="true" aria-controls="demo-slide-pm" data-demo-tab="pm">PM<span>产品</span></button>
+              <button id="demo-tab-dev" role="tab" type="button" aria-selected="false" aria-controls="demo-slide-dev" data-demo-tab="dev" tabindex="-1">Dev<span>技术</span></button>
+            </div>
+            <div class="demo-carousel-arrows">
+              <button class="icon-button" type="button" data-demo-prev aria-label="上一个流程演示" title="上一个流程演示"><i data-lucide="chevron-left" aria-hidden="true"></i></button>
+              <button class="icon-button" type="button" data-demo-next aria-label="下一个流程演示" title="下一个流程演示"><i data-lucide="chevron-right" aria-hidden="true"></i></button>
+            </div>
+          </div>
+          <div class="carousel-viewport demo-carousel-viewport">
+            <div class="demo-carousel-track">
+              <article class="demo-carousel-slide" id="demo-slide-pm" data-demo-slide="pm" role="tabpanel" aria-labelledby="demo-tab-pm">
           <div class="desktop-journey-heading">
             <div>
               <p class="section-label">NORTHSTAR DESKTOP / PM WORKFLOW</p>
@@ -111,6 +124,65 @@
               <p>确认 PRD 与验收范围，形成经 PM 签核的需求基线。</p>
             </li>
           </ol>
+              </article>
+              <article class="demo-carousel-slide" id="demo-slide-dev" data-demo-slide="dev" role="tabpanel" aria-labelledby="demo-tab-dev" aria-hidden="true" inert>
+                <div class="desktop-journey-heading">
+                  <div>
+                    <p class="section-label">NORTHSTAR DESKTOP / DEV WORKFLOW</p>
+                    <h2 id="dev-journey-title">Dev 技术交互流程演示视频</h2>
+                  </div>
+                  <p>承接 media-harbor 的产品需求，<br class="desktop-break">从技术调研、TD 编写与评审，到需求异议收口、同步 TD 和确认实现步骤。</p>
+                </div>
+                <figure class="desktop-session">
+                  <a class="desktop-session-frame pm-video-preview" href="https://www.bilibili.com/video/BV16Qp962E1v/" target="_blank" rel="noopener noreferrer" aria-label="在 B 站观看 Northstar Dev 技术交互流程演示视频">
+                    <img src="assets/video/dev-technical-workflow-poster.webp" width="1920" height="1080" alt="Northstar Desktop 真实会话中的 TD 技术设计实现步骤确认" loading="lazy">
+                    <span class="video-play"><i data-lucide="play" aria-hidden="true"></i></span>
+                  </a>
+                  <figcaption>
+                    <span class="demo-context"><span class="status-dot" aria-hidden="true"></span>Northstar Desktop <span class="caption-divider">/</span> Dev · 技术</span>
+                    <a class="text-link" href="https://www.bilibili.com/video/BV16Qp962E1v/" target="_blank" rel="noopener noreferrer">在 B 站观看 · 1:07:02<i data-lucide="external-link" aria-hidden="true"></i></a>
+                  </figcaption>
+                </figure>
+                <ol class="pm-chapters" aria-label="Dev 技术交互流程视频章节">
+                  <li>
+                    <a class="chapter-seek" href="https://www.bilibili.com/video/BV16Qp962E1v/?t=0" target="_blank" rel="noopener noreferrer" aria-label="在 B 站从 00:00 观看：技术调研" title="技术调研"><i data-lucide="play" aria-hidden="true"></i><span>00:00</span></a>
+                    <h3>技术调研</h3>
+                    <p>承接已签核的产品需求，调研素材读取、格式兼容和性能容量，逐项确认技术发现。</p>
+                  </li>
+                  <li>
+                    <a class="chapter-seek" href="https://www.bilibili.com/video/BV16Qp962E1v/?t=840" target="_blank" rel="noopener noreferrer" aria-label="在 B 站从 14:00 观看：TD 编写" title="TD 编写"><i data-lucide="play" aria-hidden="true"></i><span>14:00</span></a>
+                    <h3>TD 编写</h3>
+                    <p>根据确认的调研结果分批生成 TD，明确架构、关键流程、存储与验证方案。</p>
+                  </li>
+                  <li>
+                    <a class="chapter-seek" href="https://www.bilibili.com/video/BV16Qp962E1v/?t=1200" target="_blank" rel="noopener noreferrer" aria-label="在 B 站从 20:00 观看：TD 评审" title="TD 评审"><i data-lucide="play" aria-hidden="true"></i><span>20:00</span></a>
+                    <h3>TD 评审</h3>
+                    <p>评审技术设计，查看八项问题与依据，识别需要产品进一步裁定的业务规则。</p>
+                  </li>
+                  <li>
+                    <a class="chapter-seek" href="https://www.bilibili.com/video/BV16Qp962E1v/?t=1320" target="_blank" rel="noopener noreferrer" aria-label="在 B 站从 22:00 观看：需求异议收口" title="需求异议收口"><i data-lucide="play" aria-hidden="true"></i><span>22:00</span></a>
+                    <h3>需求异议收口</h3>
+                    <p>切回 PM 确认重复收集、日期与时区等产品决策，修订 PRD 并保留变更依据。</p>
+                  </li>
+                  <li>
+                    <a class="chapter-seek" href="https://www.bilibili.com/video/BV16Qp962E1v/?t=2400" target="_blank" rel="noopener noreferrer" aria-label="在 B 站从 40:00 观看：同步 TD" title="同步 TD"><i data-lucide="play" aria-hidden="true"></i><span>40:00</span></a>
+                    <h3>同步 TD</h3>
+                    <p>带着确认的产品变更切回 Dev，更新技术设计，使 TD 与新的需求基线保持一致。</p>
+                  </li>
+                  <li>
+                    <a class="chapter-seek" href="https://www.bilibili.com/video/BV16Qp962E1v/?t=2880" target="_blank" rel="noopener noreferrer" aria-label="在 B 站从 48:00 观看：再评审与技术收敛" title="再评审与技术收敛"><i data-lucide="play" aria-hidden="true"></i><span>48:00</span></a>
+                    <h3>再评审与技术收敛</h3>
+                    <p>再次评审同步后的 TD，逐项确认并修订七项技术问题，完成问题闭环。</p>
+                  </li>
+                  <li>
+                    <a class="chapter-seek" href="https://www.bilibili.com/video/BV16Qp962E1v/?t=3840" target="_blank" rel="noopener noreferrer" aria-label="在 B 站从 1:04:00 观看：确认实现步骤" title="确认实现步骤"><i data-lucide="play" aria-hidden="true"></i><span>1:04:00</span></a>
+                    <h3>确认实现步骤</h3>
+                    <p>在 TD 技术问题收敛后，确认实现顺序与验证方式，提交进入后续开发的依据。</p>
+                  </li>
+                </ol>
+              </article>
+            </div>
+          </div>
         </div>
       </section>
 

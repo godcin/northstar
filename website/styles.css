@@ -67,6 +67,17 @@ h3 { font-size: 18px; line-height: 1.5; font-weight: 600; }
 .text-link:hover { color: var(--text); }
 .text-link svg { width: 15px; height: 15px; }
 .desktop-journey { background: #111216; }
+.demo-carousel-controls { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 32px; }
+.demo-tabs { display: flex; align-items: center; gap: 3px; padding: 3px; border: 1px solid var(--line); border-radius: 7px; background: #14151a; }
+.demo-tabs button { display: flex; align-items: center; justify-content: center; gap: 6px; width: 92px; height: 32px; border: 0; border-radius: 4px; background: transparent; color: var(--muted); font-size: 12px; transition: background 160ms, color 160ms; }
+.demo-tabs button span { font-size: 11px; opacity: 0.8; }
+.demo-tabs button:hover { color: var(--text); }
+.demo-tabs button[aria-selected="true"] { background: var(--accent-soft); color: #d8c4ff; }
+.demo-tabs button[data-demo-tab="dev"][aria-selected="true"] { background: rgba(157, 188, 234, 0.12); color: var(--dev); }
+.demo-carousel-arrows { display: flex; gap: 8px; }
+.carousel-viewport { overflow: hidden; touch-action: pan-y pinch-zoom; transition: height 300ms ease; }
+.demo-carousel-track { display: flex; align-items: flex-start; width: 100%; transition: transform 300ms ease; }
+.demo-carousel-slide { flex: 0 0 100%; min-width: 0; }
 .desktop-journey-heading { display: flex; justify-content: space-between; align-items: end; gap: 36px; }
 .desktop-journey-heading > div { min-width: 0; }
 .desktop-journey-heading h2 { margin-top: 15px; max-width: 620px; }
@@ -74,6 +85,7 @@ h3 { font-size: 18px; line-height: 1.5; font-weight: 600; }
 .desktop-session { margin: 45px 0 0; }
 .desktop-session-frame { aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); background: #0b0c0f; }
 .pm-video-preview { position: relative; display: block; }
+.pm-video-preview:focus-visible { outline-offset: -4px; }
 .pm-video-preview img { width: 100%; height: 100%; object-fit: contain; }
 .video-play { position: absolute; inset: 0; margin: auto; width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.5); background: rgba(13, 14, 17, 0.88); color: var(--text); transition: background 160ms; }
 .video-play svg { width: 27px; height: 27px; }
@@ -223,10 +235,12 @@ dialog img { width: 100%; height: auto; }
   .role-tabs button { width: 77px; height: 32px; }
   figcaption { flex-direction: column; gap: 7px; padding-top: 12px; font-size: 10px; }
   .desktop-journey-heading { flex-direction: column; gap: 18px; }
+  .demo-carousel-controls { margin-bottom: 24px; }
+  .demo-tabs button { width: 82px; }
   .desktop-journey-heading h2 { font-size: 27px; }
   .desktop-journey-heading > p { font-size: 13px; }
   .desktop-session { margin-top: 29px; }
-  .desktop-session-frame { margin-inline: -12px; }
+  .desktop-session-frame { margin-inline: 0; }
   .desktop-session figcaption { padding-inline: 0; }
   .pm-chapters { grid-template-columns: 1fr; margin-top: 24px; }
   .pm-chapters li { display: grid; grid-template-columns: 76px minmax(0, 1fr); align-items: start; column-gap: 18px; padding-block: 20px; }

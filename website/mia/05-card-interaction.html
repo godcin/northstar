@@ -4,153 +4,71 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
+<meta name="description" content="Northstar 用结构化卡片承载澄清、审批、下一步和结果，让用户确认具体对象与动作。">
 <title>05 · 卡片式交互 · Northstar 产品介绍</title>
-<style>
-:root{color-scheme:dark}
-*{box-sizing:border-box}
-body{margin:0;background:#0d0e11;color:#f0f0f3;font:15px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
-.layout{display:flex;min-height:100vh}
-.side{position:sticky;top:0;align-self:flex-start;flex:none;width:236px;height:100vh;overflow-y:auto;padding:36px 22px;border-right:1px solid rgba(255,255,255,.1)}
-.side .home{display:inline-block;margin-bottom:26px;font-size:13px;color:#9b9ca6;text-decoration:none}
-.side .home:hover{color:#f0f0f3}
-.side .brand{margin:0 0 12px;font-size:12px;color:#848590;letter-spacing:.04em}
-.side ul{list-style:none;margin:0;padding:0}
-.side li{margin:0 0 4px}
-.side a{display:block;padding:9px 12px;border-radius:8px;font-size:14px;line-height:1.5;color:#c9cad1;text-decoration:none;transition:background .16s,color .16s}
-.side a:hover{background:#15161b;color:#f0f0f3}
-.side a[aria-current="page"]{background:rgba(255,255,255,.08);color:#f0f0f3;font-weight:600}
-main{flex:1;min-width:0;max-width:820px;margin:0 auto;padding:48px 40px 80px}
-h1{font-size:34px;font-weight:600;margin:0 0 8px}
-h2{font-size:20px;font-weight:600;margin:40px 0 12px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
-blockquote{margin:16px 0;padding:4px 16px;border-left:3px solid #af87ff;color:#9b9ca6}
-p,li{color:#c9cad1}
-a{color:#af87ff}
-ul{padding-left:22px}
-ol{padding-left:22px}
-ol li{margin:6px 0}
-table{border-collapse:collapse;width:100%;margin:16px 0;font-size:14px}
-th,td{border:1px solid rgba(255,255,255,.12);padding:9px 12px;text-align:left;vertical-align:top}
-th{background:#15161b;color:#f0f0f3;font-weight:600}
-td{color:#c9cad1}
-code{background:#15161b;padding:2px 6px;border-radius:4px;font-size:13px}
-.lane-head{margin:24px 0 12px;font-size:13px;color:#9b9ca6}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px}
-.card{background:#15161b;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px 18px;cursor:pointer;transition:border-color .16s,transform .16s,background .16s}
-.card:hover{border-color:rgba(175,135,255,.45);background:#1a1b22;transform:translateY(-2px)}
-.tag{display:inline-block;font-size:11px;color:#e0b070;border:1px solid rgba(224,176,112,.35);border-radius:4px;padding:1px 8px}
-.card h3{font-size:15px;font-weight:600;line-height:1.5;margin:10px 0 6px;color:#f0f0f3}
-.card .meta{font-size:12px;color:#848590;margin:0;line-height:1.6}
-.card .more{display:inline-block;margin-top:12px;font-size:12px;color:#af87ff}
-.pager{display:flex;gap:12px;margin-top:56px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
-.pager-item{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;padding:14px 18px;border:1px solid rgba(255,255,255,.1);border-radius:10px;text-decoration:none;transition:border-color .16s,background .16s}
-.pager-item.prev{align-items:flex-start;text-align:left}
-.pager-item.next{align-items:flex-end;text-align:right}
-a.pager-item:hover{border-color:rgba(175,135,255,.45);background:#15161b}
-.pager-item .label{font-size:12px;color:#848590}
-.pager-item .title{font-size:15px;color:#f0f0f3}
-.pager-item.disabled{border-style:dashed;opacity:.45}
-@media (max-width:860px){
-  .layout{display:block}
-  .side{position:static;width:auto;height:auto;padding:18px 20px;border-right:0;border-bottom:1px solid rgba(255,255,255,.1)}
-  .side .home{margin-bottom:10px}
-  .side ul{display:flex;flex-wrap:wrap;gap:6px}
-  .side li{margin:0}
-  .side a{padding:6px 10px;font-size:13px}
-  main{padding:32px 24px 72px}
-}
-@media (max-width:560px){.pager{flex-direction:column}.pager-item.next{align-items:flex-start;text-align:left}}
-</style>
+<link rel="stylesheet" href="intro.css">
+<script src="intro.js" defer></script>
 </head>
 <body>
 <div class="layout">
-<aside class="side"><a class="home" href="../">← 返回 Northstar 首页</a><p class="brand">Northstar 产品介绍</p><nav aria-label="产品介绍页面"><ul><li><a href="index.html">01 · 产品概览</a></li><li><a href="02-value.html">02 · 核心价值</a></li><li><a href="03-rollback.html">03 · 回滚能力</a></li><li><a href="04-third-agent.html">04 · 三方 Agent 能力</a></li><li><a href="05-card-interaction.html" aria-current="page">05 · 卡片式交互</a></li></ul></nav></aside>
+<aside class="side">
+<a class="home" href="../">← 返回 Northstar 首页</a>
+<p class="brand">Northstar 产品介绍</p>
+<nav aria-label="产品介绍页面"><ul>
+<li><a href="index.html">01 · 产品概述</a></li>
+<li><a href="02-value.html">02 · 核心价值</a></li>
+<li><a href="03-rollback.html">03 · 回滚能力</a></li>
+<li><a href="04-third-agent.html">04 · 三方 Agent 能力</a></li>
+<li><a href="05-card-interaction.html" aria-current="page">05 · 卡片式交互</a></li>
+<li><a href="06-governance.html">06 · 流程与状态治理</a></li>
+<li><a href="07-knowledge.html">07 · 知识与版本一致性</a></li>
+<li><a href="08-execution.html">08 · 执行与失败恢复</a></li>
+<li><a href="09-architecture.html">09 · 架构与扩展</a></li>
+<li><a href="10-summary.html">10 · 总结与展望</a></li>
+</ul></nav>
+</aside>
 <main>
 <h1>05 · 卡片式交互</h1>
-<p>对话是入口。需要你做选择或确认的事，用卡片承载，让每一次选择都明确、可追溯，而不是靠猜测一句自由文本的意思。</p>
-<h2>为什么用卡片</h2>
-<ul>
-<li>固定选择的流程，必须用卡片按钮承载，不靠自由输入来回确认。</li>
-<li>卡片提交的是明确的选择，系统按卡片对应的对象和动作续接，不靠解析按钮文字或卡片文案。</li>
-<li>聊天记录保持干净：按钮点击不写入对话。</li>
-</ul>
-<h2>卡片的种类</h2>
+<p class="lead">自由对话表达目标与背景，卡片承载明确选择、产物核对和关键操作。卡片绑定具体对象、动作与当前上下文，让用户和系统都知道这次确认意味着什么。</p>
+<h2>从表达意图，到确认具体动作</h2>
+<p>“我想增加一个日期筛选功能”适合通过对话讨论；“确认这批技术调研发现”“批准这次文件修改”“签核当前 PRD”则需要明确对象与操作范围。</p>
+<p>卡片提交的是结构化选择与字段。系统依据卡片身份、动作和当前版本续接流程，按钮文案只承担展示作用。</p>
+<h2>用户会遇到哪些卡片</h2>
 <table>
-<thead>
-<tr>
-<th>卡片</th>
-<th>什么时候出现</th>
-<th>你可以做什么</th>
-</tr>
-</thead>
+<thead><tr><th scope="col">类型</th><th scope="col">内容与操作</th></tr></thead>
 <tbody>
-<tr>
-<td>决策题</td>
-<td>流程需要在几个方向中选一个</td>
-<td>直接点选选项，也可以选择“其他”并补充说明</td>
-</tr>
-<tr>
-<td>清单确认</td>
-<td>需要逐项确认的检查清单</td>
-<td>逐项确认后提交本分类</td>
-</tr>
-<tr>
-<td>审批确认</td>
-<td>文件修改或关键操作需要批准</td>
-<td>批准或驳回；一次可以确认本批所有文件修改</td>
-</tr>
-<tr>
-<td>下一步</td>
-<td>完成一步之后，系统推荐接下来做什么</td>
-<td>执行推荐的动作，或打开对应文档</td>
-</tr>
-<tr>
-<td>航线</td>
-<td>随时显示现在在哪、下一步能做什么</td>
-<td>点击即可执行当前可用的动作</td>
-</tr>
-<tr>
-<td>结果与状态</td>
-<td>记录一次操作的结果、状态或失败原因</td>
-<td>只读，供回看</td>
-</tr>
+<tr><td>澄清问题</td><td>单选、多选或开放回答，逐题补充使用者、范围与约束；选择“其他”时可以说明自己的情况。</td></tr>
+<tr><td>清单与准备情况</td><td>核对已具备、待补充和阻塞项。涉及正式产物时，需要对应文档或证据。</td></tr>
+<tr><td>文档修改确认</td><td>查看目标文档、内容摘要或差异，补充必要字段后提交确认。</td></tr>
+<tr><td>工具审批</td><td>核对文件差异、命令或参数，按照当前提供的审批选项批准或驳回。</td></tr>
+<tr><td>当前步骤与下一步</td><td>查看需求阶段、阻塞原因和当前可用动作，打开相关文档或继续工作。</td></tr>
+<tr><td>结果与状态</td><td>回看正式结果、待完善项或失败原因；有对应入口时，可以查看评审、原文与任务依据。</td></tr>
 </tbody>
 </table>
-<h2>怎么操作</h2>
-<ol>
-<li>看清卡片上的问题和选项。</li>
-<li>点选或确认，然后提交。</li>
-<li>卡片变为已处理，已经提交的按钮不能重复点击。</li>
-<li>对话输入框始终可用，你可以随时补充说明或提出新的需求。</li>
+<h2>一个连贯的使用过程</h2>
+<ol class="steps">
+<li><strong>提出需求</strong>：通过对话表达目标，再通过问题卡确认用户、范围与约束。</li>
+<li><strong>核对调研与文档</strong>：确认发现，查看生成的 PRD，处理评审问题后签核。</li>
+<li><strong>进入技术工作</strong>：确认技术调研与方案；评审中的业务异议交回 PM 处理。</li>
+<li><strong>确认接下来做什么</strong>：查看当前推荐动作，核对实现顺序与验证方式，再决定继续执行。</li>
 </ol>
-<h2>安全与边界</h2>
+<figure class="product-media">
+<a href="https://www.bilibili.com/video/BV16Qp962E1v/?t=3840" target="_blank" rel="noopener noreferrer"><img src="../assets/video/dev-technical-workflow-poster.webp" width="1920" height="1080" alt="Northstar Desktop 真实录像中的 TD 实现步骤确认界面" loading="lazy"></a>
+<figcaption><span>真实 Desktop 录像 · 实现步骤确认</span><a href="https://www.bilibili.com/video/BV16Qp962E1v/?t=3840" target="_blank" rel="noopener noreferrer">观看对应片段</a></figcaption>
+</figure>
+<h2>历史结果与当前动作分开</h2>
+<p>已提交卡片保留当时的内容与状态，原操作不能重复执行。历史卡片中仍然有效的查看入口可以继续使用，方便核对文档与评审依据。</p>
+<p>当前下一步根据现有需求状态重新计算。一个步骤完成后，系统呈现结果和当前可做的事，后续关键动作仍由用户明确发起。</p>
+<h2>状态变化时怎样保护确认</h2>
 <ul>
-<li>卡片只能提交当前待处理的那一张；过期的卡片会被拒绝。</li>
-<li>同一范围内，你提出新的明确意图时，尚未提交的旧卡片会失效，不会被误提交。</li>
-<li>审批和风险确认只有在你明确点击后才生效，系统不替你做决定。</li>
-<li>结果与失败卡片只读，不能再次执行。</li>
+<li>提交时重新检查卡片是否仍有效，以及对象、状态、权限与版本是否匹配。</li>
+<li>同一范围的新意图可以替代普通未提交交互；审批、签核与发布确认仍需要明确决定。</li>
+<li>自由输入可以继续讨论其他事项，待确认卡片不会要求用户只能沿一条固定路径说话。</li>
+<li>Viewer 汇总产物与待处理事项，保持只读；实际确认和执行回到对话完成。</li>
 </ul>
-<h2>设计原则</h2>
-<ul>
-<li>桌面端不做卡片墙：侧边栏和输入区保持扁平，卡片只用于需要选择或确认的结构化交互。</li>
-<li>卡片样式安静，不抢对话本身的注意力。</li>
-</ul>
-<h2>Viewer 里的待确认卡片</h2>
-<p>Viewer 是只读工作台，待确认事项以卡片汇总，可以进入详情查看，但不在这里提交确认。</p>
-<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="04-third-agent.html"><span class="label">← 上一页</span><span class="title">04 · 三方 Agent 能力</span></a><span class="pager-item next disabled"><span class="label">下一页 →</span><span class="title">已是最后一页</span></span></nav>
+<p>卡片负责清晰表达交互，正式推进由系统规则负责。下一章 <a href="06-governance.html">流程与状态治理</a> 会展开这一技术分工。</p>
+<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="04-third-agent.html"><span class="label">← 上一页</span><span class="title">04 · 三方 Agent 能力</span></a><a class="pager-item next" href="06-governance.html"><span class="label">下一页 →</span><span class="title">06 · 流程与状态治理</span></a></nav>
 </main>
 </div>
-<script>
-(function(){
-  var prev=document.querySelector('a.pager-item.prev');
-  var next=document.querySelector('a.pager-item.next');
-  document.addEventListener('keydown',function(e){
-    if(e.altKey||e.ctrlKey||e.metaKey||e.shiftKey)return;
-    var t=e.target;
-    if(t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)))return;
-    if(e.key==='ArrowLeft'&&prev){location.href=prev.getAttribute('href');}
-    else if(e.key==='ArrowRight'&&next){location.href=next.getAttribute('href');}
-  });
-})();
-</script>
 </body>
 </html>

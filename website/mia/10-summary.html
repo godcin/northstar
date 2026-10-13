@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="总结 Northstar 的产品价值与技术路线，说明当前演示范围、能力成熟度和后续完善方向。">
+<title>10 · 总结与展望 · Northstar 产品介绍</title>
+<link rel="stylesheet" href="intro.css">
+<script src="intro.js" defer></script>
+</head>
+<body>
+<div class="layout">
+<aside class="side">
+<a class="home" href="../">← 返回 Northstar 首页</a>
+<p class="brand">Northstar 产品介绍</p>
+<nav aria-label="产品介绍页面"><ul>
+<li><a href="index.html">01 · 产品概述</a></li>
+<li><a href="02-value.html">02 · 核心价值</a></li>
+<li><a href="03-rollback.html">03 · 回滚能力</a></li>
+<li><a href="04-third-agent.html">04 · 三方 Agent 能力</a></li>
+<li><a href="05-card-interaction.html">05 · 卡片式交互</a></li>
+<li><a href="06-governance.html">06 · 流程与状态治理</a></li>
+<li><a href="07-knowledge.html">07 · 知识与版本一致性</a></li>
+<li><a href="08-execution.html">08 · 执行与失败恢复</a></li>
+<li><a href="09-architecture.html">09 · 架构与扩展</a></li>
+<li><a href="10-summary.html" aria-current="page">10 · 总结与展望</a></li>
+</ul></nav>
+</aside>
+<main>
+<h1>10 · 总结与展望</h1>
+<p class="lead">Northstar 希望让 AI 参与的软件研发具备连续的产品上下文、明确的责任分工，以及可以核对、交付和恢复的工程结果。</p>
+<h2>把整组介绍连起来看</h2>
+<p>产品层面，对话收集意图，PM、Dev、QA 围绕同一需求持续工作，卡片把选择与确认变得明确，真实产物与执行记录让交接有依据。</p>
+<p>技术层面，流程规则校验状态，版本绑定评审保护当前结论，配对需求分支承载代码与知识，受管执行与结果回执支持验证和失败续接。</p>
+<table>
+<thead><tr><th scope="col">关注的问题</th><th scope="col">Northstar 的做法</th></tr></thead>
+<tbody>
+<tr><td>如何理解产品</td><td>以需求为组织单位，从目标、范围与约束逐步形成确认过的产品资料。</td></tr>
+<tr><td>如何组织协作</td><td>用责任角色、待办和异议处理，明确谁承接什么、当前依据是什么。</td></tr>
+<tr><td>如何核实完成</td><td>查看正式产物、有效评审、真实变化与独立验收结果，再通过对应流程推进。</td></tr>
+<tr><td>如何处理变化</td><td>通过版本失效检查、失败续接与恢复点，保留调整方向的依据。</td></tr>
+</tbody>
+</table>
+<h2>当前可以看到什么</h2>
+<h3>真实公开演示</h3>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1XupR6NEgL/" target="_blank" rel="noopener noreferrer">PM 产品流程</a>：需求调研、逐项确认、PRD 编写、评审修订与签核。</li>
+<li><a href="https://www.bilibili.com/video/BV16Qp962E1v/" target="_blank" rel="noopener noreferrer">Dev 技术流程</a>：技术调研、TD 编写与评审、需求异议收口、同步设计与实现步骤确认。</li>
+</ul>
+<p>这些录像保留真实操作与等待过程。Dev 录像结束于实现步骤确认，可据此了解设计与评审交互，不能据此认定代码开发、QA 或发布已经完成。</p>
+<h3>当前产品形态</h3>
+<p>Desktop 是主要交互入口，Viewer 提供只读产物浏览，CLI 提供终端接入。外部 Agent 通道当前面向 Codex App Server；模型与工具的可用范围受实际配置约束。</p>
+<p class="note">Dev 后段签核、QA 计划与执行、缺陷修复、质量签核、发布检查和复盘目前标记为实验性，尚未纳入本轮稳定承诺。全生命周期是持续推进的产品方向。</p>
+<h2>从近到远的分期展望</h2>
+<p>以当前产品的需求流程、版本依据与执行治理为基础，先完善单个产品的交付，再扩展到团队协作、多产品管理与公司级知识体系。以下是演进方向，具体范围与节奏仍需通过实际需求和验证确定。</p>
+<table>
+<thead><tr><th scope="col">阶段</th><th scope="col">主要目标</th></tr></thead>
+<tbody>
+<tr><td>第一期 · 近期</td><td>完善现有研发流程，让测试、发布、复盘与失败恢复更可靠。</td></tr>
+<tr><td>第二期 · 团队协作</td><td>支持多人围绕同一产品工作，细分角色、职责、权限与交接。</td></tr>
+<tr><td>第三期 · 多产品管理</td><td>统一管理各产品的代码和知识库，逐步接入存量系统与研发工具。</td></tr>
+<tr><td>第四期 · 公司级知识体系</td><td>将各产品信息接入统一 RAG 与知识图谱，支持跨产品检索和关系追查。</td></tr>
+</tbody>
+</table>
+<h3>第一期：把现有交付流程做扎实</h3>
+<p>持续打磨代码交付、QA 测试、缺陷修复、发布检查与复盘的衔接，核对每个阶段使用的版本、质量依据和恢复方式。改进长任务与多批次结果呈现，让已完成、待确认、部分完成和结果未知更容易理解。</p>
+<p>进一步探索发布方案与复盘的语义评审、多个评审者的分歧处理，以及 Skill 的版本、依赖和准入检查。目标是先让现有产品流程留下更完整、可靠的工程依据。</p>
+<h3>第二期：多人协作与角色进一步细分</h3>
+<p>从一个人切换 PM、Dev、QA，演进到多人共同处理同一产品与需求。建立明确的负责人、共享待办、评审、交接与审批机制，并处理多人并行工作中的版本冲突和权限边界。</p>
+<p>在现有角色基础上，探索产品负责人、业务分析、架构、前端、后端、测试、运维和发布等细分职责。每类角色都需要明确产物、可执行动作、访问权限与签核条件，支持团队按实际组织方式配置协作流程。</p>
+<h3>第三期：统一管理所有产品的代码与知识</h3>
+<p>将公司的各产品、模块、代码仓和知识库纳入统一管理，集中查看代码版本、分支、评审、变更与发布状态。保留各仓库的产品身份，把代码变化与需求、技术设计、测试和发布依据关联起来。</p>
+<p>逐步接入存量系统：已有代码仓、历史文档、需求与缺陷平台、CI/CD 和运维资料。先建立产品映射、来源索引与关联，再按权限开放同步和受控操作，让已有产品能够逐步进入协作体系。</p>
+<h3>第四期：统一 RAG 与知识图谱</h3>
+<p>在多产品管理基础上，把各产品知识库、代码、需求、设计、测试、缺陷、发布与运维信息接入同一套检索体系。RAG 为回答提供可引用的原始依据，知识图谱连接产品、模块、需求、代码和验证等实体，支持语义检索与关系查询。</p>
+<p>希望能够回答公司范围的问题：某个能力在哪些产品实现？修改一个模块会影响哪些需求、测试和发布？一项历史决策依据是什么？统一管理与检索需要保留来源、版本和权限，按访问范围提供结果，持续核验信息更新。</p>
+<p class="note">长期目标是让一个公司所有产品的代码、知识与研发过程能够统一管理、关联和检索。多人协作、细分角色、存量接入、公司级 RAG 与知识图谱属于后续规划，当前可用能力仍以实际版本为准。</p>
+<h2>从自己的产品问题开始</h2>
+<p>Northstar 适合从一个具体需求开始观察：能否把模糊目标澄清成范围，把范围变成方案，把执行结果变成可核对的依据。每一步都留下后续工作可以承接的材料，是这套产品与技术设计共同追求的结果。</p>
+<p><a href="../">返回首页</a> 查看真实演示与作者联系方式。</p>
+<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="09-architecture.html"><span class="label">← 上一页</span><span class="title">09 · 架构与扩展</span></a><span class="pager-item next disabled"><span class="label">下一页 →</span><span class="title">已是最后一页</span></span></nav>
+</main>
+</div>
+</body>
+</html>

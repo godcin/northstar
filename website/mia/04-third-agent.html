@@ -4,139 +4,63 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
+<meta name="description" content="Northstar 如何通过授权、隔离工作区、独立验收和配对需求分支交付组织外部编码 Agent。">
 <title>04 · 三方 Agent 能力 · Northstar 产品介绍</title>
-<style>
-:root{color-scheme:dark}
-*{box-sizing:border-box}
-body{margin:0;background:#0d0e11;color:#f0f0f3;font:15px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
-.layout{display:flex;min-height:100vh}
-.side{position:sticky;top:0;align-self:flex-start;flex:none;width:236px;height:100vh;overflow-y:auto;padding:36px 22px;border-right:1px solid rgba(255,255,255,.1)}
-.side .home{display:inline-block;margin-bottom:26px;font-size:13px;color:#9b9ca6;text-decoration:none}
-.side .home:hover{color:#f0f0f3}
-.side .brand{margin:0 0 12px;font-size:12px;color:#848590;letter-spacing:.04em}
-.side ul{list-style:none;margin:0;padding:0}
-.side li{margin:0 0 4px}
-.side a{display:block;padding:9px 12px;border-radius:8px;font-size:14px;line-height:1.5;color:#c9cad1;text-decoration:none;transition:background .16s,color .16s}
-.side a:hover{background:#15161b;color:#f0f0f3}
-.side a[aria-current="page"]{background:rgba(255,255,255,.08);color:#f0f0f3;font-weight:600}
-main{flex:1;min-width:0;max-width:820px;margin:0 auto;padding:48px 40px 80px}
-h1{font-size:34px;font-weight:600;margin:0 0 8px}
-h2{font-size:20px;font-weight:600;margin:40px 0 12px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
-blockquote{margin:16px 0;padding:4px 16px;border-left:3px solid #af87ff;color:#9b9ca6}
-p,li{color:#c9cad1}
-a{color:#af87ff}
-ul{padding-left:22px}
-ol{padding-left:22px}
-ol li{margin:6px 0}
-table{border-collapse:collapse;width:100%;margin:16px 0;font-size:14px}
-th,td{border:1px solid rgba(255,255,255,.12);padding:9px 12px;text-align:left;vertical-align:top}
-th{background:#15161b;color:#f0f0f3;font-weight:600}
-td{color:#c9cad1}
-code{background:#15161b;padding:2px 6px;border-radius:4px;font-size:13px}
-.lane-head{margin:24px 0 12px;font-size:13px;color:#9b9ca6}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px}
-.card{background:#15161b;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px 18px;cursor:pointer;transition:border-color .16s,transform .16s,background .16s}
-.card:hover{border-color:rgba(175,135,255,.45);background:#1a1b22;transform:translateY(-2px)}
-.tag{display:inline-block;font-size:11px;color:#e0b070;border:1px solid rgba(224,176,112,.35);border-radius:4px;padding:1px 8px}
-.card h3{font-size:15px;font-weight:600;line-height:1.5;margin:10px 0 6px;color:#f0f0f3}
-.card .meta{font-size:12px;color:#848590;margin:0;line-height:1.6}
-.card .more{display:inline-block;margin-top:12px;font-size:12px;color:#af87ff}
-.pager{display:flex;gap:12px;margin-top:56px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
-.pager-item{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;padding:14px 18px;border:1px solid rgba(255,255,255,.1);border-radius:10px;text-decoration:none;transition:border-color .16s,background .16s}
-.pager-item.prev{align-items:flex-start;text-align:left}
-.pager-item.next{align-items:flex-end;text-align:right}
-a.pager-item:hover{border-color:rgba(175,135,255,.45);background:#15161b}
-.pager-item .label{font-size:12px;color:#848590}
-.pager-item .title{font-size:15px;color:#f0f0f3}
-.pager-item.disabled{border-style:dashed;opacity:.45}
-@media (max-width:860px){
-  .layout{display:block}
-  .side{position:static;width:auto;height:auto;padding:18px 20px;border-right:0;border-bottom:1px solid rgba(255,255,255,.1)}
-  .side .home{margin-bottom:10px}
-  .side ul{display:flex;flex-wrap:wrap;gap:6px}
-  .side li{margin:0}
-  .side a{padding:6px 10px;font-size:13px}
-  main{padding:32px 24px 72px}
-}
-@media (max-width:560px){.pager{flex-direction:column}.pager-item.next{align-items:flex-start;text-align:left}}
-</style>
+<link rel="stylesheet" href="intro.css">
+<script src="intro.js" defer></script>
 </head>
 <body>
 <div class="layout">
-<aside class="side"><a class="home" href="../">← 返回 Northstar 首页</a><p class="brand">Northstar 产品介绍</p><nav aria-label="产品介绍页面"><ul><li><a href="index.html">01 · 产品概览</a></li><li><a href="02-value.html">02 · 核心价值</a></li><li><a href="03-rollback.html">03 · 回滚能力</a></li><li><a href="04-third-agent.html" aria-current="page">04 · 三方 Agent 能力</a></li><li><a href="05-card-interaction.html">05 · 卡片式交互</a></li></ul></nav></aside>
+<aside class="side">
+<a class="home" href="../">← 返回 Northstar 首页</a>
+<p class="brand">Northstar 产品介绍</p>
+<nav aria-label="产品介绍页面"><ul>
+<li><a href="index.html">01 · 产品概述</a></li>
+<li><a href="02-value.html">02 · 核心价值</a></li>
+<li><a href="03-rollback.html">03 · 回滚能力</a></li>
+<li><a href="04-third-agent.html" aria-current="page">04 · 三方 Agent 能力</a></li>
+<li><a href="05-card-interaction.html">05 · 卡片式交互</a></li>
+<li><a href="06-governance.html">06 · 流程与状态治理</a></li>
+<li><a href="07-knowledge.html">07 · 知识与版本一致性</a></li>
+<li><a href="08-execution.html">08 · 执行与失败恢复</a></li>
+<li><a href="09-architecture.html">09 · 架构与扩展</a></li>
+<li><a href="10-summary.html">10 · 总结与展望</a></li>
+</ul></nav>
+</aside>
 <main>
 <h1>04 · 三方 Agent 能力</h1>
-<p>编码、修复、运行验收命令这类重活，可以交给成熟的编码 Agent 执行。Northstar 负责授权、边界和验收，执行者只负责施工。</p>
-<h2>为什么要委派</h2>
-<ul>
-<li>可以程序验收的重活，交给外部编码 Agent 完成。</li>
-<li>讨论、判断和领域操作仍由 Northstar 自己的模型流程处理。</li>
-<li>执行者自己报告“已完成”不算数，完成与否以 Northstar 的独立验收为准。</li>
-</ul>
-<h2>当前执行者</h2>
-<p>当前交付的第三方执行者是 <strong>Codex App Server</strong>。执行者通过适配层接入，产品流程与具体执行者分开。</p>
-<h2>委派的流程</h2>
-<ol>
-<li><strong>生成委派内容</strong>：目标、验收标准、验收命令和允许改动的范围，由系统整理。</li>
-<li><strong>确认后才开始</strong>：确认之前不创建工作区，也不启动执行者。</li>
-<li><strong>在独立工作区施工</strong>：执行者只能修改确认过的范围，系统核对实际改动。</li>
-<li><strong>独立验收</strong>：Northstar 重跑验收命令，执行者的自验不能替代这一步。</li>
-<li><strong>合入与记录</strong>：验收通过后才合入代码仓，结果以卡片回到对话，改动和验收结果保存为证据。</li>
+<p class="lead">Northstar 可以把编码与修复交给专业编码 Agent，同时保留需求理解、授权、范围控制、独立验收和正式交付。用户能核对实际改动与交付依据。</p>
+<h2>各自负责什么</h2>
+<p>Northstar 负责整理目标、参考材料、允许范围与验收方式；编码 Agent 在受管工作区完成实现和自检；Northstar 再检查候选结果、执行验收，并记录后续交付状态。</p>
+<p>当前用户可选的外部 Agent 通道是 <strong>Codex App Server</strong>。普通对话模型与开发 Agent 可以分别配置；具体能力取决于实际配置与授权。</p>
+<h2>从委派到交付</h2>
+<ol class="steps">
+<li><strong>建立任务依据</strong>：读取当前需求和确认过的 PRD、技术调研与 TD，整理目标与参考材料。</li>
+<li><strong>确认任务边界</strong>：明确允许修改的范围、禁止范围和验收命令；确认后才创建受管工作区并启动执行。</li>
+<li><strong>在隔离环境实现</strong>：Agent 修改候选代码并自检，系统核对实际变化是否符合授权范围。</li>
+<li><strong>独立执行验收</strong>：Northstar 对候选结果重新运行验收命令，保存每条命令的结果与失败信息。</li>
+<li><strong>整合最新版本</strong>：需求交付在隔离环境核对最新 main 与需求分支，整合后再次验收。</li>
+<li><strong>交付到需求分支</strong>：通过后进入配对的代码与知识库需求分支；正式发布另由发布流程推进 main。</li>
 </ol>
-<h2>两种委派范围</h2>
+<h2>独立验收解决什么问题</h2>
+<p>Agent 的自检和完成总结有助于理解工作，但交付还需要独立核对。验收命令绑定这次任务，在实际候选工作区执行，并保留退出结果、输出与超时信息。</p>
+<p>验收失败时，候选与失败依据保留下来，可用于修复或续接。通过这些命令证明的是对应检查满足条件，业务覆盖与 QA 质量结论仍有各自的要求。</p>
+<h2>需求任务与普通工作区任务</h2>
 <table>
-<thead>
-<tr>
-<th>范围</th>
-<th>什么时候用</th>
-<th>结果</th>
-</tr>
-</thead>
+<thead><tr><th scope="col">场景</th><th scope="col">执行与结果</th></tr></thead>
 <tbody>
-<tr>
-<td>需求内委派</td>
-<td>有进行中的需求，由开发阶段发起</td>
-<td>经过需求阶段的门禁，验收后可以推进需求状态</td>
-</tr>
-<tr>
-<td>工作区委派</td>
-<td>没有进行中的需求，且现有工具无法完成的代码或文件修改</td>
-<td>确认后执行，结果记为证据，不推进需求状态</td>
-</tr>
+<tr><td>需求内委派</td><td>与当前需求阶段、文档版本和验收依据绑定。结果进入需求分支，由对应流程检查后续推进条件。</td></tr>
+<tr><td>普通工作区委派</td><td>在无进行中需求时，处理已明确授权、现有注册工具无法完成的代码或文件工作。保存证据，不自动创建或推进需求。</td></tr>
 </tbody>
 </table>
-<h2>边界与治理</h2>
-<ul>
-<li><strong>范围</strong>：执行者只能改动确认过的范围，不能修改需求、变更等产品真相源。</li>
-<li><strong>授权</strong>：每次委派都需要你确认。</li>
-<li><strong>质量</strong>：独立验收通过才算完成。</li>
-<li><strong>证据</strong>：改动和验收结果都保存下来，可以回看。</li>
-<li><strong>模型</strong>：一次委派开始后，即使在设置中修改模型，本次委派也不会中途切换。</li>
-</ul>
-<h2>中断之后</h2>
-<p>委派中断后可以按原来的确认重试，不需要重新规划，也不需要重新确认。已经交接的结果会被恢复，而不是重复执行。</p>
-<h2>不做的事</h2>
-<ul>
-<li>不修改项目指南、需求和变更的状态。</li>
-<li>不绕过审批。</li>
-<li>不把执行者的总结当作完成依据。</li>
-<li>不在一次委派中途切换模型。</li>
-</ul>
+<h2>中断、修改设置与继续执行</h2>
+<p>一次委派开始后，会固定本次执行模型。修改设置影响后续新委派，本次任务继续使用已经确认的配置。</p>
+<p>中断后先核对原任务记录。若候选已验收、交付尚未完成，可以继续原交付，减少重复调用编码模型。目标、范围或验收标准改变时，需要重新核对授权与任务依据。</p>
+<h2>技术亮点：把实现与发布分开</h2>
+<p>受管候选工作区、独立验收、配对需求分支与正式发布分别承担不同职责。代码写完、验收通过、进入需求分支、发布到 main 是不同结果，可以逐步检查和恢复。</p>
+<p>正式需求状态、签核和发布由 Northstar 的领域规则校验。外部 Agent 即使获得候选文档目录的写权限，也需要通过后续验收与交付流程才能成为正式产物。</p>
 <nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="03-rollback.html"><span class="label">← 上一页</span><span class="title">03 · 回滚能力</span></a><a class="pager-item next" href="05-card-interaction.html"><span class="label">下一页 →</span><span class="title">05 · 卡片式交互</span></a></nav>
 </main>
 </div>
-<script>
-(function(){
-  var prev=document.querySelector('a.pager-item.prev');
-  var next=document.querySelector('a.pager-item.next');
-  document.addEventListener('keydown',function(e){
-    if(e.altKey||e.ctrlKey||e.metaKey||e.shiftKey)return;
-    var t=e.target;
-    if(t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)))return;
-    if(e.key==='ArrowLeft'&&prev){location.href=prev.getAttribute('href');}
-    else if(e.key==='ArrowRight'&&next){location.href=next.getAttribute('href');}
-  });
-})();
-</script>
 </body>
 </html>

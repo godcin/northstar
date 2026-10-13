@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="Northstar 的双仓配对分支、复合版本、评审有效性、关联检查和发布回执机制。">
+<title>07 · 知识与版本一致性 · Northstar 产品介绍</title>
+<link rel="stylesheet" href="intro.css">
+<script src="intro.js" defer></script>
+</head>
+<body>
+<div class="layout">
+<aside class="side">
+<a class="home" href="../">← 返回 Northstar 首页</a>
+<p class="brand">Northstar 产品介绍</p>
+<nav aria-label="产品介绍页面"><ul>
+<li><a href="index.html">01 · 产品概述</a></li>
+<li><a href="02-value.html">02 · 核心价值</a></li>
+<li><a href="03-rollback.html">03 · 回滚能力</a></li>
+<li><a href="04-third-agent.html">04 · 三方 Agent 能力</a></li>
+<li><a href="05-card-interaction.html">05 · 卡片式交互</a></li>
+<li><a href="06-governance.html">06 · 流程与状态治理</a></li>
+<li><a href="07-knowledge.html" aria-current="page">07 · 知识与版本一致性</a></li>
+<li><a href="08-execution.html">08 · 执行与失败恢复</a></li>
+<li><a href="09-architecture.html">09 · 架构与扩展</a></li>
+<li><a href="10-summary.html">10 · 总结与展望</a></li>
+</ul></nav>
+</aside>
+<main>
+<h1>07 · 知识与版本一致性</h1>
+<p class="lead">需求、设计和代码都在变化。Northstar 关注的不只是文件能否找到，还包括它属于哪个需求、对应哪个版本，以及已有结论是否仍然适用。</p>
+<h2>知识与代码分仓，按需求成对推进</h2>
+<p>知识仓保存需求、设计与验证材料，代码仓保存实现。在配置了双仓的产品中，需求工作使用身份明确的配对 feature 分支，让产品资料与代码候选一起演进。</p>
+<p>需求文档读写会解析当前需求对应的知识候选并检查身份。开发中的资料和已经发布的 main 基线由各自流程管理，避免把未完成需求混入发布版本。</p>
+<h2>版本身份来自实际材料</h2>
+<p>评审对象的版本不只是文件名或一个 Git HEAD。PRD 包含正文与结构化条目；TD 评审还需要绑定 PRD 和技术调研；代码评审需要受管工作区中的实际文件与代码快照。</p>
+<p>系统组合这些输入的摘要和版本身份，能够核对“评审了什么、依据什么”。快照覆盖范围由明确策略控制，缺失材料也会影响输入身份。</p>
+<table>
+<thead><tr><th scope="col">对象</th><th scope="col">需要核对的依据</th></tr></thead>
+<tbody>
+<tr><td>PRD</td><td>当前正文、结构化条目、问题与适用评审规则。</td></tr>
+<tr><td>TD</td><td>当前技术设计，以及承接的 PRD 与技术调研版本。</td></tr>
+<tr><td>代码候选</td><td>受管工作区、精确代码快照、文件摘要和对应方案。</td></tr>
+<tr><td>交付结果</td><td>冻结的提交、差异摘要、验收记录与配对分支版本。</td></tr>
+</tbody>
+</table>
+<h2>评审结论会检查是否仍然有效</h2>
+<p>语义评审生成结构化结论、问题和覆盖依据。系统核对产物、上游输入、评审规则与覆盖计划；相关内容变化后，旧结论需要重新证明适用于当前版本。</p>
+<p>例如技术调研改变了一项容量约束，即使 TD 文件名相同，也需要重新建立当前输入下的评审依据。</p>
+<p>PRD 评审问题通过专用确认流程解决后，可在修订版本与解决证据严格绑定、其他评审输入未变化的条件下承接原评审。具体能否沿用由有效性检查决定。</p>
+<p>最终门禁校验当前证据是否有效、覆盖是否满足要求、是否还有阻塞。评审负责语义判断，门禁依据已有证据作出确定性裁决。</p>
+<h2>上下游关联让遗漏可以被发现</h2>
+<p>Alignment 维护需求、设计、实现、测试和发布材料之间的引用。它可以检查不存在的引用、未覆盖条目和断裂的上下游关联，并查询对象的直接影响关系。</p>
+<p>这帮助技术负责人从一项需求追查相关设计与验证依据。关联齐全说明结构与记录可检查，业务是否正确仍需要相应的语义评审和实际验证。</p>
+<h2>写入时保护当前版本</h2>
+<p>受管知识写入在所属事务中比较预期 revision 与当前 revision。版本不匹配时先拒绝旧写入；写入后再读回内容摘要，检查实际落地结果。</p>
+<p>长对话中的旧草稿因此不能直接覆盖已经改变的材料。这个保护针对受管写入，外部编辑造成的变化仍需要被识别并纳入后续对齐。</p>
+<h2>配对交付诚实表达部分完成</h2>
+<p>候选在隔离环境整合观察到的最新 main 与 feature，冻结提交与差异依据，对确定的候选重新验收，通过后再交付需求分支。正式发布通过已配置仓库服务的配对评审与发布流程推进 main，并读回两个仓库的版本。</p>
+<p>两个远端仓库可能出现一侧成功、另一侧失败或响应未知。系统为各侧保留状态与回执，使用原操作身份继续核对，明确表达发布是否完整。</p>
+<p class="note">双仓配对不是跨远端的原子事务。编码交付验收也不能替代 QA 签核；测试、发布和复盘的后段一致性仍在持续完善。</p>
+<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="06-governance.html"><span class="label">← 上一页</span><span class="title">06 · 流程与状态治理</span></a><a class="pager-item next" href="08-execution.html"><span class="label">下一页 →</span><span class="title">08 · 执行与失败恢复</span></a></nav>
+</main>
+</div>
+</body>
+</html>

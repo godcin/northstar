@@ -10,6 +10,7 @@ const outputPath = path.join(repoRoot, 'website/assets/northstar-share.jpg')
 
 async function main() {
   const screenshot = await fs.readFile(path.join(repoRoot, 'website/assets/video/pm-product-workflow-poster.webp'))
+  const icon = await fs.readFile(path.join(repoRoot, 'website/favicon.svg'))
   const browser = await chromium.launch({ headless: true,
     ...(process.env.NORTHSTAR_CHROMIUM ? { executablePath: process.env.NORTHSTAR_CHROMIUM } : {}),
   })
@@ -43,6 +44,28 @@ async function main() {
     })), 'Share image content must fit within the exported image')
     await page.screenshot({ path: outputPath, type: 'jpeg', quality: 90, animations: 'disabled' })
     console.log(`${path.relative(repoRoot, outputPath)}: ${(await fs.stat(outputPath)).size} bytes; 1200 x 630`)
+
+    const iconPage = await browser.newPage({ viewport: { width: 512, height: 512 }, deviceScaleFactor: 1 })
+    await iconPage.setContent(`<html><head><title>Northstar Icon</title><style>body { margin: 0; background: #0d0e11; } img { display: block; width: 100vw; height: 100vh; }</style></head><body><img src="data:image/svg+xml;base64,${icon.toString('base64')}" alt="Northstar"></body></html>`)
+    await iconPage.locator('img').evaluate(image => image.decode())
+    for (const [size, filename] of [[512, 'assets/northstar-icon.png'], [180, 'apple-touch-icon.png'], [32, 'favicon-32.png']]) {
+      await iconPage.setViewportSize({ width: size, height: size })
+      const png = await iconPage.screenshot({ path: path.join(repoRoot, 'website', filename), type: 'png' })
+      if (size === 32) {
+        // An ICO directory entry can contain a PNG payload.
+        const header = Buffer.alloc(22)
+        header.writeUInt16LE(1, 2)
+        header.writeUInt16LE(1, 4)
+        header[6] = size
+        header[7] = size
+        header.writeUInt16LE(1, 10)
+        header.writeUInt16LE(32, 12)
+        header.writeUInt32LE(png.length, 14)
+        header.writeUInt32LE(header.length, 18)
+        await fs.writeFile(path.join(repoRoot, 'website/favicon.ico'), Buffer.concat([header, png]))
+      }
+      console.log(`website/${filename}: ${png.length} bytes; ${size} x ${size}`)
+    }
   } finally {
     await browser.close()
   }

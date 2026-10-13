@@ -50,6 +50,8 @@ window.NORTHSTAR_SITE = Object.freeze({ demoVideo: "assets/northstar-demo.mp4" }
 
 首页在静态 HTML 的 `<head>` 中提供 Open Graph 和 Twitter Card 信息，供支持链接预览的聊天与社交平台抓取，不依赖 JavaScript。分享图为公开的 `assets/northstar-share.jpg`，1200 × 630，使用真实 Desktop 录像封面。
 
+同时提供方形 `assets/northstar-icon.png`、PNG/ICO 网站图标和 Apple Touch Icon，兼容不读取 OG 图片或不支持 SVG 图标的客户端。以上资源均由现有 Northstar 图标生成。微信是否采用这些图标由客户端决定；它们不会改变微信聊天卡片的点击行为。
+
 重新生成分享图：
 
 ```sh

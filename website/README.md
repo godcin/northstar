@@ -46,6 +46,20 @@ window.NORTHSTAR_SITE = Object.freeze({ demoVideo: "assets/northstar-demo.mp4" }
 页面内的 Viewer 截图使用隔离的示例项目数据，仅用于说明界面结构，不代表线上服务或真实用户验收记录。
 已生成的图片位于 `assets/`，页面运行时不请求项目服务或用户数据。
 
+## 链接预览
+
+首页在静态 HTML 的 `<head>` 中提供 Open Graph 和 Twitter Card 信息，供支持链接预览的聊天与社交平台抓取，不依赖 JavaScript。分享图为公开的 `assets/northstar-share.jpg`，1200 × 630，使用真实 Desktop 录像封面。
+
+重新生成分享图：
+
+```sh
+NORTHSTAR_CHROMIUM="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" node website/scripts/generate-share-assets.cjs
+```
+
+生成工具沿用 Viewer 图片脚本的 `NORTHSTAR_AGENT_ROOT` 与 `NORTHSTAR_PLAYWRIGHT_MODULE` 配置，仅在本地生成资源，网站运行无需这些依赖。
+
+微信聊天直接粘贴普通网址可能只显示文本链接。页面元信息无法强制微信生成卡片；需要先在微信内打开网页，再使用右上角分享入口试验。定制微信分享内容通常需要有相应权限的公众号、JS 接口安全域名、微信 JS-SDK 和服务端签名，当前静态站点尚未接入。各平台会缓存预览，已经发送的消息不一定会随网站更新。
+
 ## 图标
 
 `vendor/lucide.min.js` 为本地固定版本的 Lucide 0.468.0，ISC 许可证见 `vendor/lucide-LICENSE`。页面无需访问第三方 CDN。

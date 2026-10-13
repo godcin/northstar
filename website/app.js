@@ -174,6 +174,74 @@
     expandButton.focus({ preventScroll: true });
   });
 
+  const shareUrl = document.querySelector('link[rel="canonical"]').href;
+  const shareTitle = document.querySelector('meta[property="og:title"]').content;
+  const shareDescription = document.querySelector('meta[property="og:description"]').content;
+  const shareImage = document.querySelector('meta[property="og:image"]').content;
+  const shareText = `${shareTitle}\n${shareDescription}`;
+  const sharePlatforms = {
+    x: { endpoint: "https://twitter.com/intent/tweet", params: { url: shareUrl, text: shareText } },
+    reddit: { endpoint: "https://www.reddit.com/submit", params: { url: shareUrl, title: shareTitle } },
+    facebook: { endpoint: "https://www.facebook.com/sharer/sharer.php", params: { u: shareUrl } },
+    weibo: { endpoint: "https://service.weibo.com/share/share.php", params: { url: shareUrl, title: shareText, pic: shareImage } },
+  };
+  document.querySelectorAll("[data-share-platform]").forEach((link) => {
+    const platform = sharePlatforms[link.dataset.sharePlatform];
+    const url = new URL(platform.endpoint);
+    url.search = new URLSearchParams(platform.params).toString();
+    link.href = url.href;
+  });
+
+  const wechatShareButton = document.querySelector("[data-share-wechat]");
+  const wechatShareDialog = document.querySelector("#wechat-share-dialog");
+  const wechatShareUrl = document.querySelector("#wechat-share-url");
+  const shareStatus = document.querySelector("#share-status");
+  const wechatShareStatus = document.querySelector("#wechat-share-status");
+  let wechatShareTrigger = wechatShareButton;
+  let shareStatusTimeout;
+  wechatShareUrl.value = shareUrl;
+
+  const openWechatShare = (trigger = wechatShareButton) => {
+    wechatShareTrigger = trigger;
+    wechatShareDialog.showModal();
+    document.body.classList.add("dialog-open");
+  };
+  const setShareStatus = (status, text) => {
+    clearTimeout(shareStatusTimeout);
+    shareStatus.textContent = "";
+    wechatShareStatus.textContent = "";
+    status.textContent = text;
+    shareStatusTimeout = setTimeout(() => { status.textContent = ""; }, 4000);
+  };
+  wechatShareButton.addEventListener("click", () => openWechatShare());
+  document.querySelector(".close-wechat-share").addEventListener("click", () => wechatShareDialog.close());
+  wechatShareDialog.addEventListener("click", (event) => {
+    if (event.target !== wechatShareDialog) return;
+    const bounds = wechatShareDialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) wechatShareDialog.close();
+  });
+  wechatShareDialog.addEventListener("close", () => {
+    if (!dialog.open) document.body.classList.remove("dialog-open");
+    wechatShareStatus.textContent = "";
+    wechatShareTrigger.focus({ preventScroll: true });
+  });
+  document.querySelectorAll("[data-copy-share-link]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      button.disabled = true;
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+        setShareStatus(wechatShareDialog.open ? wechatShareStatus : shareStatus, "链接已复制");
+      } catch {
+        if (!wechatShareDialog.open) openWechatShare(button);
+        wechatShareUrl.focus();
+        wechatShareUrl.select();
+        setShareStatus(wechatShareStatus, "无法自动复制链接");
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+
   const video = document.querySelector("#demo-video");
   const videoSource = window.NORTHSTAR_SITE?.demoVideo?.trim();
   if (videoSource) {

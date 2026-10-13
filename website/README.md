@@ -64,6 +64,14 @@ NORTHSTAR_CHROMIUM="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome
 
 分享标题包含“AI 研发协作，从需求到交付”，使只展示标题的卡片也能传达产品用途。微信朋友圈的 `updateTimelineShareData` 接口没有 `desc` 字段，不单独设置简介；Mac 微信原生分享入口是否采用网页简介由客户端决定。好友分享接口 `updateAppMessageShareData` 才提供 `desc`，详见 [微信 JS-SDK 使用说明](https://developers.weixin.qq.com/doc/service/guide/h5/jssdk.html)。
 
+## 分享入口
+
+首页底部提供 X、Reddit、Facebook、微博的公开分享入口，以及微信二维码和复制链接工具。平台链接使用首页的 canonical 地址，JS 启用时从 OG 元信息读取标题、简介和图片；微信二维码也只编码 `https://godcin.com/`，不会携带当前页面的查询参数或章节位置。复制受浏览器限制时，弹窗保留可选中的网站地址。
+
+分享入口不自动发布内容，也不加载平台追踪脚本。分享页可能需要登录，最终卡片样式由平台决定；微信二维码帮助在手机上打开网站，不会强制改变 Mac 或朋友圈卡片的布局。
+
+品牌图标和二维码来源、生成方式见 `assets/share/README.md`，生成脚本为 `scripts/generate-share-controls.cjs`。
+
 ## 图标
 
 `vendor/lucide.min.js` 为本地固定版本的 Lucide 0.468.0，ISC 许可证见 `vendor/lucide-LICENSE`。页面无需访问第三方 CDN。

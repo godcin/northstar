@@ -179,6 +179,15 @@ figcaption { display: flex; justify-content: space-between; align-items: start; 
 .explore h2 { margin-top: 16px; font-size: 35px; }
 .explore-inner > p:not(.eyebrow) { color: var(--muted); margin-top: 17px; font-size: 13px; }
 .explore .button { margin-top: 28px; }
+.share-tools { margin-top: 28px; }
+.share-label { font-size: 12px; color: var(--muted); }
+.share-toolbar { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 12px; }
+.share-tool { position: relative; }
+.share-tool img { width: 18px; height: 18px; opacity: 0.75; transition: opacity 160ms; }
+.share-tool:hover img, .share-tool:focus-visible img { opacity: 1; }
+.share-tool::after { content: attr(data-tooltip); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(3px); padding: 4px 8px; border: 1px solid var(--line); border-radius: 4px; background: #22232a; color: var(--text); font-size: 11px; line-height: 1.5; white-space: nowrap; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 160ms, transform 160ms; }
+.share-tool:hover::after, .share-tool:focus-visible::after { opacity: 1; visibility: visible; transform: translateX(-50%); }
+.share-status { min-height: 20px; margin-top: 8px; font-size: 11px; line-height: 20px; color: var(--muted); }
 .site-footer { display: flex; justify-content: space-between; align-items: center; gap: 24px; border-top: 1px solid var(--line); padding-block: 26px; }
 .site-footer .brand { font-size: 15px; }
 .site-footer .brand-mark svg { width: 20px; height: 20px; }
@@ -188,6 +197,15 @@ dialog { width: min(1700px, calc(100vw - 40px)); max-height: calc(100dvh - 40px)
 dialog::backdrop { background: rgba(0, 0, 0, 0.8); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 .dialog-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 16px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--line); }
 dialog img { width: 100%; height: auto; }
+#wechat-share-dialog { width: min(360px, calc(100vw - 32px)); }
+#wechat-share-dialog .dialog-toolbar { padding: 10px 16px; font-size: 12px; }
+.wechat-share-content { padding: 24px 20px 16px; text-align: center; }
+.wechat-share-brand { display: flex; justify-content: center; align-items: center; gap: 8px; font-size: 19px; font-weight: 600; }
+.wechat-share-brand svg { width: 22px; height: 22px; color: var(--accent); }
+.wechat-share-description { margin-top: 5px; font-size: 12px; color: var(--muted); }
+#wechat-share-dialog .wechat-share-qr { width: 220px; height: auto; aspect-ratio: 1; margin: 22px auto; border: 8px solid #fff; border-radius: 6px; background: #fff; }
+.wechat-share-link { display: grid; grid-template-columns: minmax(0, 1fr) 36px 36px; gap: 8px; }
+.wechat-share-link input { width: 100%; min-width: 0; height: 36px; padding: 0 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); font: 12px var(--font); }
 .noscript-note { text-align: center; font-size: 12px; padding: 16px; color: var(--muted); }
 
 @media (min-width: 1600px) {

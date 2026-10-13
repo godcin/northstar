@@ -59,11 +59,24 @@ a.pager-item:hover{border-color:rgba(175,135,255,.45);background:#15161b}
   main{padding:32px 24px 72px}
 }
 @media (max-width:560px){.pager{flex-direction:column}.pager-item.next{align-items:flex-start;text-align:left}}
-.author{margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:#848590;line-height:1.7}
-.author-name{margin:0;color:#f0f0f3;font-size:14px;font-weight:600}
-.author-role{margin:2px 0 8px}
-.author-contact{margin:0;display:flex;flex-wrap:wrap;gap:6px 18px}
-.author a{color:#af87ff}
+.author{margin:48px -40px -80px;padding:40px;background:#111216;border-top:1px solid rgba(255,255,255,.1)}
+.author-layout{display:grid;grid-template-columns:132px minmax(0,1fr);gap:32px;align-items:start}
+.author-label{margin:0;color:#af87ff;font:11px/1.5 ui-monospace,"SFMono-Regular",Menlo,monospace}
+.author h2{margin:14px 0 0;padding:0;border:0;font-size:20px;line-height:1.4}
+.author-card{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;padding:24px 0;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)}
+.author-identity{display:flex;align-items:center;gap:16px;min-width:0}
+.author-avatar{display:grid;place-items:center;flex:none;width:46px;height:46px;border:1px solid rgba(175,135,255,.4);border-radius:50%;color:#d8c4ff;background:rgba(175,135,255,.1);font:13px ui-monospace,"SFMono-Regular",Menlo,monospace}
+.author-identity h3{margin:0;color:#f0f0f3;font-size:17px;font-weight:600;line-height:1.5}
+.author-identity p{margin:5px 0 0;color:#9b9ca6;font-size:12px}
+.author-details{display:grid;gap:9px;min-width:0;margin:0}
+.author-details div{display:grid;grid-template-columns:42px minmax(0,1fr);gap:12px;font-size:12px}
+.author-details dt{color:#848590}
+.author-details dd{margin:0;color:#9b9ca6;overflow-wrap:anywhere}
+.author-details a{color:#cdb8f2;text-decoration:none}
+.author-details a:hover{color:#f0f0f3;text-decoration:underline}
+.author-details a:focus-visible{outline:2px solid #af87ff;outline-offset:4px}
+@media (max-width:1020px){.author-layout{grid-template-columns:minmax(0,1fr);gap:24px}}
+@media (max-width:860px){.author{margin:48px -24px -72px;padding:32px 24px}}
 </style>
 </head>
 <body>
@@ -87,10 +100,26 @@ a.pager-item:hover{border-color:rgba(175,135,255,.45);background:#15161b}
 <h2>恢复之后</h2>
 <p>恢复结果可以推送到远端；推送失败时可以重试。恢复点已经失效时，界面会提示刷新后重试。</p>
 <nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="02-value.html"><span class="label">← 上一页</span><span class="title">02 · 核心价值</span></a><a class="pager-item next" href="04-third-agent.html"><span class="label">下一页 →</span><span class="title">04 · 三方 Agent 能力</span></a></nav>
-<footer class="author">
-<p class="author-name">Michael Cao</p>
-<p class="author-role">后端工程师 · 技术 Leader</p>
-<p class="author-contact"><a href="mailto:busygopher@gmail.com">busygopher@gmail.com</a><span>微信 michael2o24</span></p>
+<footer class="author" aria-labelledby="author-title">
+<div class="author-layout">
+<div>
+<p class="author-label">BUILT BY</p>
+<h2 id="author-title">作者与联系</h2>
+</div>
+<div class="author-card">
+<div class="author-identity">
+<span class="author-avatar" aria-hidden="true">MC</span>
+<div>
+<h3>Michael Cao</h3>
+<p>后端工程师 · 技术 Leader</p>
+</div>
+</div>
+<dl class="author-details">
+<div><dt>邮箱</dt><dd><a href="mailto:busygopher@gmail.com">busygopher@gmail.com</a></dd></div>
+<div><dt>微信</dt><dd>michael2o24</dd></div>
+</dl>
+</div>
+</div>
 </footer>
 </main>
 </div>

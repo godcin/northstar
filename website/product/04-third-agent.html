@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://godcin.com/product/04-third-agent.html">
+<meta name="description" content="Northstar 如何通过授权、隔离工作区、独立验收和配对需求分支交付组织外部编码 Agent。">
+<title>04 · 三方 Agent 能力 · Northstar 产品介绍</title>
+<link rel="stylesheet" href="intro.css">
+<script src="intro.js" defer></script>
+</head>
+<body>
+<div class="layout">
+<aside class="side">
+<a class="home" href="../">← 返回 Northstar 首页</a>
+<p class="brand">Northstar 产品介绍</p>
+<nav aria-label="产品介绍页面"><ul>
+<li><a href="index.html">01 · 产品概述</a></li>
+<li><a href="02-value.html">02 · 核心价值</a></li>
+<li><a href="03-rollback.html">03 · 回滚能力</a></li>
+<li><a href="04-third-agent.html" aria-current="page">04 · 三方 Agent 能力</a></li>
+<li><a href="05-card-interaction.html">05 · 卡片式交互</a></li>
+<li><a href="06-governance.html">06 · 流程与状态治理</a></li>
+<li><a href="07-knowledge.html">07 · 知识与版本一致性</a></li>
+<li><a href="08-execution.html">08 · 执行与失败恢复</a></li>
+<li><a href="09-architecture.html">09 · 架构与扩展</a></li>
+<li><a href="10-summary.html">10 · 总结与展望</a></li>
+</ul></nav>
+</aside>
+<main>
+<h1>04 · 三方 Agent 能力</h1>
+<p class="lead">Northstar 可以把编码与修复交给专业编码 Agent，同时保留需求理解、授权、范围控制、独立验收和正式交付。用户能核对实际改动与交付依据。</p>
+<h2>各自负责什么</h2>
+<p>Northstar 负责整理目标、参考材料、允许范围与验收方式；编码 Agent 在受管工作区完成实现和自检；Northstar 再检查候选结果、执行验收，并记录后续交付状态。</p>
+<p>当前用户可选的外部 Agent 通道是 <strong>Codex App Server</strong>。普通对话模型与开发 Agent 可以分别配置；具体能力取决于实际配置与授权。</p>
+<h2>从委派到交付</h2>
+<ol class="steps">
+<li><strong>建立任务依据</strong>：读取当前需求和确认过的 PRD、技术调研与 TD，整理目标与参考材料。</li>
+<li><strong>确认任务边界</strong>：明确允许修改的范围、禁止范围和验收命令；确认后才创建受管工作区并启动执行。</li>
+<li><strong>在隔离环境实现</strong>：Agent 修改候选代码并自检，系统核对实际变化是否符合授权范围。</li>
+<li><strong>独立执行验收</strong>：Northstar 对候选结果重新运行验收命令，保存每条命令的结果与失败信息。</li>
+<li><strong>整合最新版本</strong>：需求交付在隔离环境核对最新 main 与需求分支，整合后再次验收。</li>
+<li><strong>交付到需求分支</strong>：通过后进入配对的代码与知识库需求分支；正式发布另由发布流程推进 main。</li>
+</ol>
+<h2>独立验收解决什么问题</h2>
+<p>Agent 的自检和完成总结有助于理解工作，但交付还需要独立核对。验收命令绑定这次任务，在实际候选工作区执行，并保留退出结果、输出与超时信息。</p>
+<p>验收失败时，候选与失败依据保留下来，可用于修复或续接。通过这些命令证明的是对应检查满足条件，业务覆盖与 QA 质量结论仍有各自的要求。</p>
+<h2>需求任务与普通工作区任务</h2>
+<table>
+<thead><tr><th scope="col">场景</th><th scope="col">执行与结果</th></tr></thead>
+<tbody>
+<tr><td>需求内委派</td><td>与当前需求阶段、文档版本和验收依据绑定。结果进入需求分支，由对应流程检查后续推进条件。</td></tr>
+<tr><td>普通工作区委派</td><td>在无进行中需求时，处理已明确授权、现有注册工具无法完成的代码或文件工作。保存证据，不自动创建或推进需求。</td></tr>
+</tbody>
+</table>
+<h2>中断、修改设置与继续执行</h2>
+<p>一次委派开始后，会固定本次执行模型。修改设置影响后续新委派，本次任务继续使用已经确认的配置。</p>
+<p>中断后先核对原任务记录。若候选已验收、交付尚未完成，可以继续原交付，减少重复调用编码模型。目标、范围或验收标准改变时，需要重新核对授权与任务依据。</p>
+<h2>技术亮点：把实现与发布分开</h2>
+<p>受管候选工作区、独立验收、配对需求分支与正式发布分别承担不同职责。代码写完、验收通过、进入需求分支、发布到 main 是不同结果，可以逐步检查和恢复。</p>
+<p>正式需求状态、签核和发布由 Northstar 的领域规则校验。外部 Agent 即使获得候选文档目录的写权限，也需要通过后续验收与交付流程才能成为正式产物。</p>
+<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="03-rollback.html"><span class="label">← 上一页</span><span class="title">03 · 回滚能力</span></a><a class="pager-item next" href="05-card-interaction.html"><span class="label">下一页 →</span><span class="title">05 · 卡片式交互</span></a></nav>
+</main>
+</div>
+</body>
+</html>

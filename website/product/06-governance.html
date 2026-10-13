@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://godcin.com/product/06-governance.html">
+<meta name="description" content="Northstar 用 Workflow Graph、动作契约和领域门禁连接自然语言理解与真实状态变更。">
+<title>06 · 流程与状态治理 · Northstar 产品介绍</title>
+<link rel="stylesheet" href="intro.css">
+<script src="intro.js" defer></script>
+</head>
+<body>
+<div class="layout">
+<aside class="side">
+<a class="home" href="../">← 返回 Northstar 首页</a>
+<p class="brand">Northstar 产品介绍</p>
+<nav aria-label="产品介绍页面"><ul>
+<li><a href="index.html">01 · 产品概述</a></li>
+<li><a href="02-value.html">02 · 核心价值</a></li>
+<li><a href="03-rollback.html">03 · 回滚能力</a></li>
+<li><a href="04-third-agent.html">04 · 三方 Agent 能力</a></li>
+<li><a href="05-card-interaction.html">05 · 卡片式交互</a></li>
+<li><a href="06-governance.html" aria-current="page">06 · 流程与状态治理</a></li>
+<li><a href="07-knowledge.html">07 · 知识与版本一致性</a></li>
+<li><a href="08-execution.html">08 · 执行与失败恢复</a></li>
+<li><a href="09-architecture.html">09 · 架构与扩展</a></li>
+<li><a href="10-summary.html">10 · 总结与展望</a></li>
+</ul></nav>
+</aside>
+<main>
+<h1>06 · 流程与状态治理</h1>
+<p class="lead">AI 擅长理解和生成，研发流程还需要判断谁有权做什么、当前条件是否满足，以及正式状态何时可以改变。Northstar 将这些职责分层处理。</p>
+<h2>模型提出方案，系统校验真实变更</h2>
+<p>模型结合对话、产物和 Skill 生成建议或结构化计划。执行时，系统检查动作是否注册、角色是否匹配、当前状态是否允许、产物是否满足条件，再写入正式结果。</p>
+<p>例如“PRD 已签核”需要当前 PRD、有效评审和正式签核动作共同成立。文字总结可以帮助理解，但项目状态必须以负责该事实的模块读取到的结果为准。</p>
+<h2>三个机制各自负责什么</h2>
+<table>
+<thead><tr><th scope="col">机制</th><th scope="col">负责的问题</th></tr></thead>
+<tbody>
+<tr><td>Workflow Graph<br>工作流图</td><td>当前阶段有哪些推荐路径，如何排序与展示，下一步可以指向什么。</td></tr>
+<tr><td>Operation<br>动作契约</td><td>一个动作接受哪些输入、由谁执行、需要什么条件，以及怎样表达结果。</td></tr>
+<tr><td>Domain Gate<br>领域门禁</td><td>在当前事实下，是否允许签核、状态推进或正式写回。</td></tr>
+</tbody>
+</table>
+<p>工作流图经校验后编译为带 SHA-256 指纹的不可变对象。客户端消费服务端投影，减少界面按钮、推荐路径与真实流程各自维护规则造成的漂移。</p>
+<h2>准备度、评审与签核分别表达什么</h2>
+<ul>
+<li><strong>准备度检查</strong>：找出还缺哪些材料、哪些问题尚未解决，以及由谁补充。</li>
+<li><strong>语义评审</strong>：检查当前版本的内容是否完整、可执行、可验证，以及是否与上游一致。</li>
+<li><strong>正式签核</strong>：角色对当前产物作出承诺，并在满足条件后推进阶段。</li>
+</ul>
+<p>查看阻塞项和开展评审都不会自动推进阶段。提交答案可以更新问题记录，评审完成会保存评审证据；只有正式阶段动作通过门禁，才会进入对应的下一阶段。这样，阶段内工作与批准交付各有明确结果。</p>
+<h2>点击时重新核对当前条件</h2>
+<p>推荐动作绑定当前需求的决策版本、图版本与投影身份。即使界面刚才显示动作可用，正式执行仍会重新读取现有角色、状态、问题与产物。</p>
+<p>以进入编码为例，系统需要核验技术设计、有效评审、未决技术问题和实现步骤等条件。文档改变或出现新阻塞后，旧推荐需要重新计算。</p>
+<ol class="steps">
+<li>读取当前事实，生成可用动作。</li>
+<li>用户提交具体选择与必要字段。</li>
+<li>检查来源、版本、角色和门禁。</li>
+<li>执行真实写回，形成结果记录。</li>
+<li>根据新的事实刷新下一步。</li>
+</ol>
+<h2>保留对话的灵活性</h2>
+<p>用户可以补充背景、质疑方案或调整目标。推荐路径帮助推进工作，自由输入仍可继续处理其他事项；涉及正式变更时，系统继续校验其权限与条件。</p>
+<p>PM 负责产品语义，Dev 负责技术实现，QA 负责质量判断。异议可以交回对应角色，阶段可以返工，角色承诺仍有清晰归属。</p>
+<h2>这套机制的实际收益</h2>
+<p>流程不必依赖模型持续记住所有规则。界面给出当前选择，模型处理语义，负责业务事实的模块裁决正式变化，执行记录说明结果实际到哪一步。</p>
+<p>这些约束降低越界和状态失真的风险。它们校验的是定义好的协议与证据；模型的业务判断和产物质量仍需要评审、验证与人的确认。</p>
+<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="05-card-interaction.html"><span class="label">← 上一页</span><span class="title">05 · 卡片式交互</span></a><a class="pager-item next" href="07-knowledge.html"><span class="label">下一页 →</span><span class="title">07 · 知识与版本一致性</span></a></nav>
+</main>
+</div>
+</body>
+</html>

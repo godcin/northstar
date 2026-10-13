@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://godcin.com/product/02-value.html">
+<meta name="description" content="Northstar 如何通过角色职责、真实产物、版本评审和执行证据减少研发协作中的信息丢失。">
+<title>02 · 核心价值 · Northstar 产品介绍</title>
+<link rel="stylesheet" href="intro.css">
+<script src="intro.js" defer></script>
+</head>
+<body>
+<div class="layout">
+<aside class="side">
+<a class="home" href="../">← 返回 Northstar 首页</a>
+<p class="brand">Northstar 产品介绍</p>
+<nav aria-label="产品介绍页面"><ul>
+<li><a href="index.html">01 · 产品概述</a></li>
+<li><a href="02-value.html" aria-current="page">02 · 核心价值</a></li>
+<li><a href="03-rollback.html">03 · 回滚能力</a></li>
+<li><a href="04-third-agent.html">04 · 三方 Agent 能力</a></li>
+<li><a href="05-card-interaction.html">05 · 卡片式交互</a></li>
+<li><a href="06-governance.html">06 · 流程与状态治理</a></li>
+<li><a href="07-knowledge.html">07 · 知识与版本一致性</a></li>
+<li><a href="08-execution.html">08 · 执行与失败恢复</a></li>
+<li><a href="09-architecture.html">09 · 架构与扩展</a></li>
+<li><a href="10-summary.html">10 · 总结与展望</a></li>
+</ul></nav>
+</aside>
+<main>
+<h1>02 · 核心价值</h1>
+<p class="lead">Northstar 的价值在于让每次讨论形成可承接的产物，让每次执行留下可以核对的结果，让遇到问题的人知道该把工作交给谁。</p>
+<h2>上下文可以被承接</h2>
+<p>当 PM 完成需求、Dev 接手设计时，上游文档、未解决问题和待办都属于同一个需求。接手者能知道当前依据是什么、有哪些阻塞，以及现在应该处理哪项工作。</p>
+<p>角色切换恢复的是当前需求对应的工作，而不是让模型凭一段聊天摘要猜测进度。每个角色的待办分开保存，产品问题、实现任务与质量问题各有归属。</p>
+<table>
+<thead><tr><th scope="col">角色</th><th scope="col">主要责任与产物</th></tr></thead>
+<tbody>
+<tr><td>PM · 产品</td><td>目标用户、业务规则、需求范围与验收方向；调研发现、PRD 和产品签核。</td></tr>
+<tr><td>Dev · 技术</td><td>技术方案、影响范围与实现；技术调研、TD、代码候选和验证结果。</td></tr>
+<tr><td>QA · 质量</td><td>测试覆盖、缺陷与质量判断；测试计划、用例、执行依据和复测结论。</td></tr>
+</tbody>
+</table>
+<h2>业务问题有明确决策归属</h2>
+<p>技术设计遇到“重复素材是否应该自动合并”这类业务问题时，Dev 可以提出异议，交给 PM 确认规则。PM 决策或修订 PRD 后，Dev 再更新 TD 与实现计划。</p>
+<p>这样，技术判断和产品判断可以各自负责。讨论中产生的新规则有明确的确认过程，相关设计也会随着产品决策重新对齐。</p>
+<h2>“评审通过”与当前版本对应</h2>
+<p>文档曾经通过评审，并不代表修改后的版本仍然满足原结论。Northstar 将语义评审与被评产物、上游输入和评审规则的版本绑定；这些依据变化后，旧结论需要重新核对。</p>
+<p>例如 PRD 新增一条约束，TD 就需要检查方案是否仍然适用。签核时，系统会重新读取当前事实，核验有效评审与待解决问题。</p>
+<h2>执行结果可以核实</h2>
+<p>工具调用记录、文件变化、审批决定和验证结果共同构成执行依据。用户可以查看实际改了什么、哪些命令成功、哪里失败，以及下一步需要补充什么。</p>
+<p>文件写入还有落地校验。如果工具声称成功，却没有产生预期变化，这个异常会进入后续处理。独立验收则检查编码候选是否通过确认过的命令，而不只采用执行 Agent 的总结。</p>
+<h2>返工成为流程的一部分</h2>
+<p>产品异议进入 PM 待确认，技术问题由 Dev 处理，缺陷形成 Dev 修复待办并交回 QA 复测。流程允许返回前一阶段，让修改有对应的责任与关闭依据。</p>
+<p>发生中断时，已经记录的结果、待处理问题和可续接操作能继续被检查。方向变化时，可以使用恢复点或需求分支回滚调整现场。</p>
+<h2>扩展能力保持相同的边界</h2>
+<p>模型适配、Skill 和 MCP 提供不同层次的扩展：模型负责理解和生成，Skill 提供工作方法，工具负责接触文件与外部能力。扩展后的操作仍需要符合当前权限和执行策略。</p>
+<p>这让能力接入与产品流程保持联系。后续章节会进一步解释 <a href="06-governance.html">流程治理</a>、<a href="07-knowledge.html">版本一致性</a> 和 <a href="09-architecture.html">扩展架构</a> 的技术机制。</p>
+<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="index.html"><span class="label">← 上一页</span><span class="title">01 · 产品概述</span></a><a class="pager-item next" href="03-rollback.html"><span class="label">下一页 →</span><span class="title">03 · 回滚能力</span></a></nav>
+</main>
+</div>
+</body>
+</html>

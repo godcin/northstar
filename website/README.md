@@ -9,14 +9,14 @@ Northstar / NS 的对外介绍页，纯静态 HTML、CSS 和 JavaScript，无构
 ## GitHub Pages
 
 在 `godcin/ns` 的 **Settings → Pages → Build and deployment** 中选择 **GitHub Actions**。
-将本分支合入 `main` 后，`pages.yml` 发布 `website/`；也可从 Actions 手动运行该工作流。
-网址为 `https://godcin.com/`。工作流只上传 `website/`，不发布产品源码。
+将本分支合入 `main` 后，`pages.yml` 整理并发布对外页面；也可从 Actions 手动运行该工作流。
+网址为 `https://godcin.com/`。工作流不发布内部介绍目录或产品源码。
 
 ## 产品介绍
 
-`mia/` 采用总分总的十篇结构：产品概述；核心价值、回滚、三方 Agent 与卡片交互；流程治理、知识版本、执行恢复与架构扩展；总结与展望。原有五个页面地址保留，作者信息仅在首页显示。
+公开介绍位于 `https://godcin.com/product/`，首页导航及主标题下方提供入口。`product/` 采用总分总的十篇结构：产品概述；核心价值、回滚、三方 Agent 与卡片交互；流程治理、知识版本、执行恢复与架构扩展；总结与展望。作者信息仅在首页显示。
 
-这些页面共用 `mia/intro.css` 与 `mia/intro.js`，保持一致的侧栏和上下页导航。介绍沿用 `noindex`；技术文案按知识库与当前生产实现核对，区分已实现机制、实验性阶段和后续方向。图片复用现有公开录像封面，不上传原始视频或私有源码。
+这些页面共用 `product/intro.css` 与 `product/intro.js`，保持一致的侧栏和上下页导航，并提供公开 canonical 地址。技术文案按知识库与当前生产实现核对，区分已实现机制、实验性阶段和后续方向。图片复用现有公开录像封面，不上传原始视频或私有源码。
 
 ## PM 产品交互流程演示视频
 

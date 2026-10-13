@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://godcin.com/product/">
+<meta name="description" content="Northstar 的产品定位、角色协作、完整研发流程与真实 Desktop 演示。">
+<title>01 · 产品概述 · Northstar 产品介绍</title>
+<link rel="stylesheet" href="intro.css">
+<script src="intro.js" defer></script>
+</head>
+<body>
+<div class="layout">
+<aside class="side">
+<a class="home" href="../">← 返回 Northstar 首页</a>
+<p class="brand">Northstar 产品介绍</p>
+<nav aria-label="产品介绍页面"><ul>
+<li><a href="index.html" aria-current="page">01 · 产品概述</a></li>
+<li><a href="02-value.html">02 · 核心价值</a></li>
+<li><a href="03-rollback.html">03 · 回滚能力</a></li>
+<li><a href="04-third-agent.html">04 · 三方 Agent 能力</a></li>
+<li><a href="05-card-interaction.html">05 · 卡片式交互</a></li>
+<li><a href="06-governance.html">06 · 流程与状态治理</a></li>
+<li><a href="07-knowledge.html">07 · 知识与版本一致性</a></li>
+<li><a href="08-execution.html">08 · 执行与失败恢复</a></li>
+<li><a href="09-architecture.html">09 · 架构与扩展</a></li>
+<li><a href="10-summary.html">10 · 总结与展望</a></li>
+</ul></nav>
+</aside>
+<main>
+<h1>01 · 产品概述</h1>
+<p class="lead"><strong>Northstar（NS）</strong> 是一个对话驱动的 AI 研发协作平台。它围绕同一个产品与需求，把需求调研、产品文档、技术设计、代码工作和质量依据连接起来，让人和 AI 有明确的分工与交接。</p>
+<blockquote><p>Chat in. Ship out.</p></blockquote>
+<h2>从一个想法，走向可检查的交付</h2>
+<p>一个软件想法真正落地，需要不断回答具体问题：为谁解决什么问题？本次做到哪里？技术上如何实现？如何证明结果符合需求？出现异议或失败时，由谁继续处理？</p>
+<p>Northstar 把这些工作组织成持续推进的需求流程。对话用于表达目标、补充背景和讨论取舍；确认过的结论进入 PRD、TD、测试与执行记录，后续工作可以在这些产物上继续。</p>
+<h2>人、模型与系统怎样分工</h2>
+<ul>
+<li><strong>人决定方向与承诺</strong>：确认范围、取舍、风险和重要操作，保留对产品的判断。</li>
+<li><strong>模型理解与生成</strong>：根据上下文开展调研、提出方案、编写草稿和形成评审意见。</li>
+<li><strong>系统校验与记录</strong>：检查当前状态、权限、产物和确认条件，通过实际执行记录变更与结果。</li>
+</ul>
+<p>PM、Dev、QA 是责任角色。一个人可以切换这些视角推进自己的产品；每个角色有独立职责与待办，共同围绕当前需求工作。</p>
+<h2>一条需求如何推进</h2>
+<ol class="steps">
+<li><strong>PM 澄清需求</strong>：确认用户、场景、范围与约束，整理调研发现，编写并评审 PRD。</li>
+<li><strong>PM 签核当前版本</strong>：解决待确认问题，形成 Dev 可以承接的产品需求与验收口径。</li>
+<li><strong>Dev 完成技术设计</strong>：调研技术约束，编写 TD、评审方案；业务异议交回 PM 决策，再同步设计。</li>
+<li><strong>围绕方案实现</strong>：确认实现步骤和验收方式，在受管工作区组织代码修改与验证。</li>
+<li><strong>QA 建立质量依据</strong>：从需求和设计组织测试，记录缺陷、修复与复测结果。</li>
+<li><strong>核对发布与复盘</strong>：汇总产品签核、质量结论与环境、步骤、回滚准备，保留发布后的改进依据。</li>
+</ol>
+<p class="note">当前公开录像展示了 PM 从需求调研到 PRD 签核，以及 Dev 从技术调研到实现步骤确认。测试、发布和复盘的后段能力仍处于实验性阶段，正在持续完善。</p>
+<h2>在哪些入口使用</h2>
+<table>
+<thead><tr><th scope="col">入口</th><th scope="col">主要用途</th></tr></thead>
+<tbody>
+<tr><td>Desktop</td><td>主要交互入口。进行对话、切换角色、查看卡片、确认操作与恢复产品现场。</td></tr>
+<tr><td>Viewer</td><td>只读文档工作台。按 PM、Dev、QA 的关注点查看产物、需求与待处理事项。</td></tr>
+<tr><td>CLI</td><td>提供终端对话、调试与自动化入口，通过统一服务接入当前产品。</td></tr>
+</tbody>
+</table>
+<h2>看一段真实使用过程</h2>
+<p>公开视频以家庭图片视频网站 media-harbor 为例。用户从本地素材浏览与打印筛选的想法开始，逐项确认调研结果，形成 PRD；Dev 接着完成技术调研与设计，并将评审发现的业务问题交回 PM 收口。</p>
+<figure class="product-media">
+<a href="https://www.bilibili.com/video/BV1XupR6NEgL/" target="_blank" rel="noopener noreferrer"><img src="../assets/video/pm-product-workflow-poster.webp" width="1920" height="1080" alt="Northstar Desktop 真实录像中的 PRD 文档查看界面" loading="lazy"></a>
+<figcaption><span>Northstar Desktop · 真实 PM 会话录像</span><a href="https://www.bilibili.com/video/BV1XupR6NEgL/" target="_blank" rel="noopener noreferrer">观看 PM 流程</a></figcaption>
+</figure>
+<p><a href="https://www.bilibili.com/video/BV16Qp962E1v/" target="_blank" rel="noopener noreferrer">继续观看 Dev 技术流程</a>，了解需求与设计如何在评审中反复对齐。录像止于实现步骤确认，后续代码与质量交付另有流程要求。</p>
+<nav class="pager" aria-label="页面翻页"><span class="pager-item prev disabled"><span class="label">← 上一页</span><span class="title">已是第一页</span></span><a class="pager-item next" href="02-value.html"><span class="label">下一页 →</span><span class="title">02 · 核心价值</span></a></nav>
+</main>
+</div>
+</body>
+</html>

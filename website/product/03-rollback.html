@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://godcin.com/product/03-rollback.html">
+<meta name="description" content="Northstar 的产品恢复点与配对需求分支回滚：恢复范围、执行过程和远端同步边界。">
+<title>03 · 回滚能力 · Northstar 产品介绍</title>
+<link rel="stylesheet" href="intro.css">
+<script src="intro.js" defer></script>
+</head>
+<body>
+<div class="layout">
+<aside class="side">
+<a class="home" href="../">← 返回 Northstar 首页</a>
+<p class="brand">Northstar 产品介绍</p>
+<nav aria-label="产品介绍页面"><ul>
+<li><a href="index.html">01 · 产品概述</a></li>
+<li><a href="02-value.html">02 · 核心价值</a></li>
+<li><a href="03-rollback.html" aria-current="page">03 · 回滚能力</a></li>
+<li><a href="04-third-agent.html">04 · 三方 Agent 能力</a></li>
+<li><a href="05-card-interaction.html">05 · 卡片式交互</a></li>
+<li><a href="06-governance.html">06 · 流程与状态治理</a></li>
+<li><a href="07-knowledge.html">07 · 知识与版本一致性</a></li>
+<li><a href="08-execution.html">08 · 执行与失败恢复</a></li>
+<li><a href="09-architecture.html">09 · 架构与扩展</a></li>
+<li><a href="10-summary.html">10 · 总结与展望</a></li>
+</ul></nav>
+</aside>
+<main>
+<h1>03 · 回滚能力</h1>
+<p class="lead">Northstar 在关键操作前保存恢复点，把代码、知识库与产品协作现场关联起来。当方向需要调整时，可以恢复整个产品现场，也可以只撤回某次需求分支交付。</p>
+<h2>恢复的不只是代码版本</h2>
+<p>代码回到了过去，文档、需求状态与聊天却仍停在后来，会让下一步工作失去依据。产品恢复点把这些相关材料绑定在一起，恢复后可以重新检查当时的角色、待办与确认步骤。</p>
+<p>恢复点对应具体操作开始前的现场。重复执行同一类操作会形成不同记录；同一次操作的重试沿用原来的恢复依据。</p>
+<h2>两种恢复范围</h2>
+<table>
+<thead><tr><th scope="col">方式</th><th scope="col">范围与使用场景</th></tr></thead>
+<tbody>
+<tr><td>产品现场恢复</td><td>恢复绑定的代码与知识库版本，以及 Northstar 管理的需求、流程记录、会话、记忆、审批、执行证据和产品运行配置。适合把协作现场整体回到此前状态。</td></tr>
+<tr><td>需求分支回滚</td><td>一起恢复代码与知识库的配对需求分支。main 和聊天保持当前状态，适合撤回需求开发中的一次交付。</td></tr>
+</tbody>
+</table>
+<h2>一次恢复怎样进行</h2>
+<ol class="steps">
+<li><strong>核对记录</strong>：在 Desktop 的恢复点入口选择可用记录，查看时间、操作与恢复范围。</li>
+<li><strong>明确确认</strong>：系统停止相关任务并阻止旧执行继续写入，保存当前现场与分支备份。</li>
+<li><strong>恢复并校验</strong>：按绑定版本恢复材料，核验仓库与运行状态；配置了远端的仓库还需要同步恢复结果。</li>
+<li><strong>重新打开工作现场</strong>：恢复可续接的会话与待确认事项，再由用户决定接下来继续哪项工作。</li>
+</ol>
+<p>历史执行不会因为恢复自动重跑。后续模型执行会使用新的执行聊天，避免旧执行结果继续改变已恢复的现场。</p>
+<h2>每个仓库都有可核对的结果</h2>
+<p>需求分支回滚分别报告代码仓与知识仓的结果：已回滚、尚未回滚、无改动或结果未知。一个仓库完成、另一个失败时，系统保留已经完成的一侧，后续继续核对剩余部分。</p>
+<p>遇到远端并发变化、权限错误或推送失败，恢复可能保持待处理状态。用户需要先核对实际结果，再继续恢复；不确定的结果会明确保留。</p>
+<h2>需要了解的边界</h2>
+<ul>
+<li>恢复入口目前在 Desktop；只有具备完整恢复依据的记录才能执行恢复。</li>
+<li>旧格式、缺少完整范围或证据的历史点可能只能查看。</li>
+<li>需求分支回滚不撤销已经进入 main 的发布；已发布改动需要新的反向交付。</li>
+<li>恢复覆盖 Northstar 管理的产品现场，全局凭据、任意磁盘文件与外部服务不属于这份快照。</li>
+<li>备份用于核对与排查，恢复过程中的未完成事项仍需要显式处理。</li>
+</ul>
+<p>针对一次操作中断后的续接方式，可以继续阅读 <a href="08-execution.html">执行与失败恢复</a>；它与选择历史恢复点属于不同的使用场景。</p>
+<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="02-value.html"><span class="label">← 上一页</span><span class="title">02 · 核心价值</span></a><a class="pager-item next" href="04-third-agent.html"><span class="label">下一页 →</span><span class="title">04 · 三方 Agent 能力</span></a></nav>
+</main>
+</div>
+</body>
+</html>

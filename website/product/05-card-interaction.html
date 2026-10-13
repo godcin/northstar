@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://godcin.com/product/05-card-interaction.html">
+<meta name="description" content="Northstar 用结构化卡片承载澄清、审批、下一步和结果，让用户确认具体对象与动作。">
+<title>05 · 卡片式交互 · Northstar 产品介绍</title>
+<link rel="stylesheet" href="intro.css">
+<script src="intro.js" defer></script>
+</head>
+<body>
+<div class="layout">
+<aside class="side">
+<a class="home" href="../">← 返回 Northstar 首页</a>
+<p class="brand">Northstar 产品介绍</p>
+<nav aria-label="产品介绍页面"><ul>
+<li><a href="index.html">01 · 产品概述</a></li>
+<li><a href="02-value.html">02 · 核心价值</a></li>
+<li><a href="03-rollback.html">03 · 回滚能力</a></li>
+<li><a href="04-third-agent.html">04 · 三方 Agent 能力</a></li>
+<li><a href="05-card-interaction.html" aria-current="page">05 · 卡片式交互</a></li>
+<li><a href="06-governance.html">06 · 流程与状态治理</a></li>
+<li><a href="07-knowledge.html">07 · 知识与版本一致性</a></li>
+<li><a href="08-execution.html">08 · 执行与失败恢复</a></li>
+<li><a href="09-architecture.html">09 · 架构与扩展</a></li>
+<li><a href="10-summary.html">10 · 总结与展望</a></li>
+</ul></nav>
+</aside>
+<main>
+<h1>05 · 卡片式交互</h1>
+<p class="lead">自由对话表达目标与背景，卡片承载明确选择、产物核对和关键操作。卡片绑定具体对象、动作与当前上下文，让用户和系统都知道这次确认意味着什么。</p>
+<h2>从表达意图，到确认具体动作</h2>
+<p>“我想增加一个日期筛选功能”适合通过对话讨论；“确认这批技术调研发现”“批准这次文件修改”“签核当前 PRD”则需要明确对象与操作范围。</p>
+<p>卡片提交的是结构化选择与字段。系统依据卡片身份、动作和当前版本续接流程，按钮文案只承担展示作用。</p>
+<h2>用户会遇到哪些卡片</h2>
+<table>
+<thead><tr><th scope="col">类型</th><th scope="col">内容与操作</th></tr></thead>
+<tbody>
+<tr><td>澄清问题</td><td>单选、多选或开放回答，逐题补充使用者、范围与约束；选择“其他”时可以说明自己的情况。</td></tr>
+<tr><td>清单与准备情况</td><td>核对已具备、待补充和阻塞项。涉及正式产物时，需要对应文档或证据。</td></tr>
+<tr><td>文档修改确认</td><td>查看目标文档、内容摘要或差异，补充必要字段后提交确认。</td></tr>
+<tr><td>工具审批</td><td>核对文件差异、命令或参数，按照当前提供的审批选项批准或驳回。</td></tr>
+<tr><td>当前步骤与下一步</td><td>查看需求阶段、阻塞原因和当前可用动作，打开相关文档或继续工作。</td></tr>
+<tr><td>结果与状态</td><td>回看正式结果、待完善项或失败原因；有对应入口时，可以查看评审、原文与任务依据。</td></tr>
+</tbody>
+</table>
+<h2>一个连贯的使用过程</h2>
+<ol class="steps">
+<li><strong>提出需求</strong>：通过对话表达目标，再通过问题卡确认用户、范围与约束。</li>
+<li><strong>核对调研与文档</strong>：确认发现，查看生成的 PRD，处理评审问题后签核。</li>
+<li><strong>进入技术工作</strong>：确认技术调研与方案；评审中的业务异议交回 PM 处理。</li>
+<li><strong>确认接下来做什么</strong>：查看当前推荐动作，核对实现顺序与验证方式，再决定继续执行。</li>
+</ol>
+<figure class="product-media">
+<a href="https://www.bilibili.com/video/BV16Qp962E1v/?t=3840" target="_blank" rel="noopener noreferrer"><img src="../assets/video/dev-technical-workflow-poster.webp" width="1920" height="1080" alt="Northstar Desktop 真实录像中的 TD 实现步骤确认界面" loading="lazy"></a>
+<figcaption><span>真实 Desktop 录像 · 实现步骤确认</span><a href="https://www.bilibili.com/video/BV16Qp962E1v/?t=3840" target="_blank" rel="noopener noreferrer">观看对应片段</a></figcaption>
+</figure>
+<h2>历史结果与当前动作分开</h2>
+<p>已提交卡片保留当时的内容与状态，原操作不能重复执行。历史卡片中仍然有效的查看入口可以继续使用，方便核对文档与评审依据。</p>
+<p>当前下一步根据现有需求状态重新计算。一个步骤完成后，系统呈现结果和当前可做的事，后续关键动作仍由用户明确发起。</p>
+<h2>状态变化时怎样保护确认</h2>
+<ul>
+<li>提交时重新检查卡片是否仍有效，以及对象、状态、权限与版本是否匹配。</li>
+<li>同一范围的新意图可以替代普通未提交交互；审批、签核与发布确认仍需要明确决定。</li>
+<li>自由输入可以继续讨论其他事项，待确认卡片不会要求用户只能沿一条固定路径说话。</li>
+<li>Viewer 汇总产物与待处理事项，保持只读；实际确认和执行回到对话完成。</li>
+</ul>
+<p>卡片负责清晰表达交互，正式推进由系统规则负责。下一章 <a href="06-governance.html">流程与状态治理</a> 会展开这一技术分工。</p>
+<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="04-third-agent.html"><span class="label">← 上一页</span><span class="title">04 · 三方 Agent 能力</span></a><a class="pager-item next" href="06-governance.html"><span class="label">下一页 →</span><span class="title">06 · 流程与状态治理</span></a></nav>
+</main>
+</div>
+</body>
+</html>

@@ -5,30 +5,51 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="canonical" href="https://godcin.com/product/05-card-interaction.html">
 <meta name="description" content="Northstar 用结构化卡片承载澄清、审批、下一步和结果，让用户确认具体对象与动作。">
-<title>05 · 卡片式交互 · Northstar 产品介绍</title>
+<title>03 · 卡片式交互 · Northstar 产品介绍</title>
+<meta name="theme-color" content="#0d0e11">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Northstar">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="卡片式交互 · Northstar 产品介绍">
+<meta property="og:description" content="Northstar 用结构化卡片承载澄清、审批、下一步和结果，让用户确认具体对象与动作。">
+<meta property="og:url" content="https://godcin.com/product/05-card-interaction.html">
+<meta property="og:image" content="https://godcin.com/assets/northstar-share-f0084951f0eb.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Northstar Desktop 真实产品会话画面">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="卡片式交互 · Northstar 产品介绍">
+<meta name="twitter:description" content="Northstar 用结构化卡片承载澄清、审批、下一步和结果，让用户确认具体对象与动作。">
+<meta name="twitter:image" content="https://godcin.com/assets/northstar-share-f0084951f0eb.jpg">
+<link rel="icon" href="../favicon.ico" sizes="32x32" type="image/x-icon">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="intro.css">
 <script src="intro.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main">跳转到正文</a>
 <div class="layout">
 <aside class="side">
 <a class="home" href="../">← 返回 Northstar 首页</a>
 <p class="brand">Northstar 产品介绍</p>
-<nav aria-label="产品介绍页面"><ul>
+<button class="contents-toggle" type="button" aria-expanded="false" aria-controls="intro-contents">章节目录 · 03 / 12<span>展开目录</span></button>
+<nav id="intro-contents" aria-label="产品介绍页面"><ul>
 <li><a href="index.html">01 · 产品概述</a></li>
 <li><a href="02-value.html">02 · 核心价值</a></li>
-<li><a href="03-rollback.html">03 · 回滚能力</a></li>
-<li><a href="04-third-agent.html">04 · 三方 Agent 能力</a></li>
-<li><a href="05-card-interaction.html" aria-current="page">05 · 卡片式交互</a></li>
-<li><a href="06-governance.html">06 · 流程与状态治理</a></li>
-<li><a href="07-knowledge.html">07 · 知识与版本一致性</a></li>
-<li><a href="08-execution.html">08 · 执行与失败恢复</a></li>
+<li><a href="05-card-interaction.html" aria-current="page">03 · 卡片式交互</a></li>
+<li><a href="06-governance.html">04 · 流程与状态治理</a></li>
+<li><a href="07-knowledge.html">05 · 知识与版本一致性</a></li>
+<li><a href="04-third-agent.html">06 · 外部 Agent 委派与交付</a></li>
+<li><a href="08-execution.html">07 · 执行与失败恢复</a></li>
+<li><a href="03-rollback.html">08 · 恢复点与回滚</a></li>
 <li><a href="09-architecture.html">09 · 架构与扩展</a></li>
-<li><a href="10-summary.html">10 · 总结与展望</a></li>
+<li><a href="10-evidence.html">10 · 结果核验与诊断</a></li>
+<li><a href="11-incident-response.html">11 · 线上问题定位与可靠性</a></li>
+<li><a href="10-summary.html">12 · 总结与展望</a></li>
 </ul></nav>
 </aside>
-<main>
-<h1>05 · 卡片式交互</h1>
+<main id="main">
+<h1>03 · 卡片式交互</h1>
 <p class="lead">自由对话表达目标与背景，卡片承载明确选择、产物核对和关键操作。卡片绑定具体对象、动作与当前上下文，让用户和系统都知道这次确认意味着什么。</p>
 <h2>从表达意图，到确认具体动作</h2>
 <p>“我想增加一个日期筛选功能”适合通过对话讨论；“确认这批技术调研发现”“批准这次文件修改”“签核当前 PRD”则需要明确对象与操作范围。</p>
@@ -57,17 +78,17 @@
 <figcaption><span>真实 Desktop 录像 · 实现步骤确认</span><a href="https://www.bilibili.com/video/BV16Qp962E1v/?t=3840" target="_blank" rel="noopener noreferrer">观看对应片段</a></figcaption>
 </figure>
 <h2>历史结果与当前动作分开</h2>
-<p>已提交卡片保留当时的内容与状态，原操作不能重复执行。历史卡片中仍然有效的查看入口可以继续使用，方便核对文档与评审依据。</p>
+<p>已提交卡片保留当时的内容与状态，重复提交会核对已有执行记录。历史卡片中仍然有效的查看入口可以继续使用，方便回看文档与评审依据。</p>
 <p>当前下一步根据现有需求状态重新计算。一个步骤完成后，系统呈现结果和当前可做的事，后续关键动作仍由用户明确发起。</p>
 <h2>状态变化时怎样保护确认</h2>
 <ul>
 <li>提交时重新检查卡片是否仍有效，以及对象、状态、权限与版本是否匹配。</li>
-<li>同一范围的新意图可以替代普通未提交交互；审批、签核与发布确认仍需要明确决定。</li>
-<li>自由输入可以继续讨论其他事项，待确认卡片不会要求用户只能沿一条固定路径说话。</li>
+<li>修改同一事项的目标后，系统会重新判断原待答卡片是否适用；审批、签核和发布确认仍需要明确决定。</li>
+<li>卡片等待确认时，仍可以用对话补充背景或讨论其他事项，再回到当前有效的卡片继续处理。</li>
 <li>Viewer 汇总产物与待处理事项，保持只读；实际确认和执行回到对话完成。</li>
 </ul>
 <p>卡片负责清晰表达交互，正式推进由系统规则负责。下一章 <a href="06-governance.html">流程与状态治理</a> 会展开这一技术分工。</p>
-<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="04-third-agent.html"><span class="label">← 上一页</span><span class="title">04 · 三方 Agent 能力</span></a><a class="pager-item next" href="06-governance.html"><span class="label">下一页 →</span><span class="title">06 · 流程与状态治理</span></a></nav>
+<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="02-value.html"><span class="label">← 上一页</span><span class="title">02 · 核心价值</span></a><a class="pager-item next" href="06-governance.html"><span class="label">下一页 →</span><span class="title">04 · 流程与状态治理</span></a></nav>
 </main>
 </div>
 </body>

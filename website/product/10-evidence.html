@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://godcin.com/product/10-evidence.html">
+<meta name="description" content="Northstar 的受管文件落地验证、执行反馈、审计证据与诊断基础，帮助核对实际结果和定位失败环节。">
+<title>10 · 结果核验与诊断 · Northstar 产品介绍</title>
+<meta name="theme-color" content="#0d0e11">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Northstar">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="结果核验与诊断 · Northstar 产品介绍">
+<meta property="og:description" content="Northstar 的受管文件落地验证、执行反馈、审计证据与诊断基础，帮助核对实际结果和定位失败环节。">
+<meta property="og:url" content="https://godcin.com/product/10-evidence.html">
+<meta property="og:image" content="https://godcin.com/assets/northstar-share-f0084951f0eb.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Northstar Desktop 真实产品会话画面">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="结果核验与诊断 · Northstar 产品介绍">
+<meta name="twitter:description" content="Northstar 的受管文件落地验证、执行反馈、审计证据与诊断基础，帮助核对实际结果和定位失败环节。">
+<meta name="twitter:image" content="https://godcin.com/assets/northstar-share-f0084951f0eb.jpg">
+<link rel="icon" href="../favicon.ico" sizes="32x32" type="image/x-icon">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="intro.css">
+<script src="intro.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳转到正文</a>
+<div class="layout">
+<aside class="side">
+<a class="home" href="../">← 返回 Northstar 首页</a>
+<p class="brand">Northstar 产品介绍</p>
+<button class="contents-toggle" type="button" aria-expanded="false" aria-controls="intro-contents">章节目录 · 10 / 12<span>展开目录</span></button>
+<nav id="intro-contents" aria-label="产品介绍页面"><ul>
+<li><a href="index.html">01 · 产品概述</a></li>
+<li><a href="02-value.html">02 · 核心价值</a></li>
+<li><a href="05-card-interaction.html">03 · 卡片式交互</a></li>
+<li><a href="06-governance.html">04 · 流程与状态治理</a></li>
+<li><a href="07-knowledge.html">05 · 知识与版本一致性</a></li>
+<li><a href="04-third-agent.html">06 · 外部 Agent 委派与交付</a></li>
+<li><a href="08-execution.html">07 · 执行与失败恢复</a></li>
+<li><a href="03-rollback.html">08 · 恢复点与回滚</a></li>
+<li><a href="09-architecture.html">09 · 架构与扩展</a></li>
+<li><a href="10-evidence.html" aria-current="page">10 · 结果核验与诊断</a></li>
+<li><a href="11-incident-response.html">11 · 线上问题定位与可靠性</a></li>
+<li><a href="10-summary.html">12 · 总结与展望</a></li>
+</ul></nav>
+</aside>
+<main id="main">
+<h1>10 · 结果核验与诊断</h1>
+<p class="lead">一次操作有没有真正完成，出现问题时又该从哪里查起？Northstar 将工具结果、文件变化、审批和运行记录保留下来，支持核对实际结果与定位失败环节。</p>
+<h2>从执行到完成，需要可检查的结果</h2>
+<p>运行进度来自实际状态与事件，工具调用保留输入、返回和失败信息。关键操作可以结合对应文档、目标版本与交付回执核对，让用户知道当前正在处理什么、哪一步需要继续。</p>
+<p>例如一次文档修改，工具返回“成功”之后，还需要确认目标内容是否按预期写入。代码候选则通过约定的验收命令检查结果，相关机制见 <a href="04-third-agent.html">外部 Agent 委派与交付</a>。</p>
+<h2>受管文件工具写入后再读回</h2>
+<p>对声明了变更契约的受管文件工具，系统捕获写入前后的内容或摘要，保存变更回执，并按工具定义核验目标。写文件核对完整内容，替换文本核对替换结果，补丁工具检查声明目标的实际变化。</p>
+<p>这些检查证明的是指定变更是否落地，业务效果还需要相应评审与测试。普通命令、外部工具和 MCP 调用的验证方式取决于各自契约，不能默认具备同样的文件回读保护。</p>
+<h2>检查反馈帮助继续补齐验证</h2>
+<p>执行后的反馈会检查工具结果和已有观察。如果写入缺少验证依据，会要求补充读取或检查；发现声明的成功与实际结果不符时，保留问题并引导后续处理。这个过程有轮数和能力边界，不能替代独立验收。</p>
+<p>对支持撤销的受管文件操作，系统在执行撤销前会核对：所有目标是否仍保持原操作完成时的内容。如果文件已有后续修改，就拒绝直接覆盖，交由用户处理新的差异。</p>
+<h2>运行记录按用途组织</h2>
+<table>
+<thead><tr><th scope="col">记录</th><th scope="col">用于核对什么</th></tr></thead>
+<tbody>
+<tr><td>审计记录<br>Audit</td><td>会话、执行过程、工具调用与上下文，追查动作如何发生。</td></tr>
+<tr><td>执行证据<br>Evidence</td><td>工具结果、成功或失败信息，为后续流程提供结果依据。</td></tr>
+<tr><td>运行检查点<br>Checkpoint</td><td>状态迁移时保存的运行上下文，帮助检查中断时的现场。</td></tr>
+</tbody>
+</table>
+<p>这些记录可以通过会话和执行身份关联。运行检查点用于保存执行上下文，<a href="03-rollback.html">产品恢复点</a> 还涉及仓库和受管产品状态的恢复，两者服务于不同范围。</p>
+<h2>结果未知，也是一种需要保留的事实</h2>
+<table>
+<thead><tr><th scope="col">结果</th><th scope="col">用户需要看到的依据</th></tr></thead>
+<tbody>
+<tr><td>完成</td><td>对应操作的回执、目标结果，以及该操作要求的验证记录。</td></tr>
+<tr><td>部分完成</td><td>哪些批次已写入、哪些仍待处理，以及可继续的位置。</td></tr>
+<tr><td>未知</td><td>中断或超时发生在哪里，哪些结果尚待读回或人工核对。</td></tr>
+<tr><td>失败</td><td>失败原因、已知影响和当前可采取的下一步。</td></tr>
+</tbody>
+</table>
+<p>明确这些状态，能帮助接手者判断应该查结果、补充材料还是重新执行。具体续接方式见 <a href="08-execution.html">执行与失败恢复</a>。</p>
+<h2>诊断基础与未来应用</h2>
+<p>Northstar 自身已有结构化运行记录和维护诊断工具，用于汇集状态、失败原因与执行证据，帮助定位运行或流程异常。诊断会保留无法确定的结果，能收集证据的范围取决于现有记录。</p>
+<p>把这类能力扩展到用户产品的监控、日志、发布、代码和人员关系，是下一篇 <a href="11-incident-response.html">线上问题定位与可靠性</a> 的规划方向。它需要进一步的数据接入与关联建设。</p>
+<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="09-architecture.html"><span class="label">← 上一页</span><span class="title">09 · 架构与扩展</span></a><a class="pager-item next" href="11-incident-response.html"><span class="label">下一页 →</span><span class="title">11 · 线上问题定位与可靠性</span></a></nav>
+</main>
+</div>
+</body>
+</html>

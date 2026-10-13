@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0d0e11">
     <meta name="application-name" content="Northstar">
-    <meta name="description" content="Northstar 是对话驱动的 AI 研发协作平台。将需求分析、技术设计、代码实现、测试验收与发布确认，连接成一条有依据、可追溯的工作流。">
+    <meta name="description" content="Northstar 是对话驱动的 AI 研发协作平台。围绕同一需求，连接 PM、Dev、QA 的职责、产品知识与工程产物，让讨论有结论、交接有依据、结果可核对。">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Northstar">
     <meta property="og:locale" content="zh_CN">
     <meta property="og:title" content="Northstar · 对话驱动的 AI 研发协作平台">
-    <meta property="og:description" content="Chat in. Ship out. 从产品想法到软件交付，让 PM、Dev、QA 在同一条工作流中协作。">
+    <meta property="og:description" content="Chat in. Ship out. 让 PM、Dev、QA 围绕同一需求协作，连接产品知识与工程产物，让交接有依据、结果可核对。">
     <meta property="og:image" content="https://godcin.com/assets/northstar-share-f0084951f0eb.jpg">
     <meta property="og:image:secure_url" content="https://godcin.com/assets/northstar-share-f0084951f0eb.jpg">
     <meta property="og:image:type" content="image/jpeg">
@@ -20,7 +20,7 @@
     <meta property="og:url" content="https://godcin.com/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Northstar · 对话驱动的 AI 研发协作平台">
-    <meta name="twitter:description" content="Chat in. Ship out. 从产品想法到软件交付，让 PM、Dev、QA 在同一条工作流中协作。">
+    <meta name="twitter:description" content="Chat in. Ship out. 让 PM、Dev、QA 围绕同一需求协作，连接产品知识与工程产物，让交接有依据、结果可核对。">
     <meta name="twitter:image" content="https://godcin.com/assets/northstar-share-f0084951f0eb.jpg">
     <meta name="twitter:image:alt" content="Northstar · 对话驱动的 AI 研发协作平台，及真实 Desktop 产品需求会话画面">
     <link rel="canonical" href="https://godcin.com/">
@@ -40,16 +40,16 @@
     <a class="skip-link" href="#main">跳转到正文</a>
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="#" aria-label="Northstar 首页">
+        <a class="brand" href="./" aria-label="Northstar 首页">
           <span class="brand-mark" aria-hidden="true"><i data-lucide="sparkles"></i></span>
           <span>Northstar</span>
         </a>
         <nav class="desktop-nav" aria-label="主导航">
           <a href="product/index.html">产品介绍</a>
-          <a href="#demo">产品演示</a>
           <a href="#desktop-journey">流程演示</a>
+          <a href="#demo">工作台</a>
           <a href="#workflow">工作流</a>
-          <a href="#principles">产品理念</a>
+          <a href="#principles">工程能力</a>
         </nav>
         <button class="icon-button menu-toggle" type="button" aria-label="展开导航" aria-controls="mobile-nav" aria-expanded="false" title="展开导航">
           <i data-lucide="menu" aria-hidden="true"></i>
@@ -57,10 +57,10 @@
       </div>
       <nav id="mobile-nav" class="mobile-nav" aria-label="移动端导航" hidden>
         <a href="product/index.html">产品介绍<i data-lucide="arrow-right" aria-hidden="true"></i></a>
-        <a href="#demo">产品演示<i data-lucide="arrow-down" aria-hidden="true"></i></a>
         <a href="#desktop-journey">流程演示<i data-lucide="arrow-down" aria-hidden="true"></i></a>
+        <a href="#demo">工作台<i data-lucide="arrow-down" aria-hidden="true"></i></a>
         <a href="#workflow">工作流<i data-lucide="arrow-down" aria-hidden="true"></i></a>
-        <a href="#principles">产品理念<i data-lucide="arrow-down" aria-hidden="true"></i></a>
+        <a href="#principles">工程能力<i data-lucide="arrow-down" aria-hidden="true"></i></a>
       </nav>
     </header>
 
@@ -209,6 +209,7 @@
           <div>
             <p class="section-label">NORTHSTAR AGENT / VIEWER</p>
             <h2 id="demo-title">同一份上下文，各自的关注点。</h2>
+            <p class="showcase-description">Viewer 按角色呈现文档与待办。下方使用示例项目，上方视频记录真实 Desktop 操作。</p>
           </div>
           <div class="showcase-tools">
             <div class="role-tabs" role="tablist" aria-label="工作台角色">
@@ -237,16 +238,17 @@
           <div class="section-intro">
             <p class="section-label">ONE CONNECTED WORKFLOW</p>
             <h2 id="workflow-title">从想法到交付，<br>每一步都接得上。</h2>
-            <p>对话是入口。需求、设计、代码与验收，<br class="desktop-break">是持续积累的工程产物。</p>
+            <p>围绕一条需求组织研发全过程，<br class="desktop-break">让当前范围、交接条件和下一步工作清晰可见。</p>
           </div>
           <ol class="workflow-steps">
             <li><span class="step-number">01</span><i data-lucide="messages-square" aria-hidden="true"></i><h3>需求分析</h3><p>澄清目标与范围，<br>形成清晰的产品需求。</p><span class="step-role">PM / 产品</span></li>
             <li><span class="step-number">02</span><i data-lucide="git-branch" aria-hidden="true"></i><h3>技术设计</h3><p>连接需求与实现，<br>明确方案和影响范围。</p><span class="step-role role-dev">Dev / 技术</span></li>
             <li><span class="step-number">03</span><i data-lucide="code-2" aria-hidden="true"></i><h3>代码实现</h3><p>围绕确认的方案开发，<br>保留执行与变更记录。</p><span class="step-role role-dev">Dev / 技术</span></li>
-            <li><span class="step-number">04</span><i data-lucide="list-checks" aria-hidden="true"></i><h3>测试验收</h3><p>关联测试与验收目标，<br>记录缺陷和质量证据。</p><span class="step-role role-qa">QA / 质量</span></li>
-            <li><span class="step-number">05</span><i data-lucide="flag" aria-hidden="true"></i><h3>发布确认</h3><p>核对交付与发布条件，<br>为复盘留下依据。</p><span class="step-role role-shared">PM · Dev · QA</span></li>
+            <li><span class="step-number">04</span><i data-lucide="list-checks" aria-hidden="true"></i><h3>测试验收</h3><p>关联测试与验收目标，<br>记录缺陷和质量证据。</p><span class="step-role role-qa">QA / 质量</span><span class="step-status">实验性</span></li>
+            <li><span class="step-number">05</span><i data-lucide="flag" aria-hidden="true"></i><h3>发布与复盘</h3><p>核对发布与恢复准备，<br>记录结果和后续改进。</p><span class="step-role role-shared">PM · Dev · QA</span><span class="step-status">实验性</span></li>
           </ol>
           <div class="workflow-note"><i data-lucide="arrow-right-left" aria-hidden="true"></i><p>需求有异议，回到产品确认；测试发现缺陷，交回开发修复。<span>协作不止向前，也能有依据地返回。</span></p></div>
+          <p class="workflow-scope">公开视频展示 PM 从需求调研到 PRD 签核、Dev 从技术调研到实现步骤确认。Dev 签核、QA、缺陷修复、发布与复盘流程仍为实验性能力，正在持续验证与完善。</p>
         </div>
       </section>
 
@@ -254,13 +256,38 @@
         <div class="content-width">
           <div class="principles-heading">
             <div><p class="section-label">BUILT FOR ENGINEERING</p><h2 id="principles-title">让 AI 的工作，<br>成为可验证的工程。</h2></div>
-            <p>Northstar 用明确的职责、流程与证据，<br class="desktop-break">连接模型的理解能力和工程的确定性。</p>
+            <p>把角色、版本和执行结果纳入同一条链路，<br class="desktop-break">让每次推进都有可以检查的工程依据。</p>
           </div>
           <div class="principle-grid">
-            <article class="principle"><i data-lucide="users-round" aria-hidden="true"></i><div><h3>角色清晰，交接自然</h3><p>围绕 PM、Dev、QA 的职责组织任务与产物。切换角色时，继续当前需求真正需要处理的工作。</p></div></article>
-            <article class="principle"><i data-lucide="shield-check" aria-hidden="true"></i><div><h3>关键动作，按条件推进</h3><p>显式状态、流程检查与分级审批，让重要操作满足权限与交付条件，再继续下一步。</p></div></article>
-            <article class="principle"><i data-lucide="scan-line" aria-hidden="true"></i><div><h3>结果有依据，过程可追溯</h3><p>将工具执行、文件变更与质量证据关联起来。保留记录，核实产物，而不只依赖一句“已完成”。</p></div></article>
-            <article class="principle"><i data-lucide="blocks" aria-hidden="true"></i><div><h3>能力扩展，边界明确</h3><p>通过模块化 Skill、MCP 工具接入与模型适配扩展能力，同时沿用统一的执行与权限边界。</p></div></article>
+            <article class="principle"><i data-lucide="users-round" aria-hidden="true"></i><div><h3>角色交接，带着成果继续</h3><p>PM、Dev、QA 各有职责与待办。切换角色时承接当前需求的产物与阻塞，业务异议交回 PM，开发继续使用确认过的需求。</p><a class="text-link" href="product/06-governance.html">了解流程治理<i data-lucide="arrow-right" aria-hidden="true"></i></a></div></article>
+            <article class="principle"><i data-lucide="network" aria-hidden="true"></i><div><h3>结构化关联，让知识接得上</h3><p>需求、技术设计、代码与验证资料保留标识、版本和关联。通过 Alignment 检查上下游覆盖与一致性，让修改影响有迹可循。</p><a class="text-link" href="product/07-knowledge.html">了解知识与版本<i data-lucide="arrow-right" aria-hidden="true"></i></a></div></article>
+            <article class="principle"><i data-lucide="git-compare-arrows" aria-hidden="true"></i><div><h3>评审结论，对应具体版本</h3><p>评审记录绑定送审材料与规则版本。产物变化后重新核验结论有效性，签核前检查当前范围、未解决问题与交付条件。</p><a class="text-link" href="product/07-knowledge.html">了解版本一致性<i data-lucide="arrow-right" aria-hidden="true"></i></a></div></article>
+            <article class="principle"><i data-lucide="blocks" aria-hidden="true"></i><div><h3>受管委派，明确交付范围</h3><p>将目标、范围与验收要求交给外部 Agent，在受管工作区执行代码任务。Northstar 核对改动与验收结果，再按流程承接交付。</p><a class="text-link" href="product/04-third-agent.html">了解 Agent 委派<i data-lucide="arrow-right" aria-hidden="true"></i></a></div></article>
+            <article class="principle"><i data-lucide="scan-line" aria-hidden="true"></i><div><h3>核对实际结果，保留执行依据</h3><p>结合工具回执、文件变化与验证输出判断结果，明确完成、部分完成和待核对事项。重要操作经过权限与确认检查，过程留下记录。</p><a class="text-link" href="product/10-evidence.html">了解结果核验与诊断<i data-lucide="arrow-right" aria-hidden="true"></i></a></div></article>
+            <article class="principle"><i data-lucide="history" aria-hidden="true"></i><div><h3>中断有记录，恢复有范围</h3><p>用执行记录接续未完成工作，用恢复点回到选定的产品现场。分别核对代码仓、知识库仓与运行状态，让恢复结果可以逐项检查。</p><a class="text-link" href="product/03-rollback.html">了解恢复点与回滚<i data-lucide="arrow-right" aria-hidden="true"></i></a></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="future section-band" aria-labelledby="future-title">
+        <div class="content-width">
+          <div class="future-heading">
+            <div><p class="section-label">WHAT COMES NEXT · 后续规划</p><h2 id="future-title">让研发知识，<br>继续服务线上可靠性。</h2></div>
+            <p>从单个产品的交付，走向多人协作、多产品代码与知识管理。计划以 LlamaIndex 构建基于结构化数据的 RAG，并结合知识图谱，让线上异常能够沿来源、版本与关系追查。</p>
+          </div>
+          <ol class="future-path" aria-label="规划中的线上问题定位与修复链路">
+            <li><span>01 / 发现</span><strong>监控与日志</strong><p>告警、指标、调用链</p></li>
+            <li><span>02 / 定位</span><strong>版本与代码</strong><p>部署记录、近期变更</p></li>
+            <li><span>03 / 追溯</span><strong>设计与需求</strong><p>技术约束、产品规则</p></li>
+            <li><span>04 / 协作</span><strong>开发者与产品负责人</strong><p>按问题类型组织参与者</p></li>
+            <li><span>05 / 恢复</span><strong>决策、修复与验证</strong><p>确认恢复，沉淀故障知识</p></li>
+          </ol>
+          <div class="future-footer">
+            <p>实现问题由 Dev 分析，产品问题由 PM 澄清。AI 提供依据与候选方案，相关人员决策后推进修复，缩短定位和恢复时间，提高系统可用性与可靠性。</p>
+            <div class="future-links">
+              <a class="text-link" href="product/11-incident-response.html">阅读线上问题处理展望<i data-lucide="arrow-right" aria-hidden="true"></i></a>
+              <a class="text-link" href="product/10-summary.html">查看分期路线<i data-lucide="arrow-right" aria-hidden="true"></i></a>
+            </div>
           </div>
         </div>
       </section>
@@ -269,8 +296,8 @@
         <div class="content-width questions-layout">
           <div><p class="section-label">A LITTLE MORE CONTEXT</p><h2 id="questions-title">关于 Northstar</h2></div>
           <div class="question-list">
-            <details><summary>Northstar 与普通编码助手有什么不同？<i data-lucide="plus" aria-hidden="true"></i></summary><p>Northstar 关注完整的研发交付过程：不仅生成代码，还围绕需求分析、技术设计、测试验收与发布确认，组织角色职责、工程产物和下一步工作。</p></details>
-            <details><summary>PM、Dev、QA 是怎样协作的？<i data-lucide="plus" aria-hidden="true"></i></summary><p>它们是同一工作流中的责任角色。PM 明确产品需求与验收方向，Dev 推进技术设计与实现，QA 建立测试与验收证据。异议与缺陷会交回对应角色处理。</p></details>
+            <details><summary>Northstar 主要解决什么问题？<i data-lucide="plus" aria-hidden="true"></i></summary><p>把分散在讨论、文档和执行中的研发依据连接起来。围绕同一需求，逐步明确目标、范围、方案和验收方式；用状态、版本与执行记录说明工作进行到哪里，下一步由哪个角色承接。</p></details>
+            <details><summary>需要多人才能使用 PM、Dev、QA 吗？<i data-lucide="plus" aria-hidden="true"></i></summary><p>一个人也可以切换这三个责任角色推进自己的产品。PM 负责产品需求与业务取舍，Dev 负责技术设计与实现，QA 负责验证与质量依据。多人同时协作、人员权限和更细的职责划分属于后续规划。</p></details>
             <details><summary>产品界面在哪里运行？<i data-lucide="plus" aria-hidden="true"></i></summary><p>Northstar 以桌面客户端作为主要交互入口。Viewer 是查看项目、需求文档与协作事项的只读工作台；CLI 可用于调试与自动化。本页包含真实 Desktop 会话录像，以及使用示例数据的 Viewer 界面。</p></details>
             <details><summary>可以接入已有的模型和工具吗？<i data-lucide="plus" aria-hidden="true"></i></summary><p>Northstar 通过模型适配层、Skill 和 MCP 客户端接入扩展能力。可用模型和工具取决于实际配置；相关工具调用仍经过统一的权限、执行与记录流程。</p></details>
           </div>
@@ -303,7 +330,8 @@
         <div class="content-width explore-inner">
           <p class="eyebrow">YOUR NEXT IDEA, ONE STEP CLOSER.</p>
           <h2 id="explore-title">让下一个想法，<br>向交付靠近。</h2>
-          <p>了解 Northstar，关注项目的下一步。</p>
+          <p>从产品概述、工程能力，到分期展望，继续了解 Northstar。</p>
+          <a class="button button-primary" href="product/index.html">阅读完整产品介绍<i data-lucide="arrow-right" aria-hidden="true"></i></a>
           <div class="share-tools">
             <p class="share-label">分享 Northstar</p>
             <nav class="share-toolbar" aria-label="分享 Northstar">
@@ -322,7 +350,7 @@
     </main>
 
     <footer class="site-footer content-width">
-      <a class="brand" href="#"><span class="brand-mark" aria-hidden="true"><i data-lucide="sparkles"></i></span><span>Northstar</span></a>
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true"><i data-lucide="sparkles"></i></span><span>Northstar</span></a>
       <p>Chat in. Ship out.</p>
     </footer>
 

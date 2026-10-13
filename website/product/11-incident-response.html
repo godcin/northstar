@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://godcin.com/product/11-incident-response.html">
+<meta name="description" content="Northstar 的线上问题定位与可靠性展望：沿监控、日志、代码、需求和负责人关系追查，组织 Dev、PM 与 QA 决策修复。">
+<title>11 · 线上问题定位与可靠性 · Northstar 产品介绍</title>
+<meta name="theme-color" content="#0d0e11">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Northstar">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="线上问题定位与可靠性 · Northstar 产品介绍">
+<meta property="og:description" content="Northstar 的线上问题定位与可靠性展望：沿监控、日志、代码、需求和负责人关系追查，组织 Dev、PM 与 QA 决策修复。">
+<meta property="og:url" content="https://godcin.com/product/11-incident-response.html">
+<meta property="og:image" content="https://godcin.com/assets/northstar-share-f0084951f0eb.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Northstar Desktop 真实产品会话画面">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="线上问题定位与可靠性 · Northstar 产品介绍">
+<meta name="twitter:description" content="Northstar 的线上问题定位与可靠性展望：沿监控、日志、代码、需求和负责人关系追查，组织 Dev、PM 与 QA 决策修复。">
+<meta name="twitter:image" content="https://godcin.com/assets/northstar-share-f0084951f0eb.jpg">
+<link rel="icon" href="../favicon.ico" sizes="32x32" type="image/x-icon">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="intro.css">
+<script src="intro.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳转到正文</a>
+<div class="layout">
+<aside class="side">
+<a class="home" href="../">← 返回 Northstar 首页</a>
+<p class="brand">Northstar 产品介绍</p>
+<button class="contents-toggle" type="button" aria-expanded="false" aria-controls="intro-contents">章节目录 · 11 / 12<span>展开目录</span></button>
+<nav id="intro-contents" aria-label="产品介绍页面"><ul>
+<li><a href="index.html">01 · 产品概述</a></li>
+<li><a href="02-value.html">02 · 核心价值</a></li>
+<li><a href="05-card-interaction.html">03 · 卡片式交互</a></li>
+<li><a href="06-governance.html">04 · 流程与状态治理</a></li>
+<li><a href="07-knowledge.html">05 · 知识与版本一致性</a></li>
+<li><a href="04-third-agent.html">06 · 外部 Agent 委派与交付</a></li>
+<li><a href="08-execution.html">07 · 执行与失败恢复</a></li>
+<li><a href="03-rollback.html">08 · 恢复点与回滚</a></li>
+<li><a href="09-architecture.html">09 · 架构与扩展</a></li>
+<li><a href="10-evidence.html">10 · 结果核验与诊断</a></li>
+<li><a href="11-incident-response.html" aria-current="page">11 · 线上问题定位与可靠性</a></li>
+<li><a href="10-summary.html">12 · 总结与展望</a></li>
+</ul></nav>
+</aside>
+<main id="main">
+<h1>11 · 线上问题定位与可靠性</h1>
+<p class="chapter-status">未来规划</p>
+<p class="lead">让 AI 从监控异常一路查到日志、代码、需求和相关人员，快速提出解决方案，再由人决策修复。Northstar 希望借助结构化数据、LlamaIndex RAG 与知识图谱，缩短故障恢复时间，提高系统可用性和可靠性。</p>
+<h2>先把资料之间的关系连接完整</h2>
+<p>线上告警提示异常之后，团队还需要知道：哪个版本发生了变化？对应什么需求？谁负责实现？产品规则为什么这样定义？这些信息分散在不同系统时，定位问题往往需要反复寻找上下文。</p>
+<p>计划统一对象的标识、字段与引用：需求关联实际开发者和产品负责人，代码提交关联需求，部署版本关联发布记录，运行信息关联服务和环境。保留来源、版本与参与记录，并检查缺失引用和失效关系，让 AI 沿规范化数据持续追查，减少关联断链。</p>
+<h2>从监控异常追查到相关人员</h2>
+<ol class="trace-chain" aria-label="线上问题追查路径">
+<li><span>01 · 发现</span><strong>监控与告警</strong><p>确定异常服务、环境和时间范围。</p></li>
+<li><span>02 · 观察</span><strong>日志与调用链</strong><p>核对错误、延迟与业务影响。</p></li>
+<li><span>03 · 定位变化</span><strong>发布与代码</strong><p>追查部署版本和相关提交。</p></li>
+<li><span>04 · 还原依据</span><strong>设计与需求</strong><p>查阅业务规则、方案与验收标准。</p></li>
+<li><span>05 · 确定参与者</span><strong>开发者与产品负责人</strong><p>结合问题类型组织相关人员。</p></li>
+<li><span>06 · 决策修复</span><strong>提出方案，由人决定</strong><p>执行修复、验证恢复、沉淀复盘。</p></li>
+</ol>
+<h2>LlamaIndex RAG 与知识图谱各做什么</h2>
+<p>计划用 LlamaIndex 构建 RAG（检索增强生成），组织产品知识、代码与故障资料的接入、索引和检索。结合语义检索与产品、服务、环境、版本、时间条件，为分析提供可引用的原始依据。</p>
+<p>结构化关系和知识图谱连接对象，帮助继续查询依赖与影响。运行数据通过相应的监控和日志查询能力获取，再与检索出的研发材料对齐。每条关键判断保留来源，并按访问权限提供结果，方便相关人员核对。</p>
+<h2>实现问题找 Dev，产品问题找 PM</h2>
+<table>
+<thead><tr><th scope="col">问题类型</th><th scope="col">分析与决策</th></tr></thead>
+<tbody>
+<tr><td>实现问题</td><td>Dev 结合代码、日志和设计提出修复或回滚建议，组织相关开发者参与，必要时加入 QA 与运维。</td></tr>
+<tr><td>产品问题</td><td>PM 核对需求目标、业务规则和历史决策，提出澄清或调整建议，由产品负责人确认取舍。</td></tr>
+<tr><td>涉及多个职责</td><td>PM、Dev 与相关 QA、运维、发布人员共同判断影响，明确方案、处理负责人和执行时机。</td></tr>
+</tbody>
+</table>
+<p>AI 提供问题判断、证据、候选方案、影响范围与验证方式。相关人员据此决定采用什么方案、是否执行及何时执行，再按职责推进处理。</p>
+<h2>以一次发布后的异常为例</h2>
+<p>假设订单接口在发布后错误率上升，目标流程会先查询异常时间段的日志与调用链，找到部署版本及相关代码提交，再追查需求、技术设计和此前的类似故障。</p>
+<p>若证据指向实现缺陷，交由 Dev 与原开发者提出修复或回滚方案；若涉及业务规则取舍，则请 PM 与产品负责人共同确认。参与者核对候选方案及风险后决定执行，再检查关键业务、错误率、延迟和相关测试是否恢复预期。</p>
+<h2>把处理经验变成下次可用的知识</h2>
+<p>问题处理后，将故障原因、决策、执行动作、修复版本、验证结果和参与人员保存为结构化记录。后续同类问题可以复用这些依据，也能根据复盘补充测试、监控和关联关系，减少重复故障。</p>
+<p>以定位耗时、恢复耗时、故障复发率和服务可用性评估效果，让知识积累落实到处理效率与运行质量。</p>
+<p class="note">当前已有的审计、执行证据与诊断基础主要服务于 Northstar 自身运行。上述公司级 RAG、知识图谱、用户产品监控接入和人员协同闭环属于后续规划，演进顺序见 <a href="10-summary.html">总结与展望</a>。</p>
+<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="10-evidence.html"><span class="label">← 上一页</span><span class="title">10 · 结果核验与诊断</span></a><a class="pager-item next" href="10-summary.html"><span class="label">下一页 →</span><span class="title">12 · 总结与展望</span></a></nav>
+</main>
+</div>
+</body>
+</html>

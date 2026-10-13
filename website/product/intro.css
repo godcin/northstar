@@ -11,6 +11,9 @@ body{margin:0;background:#0d0e11;color:#f0f0f3;font:15px/1.75 -apple-system,Blin
 .side a{display:block;padding:9px 12px;border-radius:8px;font-size:14px;line-height:1.5;color:#c9cad1;text-decoration:none;transition:background .16s,color .16s}
 .side a:hover{background:#15161b;color:#f0f0f3}
 .side a[aria-current="page"]{background:rgba(255,255,255,.08);color:#f0f0f3;font-weight:600}
+.contents-toggle{display:none}
+.skip-link{position:fixed;left:16px;top:12px;z-index:10;transform:translateY(-160%);background:#15161b;padding:8px 14px;border:1px solid #af87ff;border-radius:6px}
+.skip-link:focus{transform:translateY(0)}
 main{flex:1;min-width:0;width:100%;max-width:820px;margin:0 auto;padding:48px 40px 80px;overflow-wrap:anywhere}
 h1{font-size:32px;line-height:1.4;font-weight:600;margin:0 0 16px}
 h2{font-size:20px;font-weight:600;margin:40px 0 12px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
@@ -18,6 +21,7 @@ h3{font-size:16px;font-weight:600;margin:24px 0 8px;color:#f0f0f3}
 p,li{color:#c9cad1}
 p{margin:12px 0}
 .lead{font-size:16px;line-height:1.85;color:#9b9ca6}
+.chapter-status{display:inline-block;margin:0 0 8px;padding:3px 10px;border:1px solid rgba(175,135,255,.3);border-radius:6px;color:#cdb8f2;font-size:12px}
 strong{color:#f0f0f3;font-weight:600}
 blockquote{margin:20px 0;padding:4px 16px;border-left:3px solid #af87ff}
 blockquote p{color:#9b9ca6}
@@ -26,6 +30,11 @@ a:focus-visible{outline:2px solid #af87ff;outline-offset:4px}
 ul,ol{padding-left:22px}
 li{margin:8px 0}
 .steps li{margin:14px 0}
+.trace-chain{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;list-style:none;padding:0;margin:24px 0}
+.trace-chain li{margin:0;padding:16px 18px;border:1px solid rgba(255,255,255,.12);border-radius:8px;background:#111216}
+.trace-chain span{display:block;font-size:12px;color:#cdb8f2;margin-bottom:8px}
+.trace-chain strong{display:block}
+.trace-chain p{font-size:13px;margin:8px 0 0;color:#9b9ca6}
 table{border-collapse:collapse;table-layout:fixed;width:100%;margin:20px 0;font-size:14px}
 th,td{border:1px solid rgba(255,255,255,.12);padding:10px 12px;text-align:left;vertical-align:top;overflow-wrap:anywhere}
 th{background:#15161b;color:#f0f0f3;font-weight:600}
@@ -53,9 +62,17 @@ a.pager-item:hover{border-color:rgba(175,135,255,.45);background:#15161b}
   .side ul{display:flex;flex-wrap:wrap;gap:6px}
   .side li{margin:0}
   .side a{padding:6px 10px;font-size:13px}
+  .js .side .brand{display:none}
+  .js .contents-toggle{display:flex;width:100%;align-items:center;justify-content:space-between;gap:12px;padding:9px 10px;color:#f0f0f3;font:inherit;font-size:14px;border:1px solid rgba(255,255,255,.12);border-radius:8px;background:#15161b;cursor:pointer;text-align:left}
+  .contents-toggle span{font-size:12px;color:#9b9ca6;white-space:nowrap}
+  .contents-toggle:focus-visible{outline:2px solid #af87ff;outline-offset:3px}
+  .js .side nav{display:none;margin-top:12px}
+  .js .side nav.is-open{display:block}
   main{padding:32px 24px 72px}
 }
 @media (max-width:560px){
+  h1{font-size:28px}
+  .trace-chain{grid-template-columns:1fr}
   .pager{flex-direction:column}
   .pager-item.next{align-items:flex-start;text-align:left}
   th,td{padding:9px 10px;font-size:13px}

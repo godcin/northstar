@@ -6,66 +6,83 @@
 <link rel="canonical" href="https://godcin.com/product/09-architecture.html">
 <meta name="description" content="Northstar 的统一服务入口、领域分层、模型通道、强类型契约、Skill、MCP 与上下文预算。">
 <title>09 · 架构与扩展 · Northstar 产品介绍</title>
+<meta name="theme-color" content="#0d0e11">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Northstar">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="架构与扩展 · Northstar 产品介绍">
+<meta property="og:description" content="Northstar 的统一服务入口、领域分层、模型通道、强类型契约、Skill、MCP 与上下文预算。">
+<meta property="og:url" content="https://godcin.com/product/09-architecture.html">
+<meta property="og:image" content="https://godcin.com/assets/northstar-share-f0084951f0eb.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Northstar Desktop 真实产品会话画面">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="架构与扩展 · Northstar 产品介绍">
+<meta name="twitter:description" content="Northstar 的统一服务入口、领域分层、模型通道、强类型契约、Skill、MCP 与上下文预算。">
+<meta name="twitter:image" content="https://godcin.com/assets/northstar-share-f0084951f0eb.jpg">
+<link rel="icon" href="../favicon.ico" sizes="32x32" type="image/x-icon">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="intro.css">
 <script src="intro.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main">跳转到正文</a>
 <div class="layout">
 <aside class="side">
 <a class="home" href="../">← 返回 Northstar 首页</a>
 <p class="brand">Northstar 产品介绍</p>
-<nav aria-label="产品介绍页面"><ul>
+<button class="contents-toggle" type="button" aria-expanded="false" aria-controls="intro-contents">章节目录 · 09 / 12<span>展开目录</span></button>
+<nav id="intro-contents" aria-label="产品介绍页面"><ul>
 <li><a href="index.html">01 · 产品概述</a></li>
 <li><a href="02-value.html">02 · 核心价值</a></li>
-<li><a href="03-rollback.html">03 · 回滚能力</a></li>
-<li><a href="04-third-agent.html">04 · 三方 Agent 能力</a></li>
-<li><a href="05-card-interaction.html">05 · 卡片式交互</a></li>
-<li><a href="06-governance.html">06 · 流程与状态治理</a></li>
-<li><a href="07-knowledge.html">07 · 知识与版本一致性</a></li>
-<li><a href="08-execution.html">08 · 执行与失败恢复</a></li>
+<li><a href="05-card-interaction.html">03 · 卡片式交互</a></li>
+<li><a href="06-governance.html">04 · 流程与状态治理</a></li>
+<li><a href="07-knowledge.html">05 · 知识与版本一致性</a></li>
+<li><a href="04-third-agent.html">06 · 外部 Agent 委派与交付</a></li>
+<li><a href="08-execution.html">07 · 执行与失败恢复</a></li>
+<li><a href="03-rollback.html">08 · 恢复点与回滚</a></li>
 <li><a href="09-architecture.html" aria-current="page">09 · 架构与扩展</a></li>
-<li><a href="10-summary.html">10 · 总结与展望</a></li>
+<li><a href="10-evidence.html">10 · 结果核验与诊断</a></li>
+<li><a href="11-incident-response.html">11 · 线上问题定位与可靠性</a></li>
+<li><a href="10-summary.html">12 · 总结与展望</a></li>
 </ul></nav>
 </aside>
-<main>
+<main id="main">
 <h1>09 · 架构与扩展</h1>
-<p class="lead">Northstar 将交互入口、研发流程、模型能力和工具执行分层组织，让 AI 在真实项目规则内工作，也为模型与能力扩展留下清晰边界。</p>
-<h2>客户端共享服务端流程</h2>
-<p>Desktop 与 CLI 通过统一 HTTP 入口提交对话、卡片和操作。服务端编排每轮请求，客户端负责输入、呈现和读取结果，研发规则由服务端集中处理。</p>
+<p class="lead">Northstar 将交互、研发规则、模型推理和工具执行分层组织。模型和工具可以扩展，产品状态、授权和执行结果仍沿同一套规则管理。</p>
+<h2>统一服务连接多个入口</h2>
+<p>Desktop 与 CLI 通过 HTTP 服务提交对话、卡片和动作，读取进度与结果。服务端集中处理流程规则，为其他客户端或脚本接入提供边界。</p>
 <table>
-<thead><tr><th scope="col">层次</th><th scope="col">职责</th></tr></thead>
+<thead><tr><th scope="col">组件</th><th scope="col">主要职责</th></tr></thead>
 <tbody>
-<tr><td>Desktop / CLI</td><td>采集用户输入，展示交互、运行进展与正式结果。</td></tr>
-<tr><td>Agent Service</td><td>统一编排对话、结构化交互、模型调用和工具执行。</td></tr>
-<tr><td>流程与领域规则</td><td>校验需求状态、角色、版本、门禁与真实写回。</td></tr>
-<tr><td>模型 / Skill / 工具</td><td>提供理解、工作方法和受控执行能力。</td></tr>
+<tr><td>Desktop / CLI</td><td>采集输入、呈现卡片和执行进展。</td></tr>
+<tr><td>Product Service</td><td>管理产品初始化、仓库绑定与生命周期。</td></tr>
+<tr><td>Agent Service</td><td>编排对话、模型调用、结构化交互与工具执行。</td></tr>
+<tr><td>领域模块</td><td>维护需求、变更等业务对象，检查状态与真实写入。</td></tr>
+<tr><td>Viewer</td><td>按角色只读展示文档、需求和待处理事项。</td></tr>
 </tbody>
 </table>
-<p>同一产品从不同入口继续工作时，可以沿用同一套状态与规则。客户端扩展因此有明确接入点，当前产品形态以 Desktop、CLI 与 Viewer 为主。</p>
-<h2>产品管理、执行与查看分别负责</h2>
-<p>Product Service 负责产品初始化、仓库绑定和生命周期；Agent Service 负责聊天与执行；Viewer 按角色展示业务产物与协作事项。</p>
-<p>Viewer 可以保存展示偏好，但保持业务产物只读。查看文档与推进开发分开，避免一次浏览请求附带改变产品事实。</p>
-<h2>普通推理与开发 Agent 独立配置</h2>
-<p>普通推理的 API 通道当前覆盖 OpenAI、Claude API、DeepSeek 与 GLM；开发执行的 Agent 通道目前面向 Codex App Server。实际可用模型取决于配置、账户权限和服务支持。</p>
-<p>两个通道分别配置 provider、model 与 effort。产品分析、调研或评审可以采用合适的推理模型，编码任务保持自己的执行配置；修改普通聊天模型不会悄悄覆盖开发 Agent。</p>
-<h2>强类型契约连接模型与执行</h2>
-<p>结构化输出以 Pydantic 类型定义为依据，从同一类型生成 JSON Schema，并用同一类型校验返回内容。封闭契约使用严格约束，拒绝不属于协议的字段。</p>
-<p>操作还绑定当次 schema、上下文指纹与约束摘要，减少模型请求和本地校验各自维护格式造成的漂移。卡片答案、计划与评审结果因而可以成为可检查、可持久化的数据。</p>
-<p>不同模型服务对原生严格 schema 的支持不同，适配层使用相应投影方式，最终仍需本地校验。格式合法也只是执行前提，语义与权限继续由后续规则判断。</p>
-<h2>Skill 组织可组合的工作方法</h2>
-<p>Skill 索引按角色、可用工具和策略过滤；模型可以按需读取完整工作法及辅助材料。高频角色或阶段的方法还可以有限预加载，平衡上下文成本与可用性。</p>
-<p>需求澄清、PRD、TD 与测试方法可以分别演进。Skill Loader 读取工作法与辅助材料；实际读写和状态操作通过注册工具或领域操作执行，权限和流程门禁继续由系统负责。</p>
-<h2>MCP 工具进入统一执行目录</h2>
-<p>Northstar 通过 stdio 客户端发现外部 MCP server 的工具，保留命名空间、schema 与工具集信息，再按允许范围注册到统一目录。</p>
-<p>工具调用继续经过现有执行器、授权和 Guardrail。单个 server 接入失败会记录对应阻塞，其他已可用 server 可以继续处理。</p>
-<p>这里提供的是外部 MCP 工具消费能力。接入范围和执行权限受配置约束，不会因为注册一个工具就获得任意文件或系统权限。</p>
-<h2>长对话有统一上下文预算</h2>
-<p>每轮使用不可变上下文快照，根据模型窗口分配历史、记忆、导航引用和工具结果预算。较早讨论可以压缩为摘要与身份引用，原始对话继续保留用于回查。</p>
-<p>周期性从原文重新整理摘要，减少长期滚动压缩的累计偏差。窗口不明确或摘要滞后时采用保守范围，避免不同层各自截断导致上下文失联。</p>
-<p class="note">摘要与记忆帮助理解，仍可能有损。正式权限、需求状态、签核与完成结论，以各自负责模块的事实和证据为准。</p>
-<h2>扩展的技术原则</h2>
-<p>新能力通过模型适配、Skill、工具和结构化契约接入已有流程；输入、权限、结果与失败方式都有对应位置。架构持续演进，扩展的目标是让能力增长与工程约束一起维护。</p>
-<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="08-execution.html"><span class="label">← 上一页</span><span class="title">08 · 执行与失败恢复</span></a><a class="pager-item next" href="10-summary.html"><span class="label">下一页 →</span><span class="title">10 · 总结与展望</span></a></nav>
+<p>Viewer 可以保存展示偏好，业务操作则回到交互入口。查看资料与变更产品状态因此有明确分工。</p>
+<h2>推理模型与开发 Agent 独立配置</h2>
+<p>普通推理 API 通道支持 OpenAI、Claude API、DeepSeek 与 GLM，开发 Agent 通道目前面向 Codex App Server。两类配置分别选择服务、模型与推理强度，实际可用选项由配置和服务支持决定。</p>
+<p>这使产品分析、调研、评审与编码可以采用各自合适的能力。外部 Agent 的任务范围和交付方式见 <a href="04-third-agent.html">委派与交付</a>。</p>
+<h2>同一份类型定义约束输入与校验</h2>
+<p>结构化输出以强类型模型定义数据形态，生成供模型使用的 JSON Schema，并用同一类型检查返回结果。例如卡片回答、执行计划与评审结论，各自有明确字段和允许值。</p>
+<p>操作还关联当次上下文与约束。不同模型服务使用适合自身的格式适配，最终仍经本地校验，再由流程规则判断权限与语义条件。这样可以减少“发给模型的格式”与“执行时接受的格式”不一致。</p>
+<h2>Skill 按需提供工作方法</h2>
+<p>Skill 将需求澄清、文档编写、调研和评审等方法组织成可复用材料。系统按角色、工具与策略筛选索引，模型再按需读取完整方法和辅助资料，常用方法可以适量预加载。</p>
+<p>工作方法可以独立更新，实际读写与状态改变通过注册工具或领域动作执行。方法说明、工具能力和执行权限各有维护位置。</p>
+<h2>MCP 工具接入统一执行目录</h2>
+<p>Northstar 通过 MCP 的标准输入输出（stdio）连接外部工具服务，读取工具描述与参数格式，按命名空间和允许范围加入工具目录。调用继续经过权限检查、审批策略与结果记录。</p>
+<p>单个服务接入失败时记录该服务的问题，已经可用的工具可以继续工作。新接入工具的可操作范围由配置及工具契约确定。</p>
+<h2>长对话按预算组织上下文</h2>
+<p>每轮依据模型窗口分配历史、记忆、产品导航与工具结果的空间。较早讨论可以压缩为摘要和材料引用，原始对话保留用于回查，并周期性从原文重新整理摘要，减少连续压缩的累积偏差。</p>
+<p>摘要与记忆帮助模型理解背景，正式状态和签核依据则来自对应业务记录。长对话需要继续引用当前材料，才能承接有效的产品上下文。</p>
+<h2>执行器统一管理工具边界</h2>
+<p>工具目录提供发现与描述，执行器检查调用参数、角色、保护规则和审批要求，再调用实际工具并保存结果。符合条件的只读调用可以并行，写入和状态操作遵循各自执行约束。</p>
+<p>其中的落地验证、反馈与诊断记录，是下一篇 <a href="10-evidence.html">结果核验与诊断</a> 的重点。</p>
+<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="03-rollback.html"><span class="label">← 上一页</span><span class="title">08 · 恢复点与回滚</span></a><a class="pager-item next" href="10-evidence.html"><span class="label">下一页 →</span><span class="title">10 · 结果核验与诊断</span></a></nav>
 </main>
 </div>
 </body>

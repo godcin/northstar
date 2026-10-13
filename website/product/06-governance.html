@@ -5,68 +5,87 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="canonical" href="https://godcin.com/product/06-governance.html">
 <meta name="description" content="Northstar 用 Workflow Graph、动作契约和领域门禁连接自然语言理解与真实状态变更。">
-<title>06 · 流程与状态治理 · Northstar 产品介绍</title>
+<title>04 · 流程与状态治理 · Northstar 产品介绍</title>
+<meta name="theme-color" content="#0d0e11">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Northstar">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="流程与状态治理 · Northstar 产品介绍">
+<meta property="og:description" content="Northstar 用 Workflow Graph、动作契约和领域门禁连接自然语言理解与真实状态变更。">
+<meta property="og:url" content="https://godcin.com/product/06-governance.html">
+<meta property="og:image" content="https://godcin.com/assets/northstar-share-f0084951f0eb.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Northstar Desktop 真实产品会话画面">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="流程与状态治理 · Northstar 产品介绍">
+<meta name="twitter:description" content="Northstar 用 Workflow Graph、动作契约和领域门禁连接自然语言理解与真实状态变更。">
+<meta name="twitter:image" content="https://godcin.com/assets/northstar-share-f0084951f0eb.jpg">
+<link rel="icon" href="../favicon.ico" sizes="32x32" type="image/x-icon">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="intro.css">
 <script src="intro.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main">跳转到正文</a>
 <div class="layout">
 <aside class="side">
 <a class="home" href="../">← 返回 Northstar 首页</a>
 <p class="brand">Northstar 产品介绍</p>
-<nav aria-label="产品介绍页面"><ul>
+<button class="contents-toggle" type="button" aria-expanded="false" aria-controls="intro-contents">章节目录 · 04 / 12<span>展开目录</span></button>
+<nav id="intro-contents" aria-label="产品介绍页面"><ul>
 <li><a href="index.html">01 · 产品概述</a></li>
 <li><a href="02-value.html">02 · 核心价值</a></li>
-<li><a href="03-rollback.html">03 · 回滚能力</a></li>
-<li><a href="04-third-agent.html">04 · 三方 Agent 能力</a></li>
-<li><a href="05-card-interaction.html">05 · 卡片式交互</a></li>
-<li><a href="06-governance.html" aria-current="page">06 · 流程与状态治理</a></li>
-<li><a href="07-knowledge.html">07 · 知识与版本一致性</a></li>
-<li><a href="08-execution.html">08 · 执行与失败恢复</a></li>
+<li><a href="05-card-interaction.html">03 · 卡片式交互</a></li>
+<li><a href="06-governance.html" aria-current="page">04 · 流程与状态治理</a></li>
+<li><a href="07-knowledge.html">05 · 知识与版本一致性</a></li>
+<li><a href="04-third-agent.html">06 · 外部 Agent 委派与交付</a></li>
+<li><a href="08-execution.html">07 · 执行与失败恢复</a></li>
+<li><a href="03-rollback.html">08 · 恢复点与回滚</a></li>
 <li><a href="09-architecture.html">09 · 架构与扩展</a></li>
-<li><a href="10-summary.html">10 · 总结与展望</a></li>
+<li><a href="10-evidence.html">10 · 结果核验与诊断</a></li>
+<li><a href="11-incident-response.html">11 · 线上问题定位与可靠性</a></li>
+<li><a href="10-summary.html">12 · 总结与展望</a></li>
 </ul></nav>
 </aside>
-<main>
-<h1>06 · 流程与状态治理</h1>
-<p class="lead">AI 擅长理解和生成，研发流程还需要判断谁有权做什么、当前条件是否满足，以及正式状态何时可以改变。Northstar 将这些职责分层处理。</p>
-<h2>模型提出方案，系统校验真实变更</h2>
-<p>模型结合对话、产物和 Skill 生成建议或结构化计划。执行时，系统检查动作是否注册、角色是否匹配、当前状态是否允许、产物是否满足条件，再写入正式结果。</p>
-<p>例如“PRD 已签核”需要当前 PRD、有效评审和正式签核动作共同成立。文字总结可以帮助理解，但项目状态必须以负责该事实的模块读取到的结果为准。</p>
-<h2>三个机制各自负责什么</h2>
+<main id="main">
+<h1>04 · 流程与状态治理</h1>
+<p class="lead">每次推进需求，都需要知道当前做到哪一步、谁可以操作、还缺什么。Northstar 用明确的状态与动作规则组织研发，让模型的建议能够转化为有条件、有记录的实际操作。</p>
+<h2>需求、变更与待办各有归属</h2>
+<p>需求组织一次从目标到交付的完整工作；变更描述更细的调整及其影响；待办记录角色接下来需要处理的事项。它们分别维护自己的状态，再通过引用与交接连接起来。</p>
+<p>例如 Dev 在技术设计中发现业务规则不明确，可以提出产品异议。PM 确认或修订需求后，Dev 承接新的结论更新设计。系统保留问题、回答、产物和当前阶段，角色切换后可以找到尚未完成的工作。</p>
+<p class="note">变更流程、Dev 签核以及 QA、发布检查和复盘环节已有相应规则与记录机制，目前仍标为实验性，正在持续完善。</p>
+<h2>从推荐路径到正式执行</h2>
 <table>
 <thead><tr><th scope="col">机制</th><th scope="col">负责的问题</th></tr></thead>
 <tbody>
-<tr><td>Workflow Graph<br>工作流图</td><td>当前阶段有哪些推荐路径，如何排序与展示，下一步可以指向什么。</td></tr>
-<tr><td>Operation<br>动作契约</td><td>一个动作接受哪些输入、由谁执行、需要什么条件，以及怎样表达结果。</td></tr>
-<tr><td>Domain Gate<br>领域门禁</td><td>在当前事实下，是否允许签核、状态推进或正式写回。</td></tr>
+<tr><td>工作流图<br>Workflow Graph</td><td>描述阶段之间的路径、动作顺序、角色交接和返回处理方式。</td></tr>
+<tr><td>动作契约<br>Operation</td><td>定义一次动作的输入、执行方式与结果，例如评审、确认问题或签核。</td></tr>
+<tr><td>展示条件</td><td>根据当前角色、阶段与材料，决定哪些动作值得呈现给用户。</td></tr>
+<tr><td>领域门禁<br>Domain Gate</td><td>执行时重新检查权限、状态与证据，裁决是否允许正式写入或推进。</td></tr>
 </tbody>
 </table>
-<p>工作流图经校验后编译为带 SHA-256 指纹的不可变对象。客户端消费服务端投影，减少界面按钮、推荐路径与真实流程各自维护规则造成的漂移。</p>
-<h2>准备度、评审与签核分别表达什么</h2>
+<p>工作流图在加载时检查引用和路径，并生成版本指纹。客户端读取服务端计算的当前动作，减少界面、推荐路径和业务规则各自维护一套逻辑造成的不一致。</p>
+<h2>准备度、评审与签核分别回答不同问题</h2>
 <ul>
-<li><strong>准备度检查</strong>：找出还缺哪些材料、哪些问题尚未解决，以及由谁补充。</li>
-<li><strong>语义评审</strong>：检查当前版本的内容是否完整、可执行、可验证，以及是否与上游一致。</li>
-<li><strong>正式签核</strong>：角色对当前产物作出承诺，并在满足条件后推进阶段。</li>
+<li><strong>准备度检查</strong>：材料齐了吗？哪些问题尚未解决？下一步由哪个角色补充？</li>
+<li><strong>语义评审</strong>：内容是否完整、可执行、可验证？设计是否承接了需求？</li>
+<li><strong>正式签核</strong>：当前角色是否确认这一版产物，并在条件满足后推进阶段？</li>
 </ul>
-<p>查看阻塞项和开展评审都不会自动推进阶段。提交答案可以更新问题记录，评审完成会保存评审证据；只有正式阶段动作通过门禁，才会进入对应的下一阶段。这样，阶段内工作与批准交付各有明确结果。</p>
-<h2>点击时重新核对当前条件</h2>
-<p>推荐动作绑定当前需求的决策版本、图版本与投影身份。即使界面刚才显示动作可用，正式执行仍会重新读取现有角色、状态、问题与产物。</p>
-<p>以进入编码为例，系统需要核验技术设计、有效评审、未决技术问题和实现步骤等条件。文档改变或出现新阻塞后，旧推荐需要重新计算。</p>
+<p>查看阻塞用于了解当前缺口，完成评审会保存评审结果；正式阶段推进需要提交相应动作并通过门禁。以 PRD 签核为例，系统读取当前产品需求文档、有效评审和待解决问题，确认条件满足后才记录签核结果。</p>
+<h2>旧按钮提交时，再查一次当前事实</h2>
+<p>页面展示动作后，产物或需求状态可能继续变化。推荐动作因此绑定生成时的需求版本、工作流版本和角色，提交时重新核对当前条件。停留很久的页面也需要通过这次检查。</p>
 <ol class="steps">
-<li>读取当前事实，生成可用动作。</li>
-<li>用户提交具体选择与必要字段。</li>
-<li>检查来源、版本、角色和门禁。</li>
-<li>执行真实写回，形成结果记录。</li>
-<li>根据新的事实刷新下一步。</li>
+<li>读取当前事实，生成可用动作与阻塞说明。</li>
+<li>用户选择具体动作，提交必要字段。</li>
+<li>核对来源、版本、角色、授权和门禁。</li>
+<li>由负责该业务对象的模块写入，保存结果。</li>
+<li>根据新状态刷新待办与下一步。</li>
 </ol>
-<h2>保留对话的灵活性</h2>
-<p>用户可以补充背景、质疑方案或调整目标。推荐路径帮助推进工作，自由输入仍可继续处理其他事项；涉及正式变更时，系统继续校验其权限与条件。</p>
-<p>PM 负责产品语义，Dev 负责技术实现，QA 负责质量判断。异议可以交回对应角色，阶段可以返工，角色承诺仍有清晰归属。</p>
-<h2>这套机制的实际收益</h2>
-<p>流程不必依赖模型持续记住所有规则。界面给出当前选择，模型处理语义，负责业务事实的模块裁决正式变化，执行记录说明结果实际到哪一步。</p>
-<p>这些约束降低越界和状态失真的风险。它们校验的是定义好的协议与证据；模型的业务判断和产物质量仍需要评审、验证与人的确认。</p>
-<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="05-card-interaction.html"><span class="label">← 上一页</span><span class="title">05 · 卡片式交互</span></a><a class="pager-item next" href="07-knowledge.html"><span class="label">下一页 →</span><span class="title">07 · 知识与版本一致性</span></a></nav>
+<h2>自由讨论与正式变更能够并存</h2>
+<p>用户可以随时补充背景、质疑方案或调整目标。对话承载讨论，系统将需要实际变更的意图转换为明确动作，再按相同规则校验。遇到异议时返回处理，满足条件后继续推进，让正常路径与返工都有位置。</p>
+<p>流程治理回答的是“现在允许做什么”。产物变化后评审还能否使用，由下一篇 <a href="07-knowledge.html">知识与版本一致性</a> 进一步说明。</p>
+<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="05-card-interaction.html"><span class="label">← 上一页</span><span class="title">03 · 卡片式交互</span></a><a class="pager-item next" href="07-knowledge.html"><span class="label">下一页 →</span><span class="title">05 · 知识与版本一致性</span></a></nav>
 </main>
 </div>
 </body>

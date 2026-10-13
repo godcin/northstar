@@ -5,63 +5,78 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="canonical" href="https://godcin.com/product/03-rollback.html">
 <meta name="description" content="Northstar 的产品恢复点与配对需求分支回滚：恢复范围、执行过程和远端同步边界。">
-<title>03 · 回滚能力 · Northstar 产品介绍</title>
+<title>08 · 恢复点与回滚 · Northstar 产品介绍</title>
+<meta name="theme-color" content="#0d0e11">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Northstar">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="恢复点与回滚 · Northstar 产品介绍">
+<meta property="og:description" content="Northstar 的产品恢复点与配对需求分支回滚：恢复范围、执行过程和远端同步边界。">
+<meta property="og:url" content="https://godcin.com/product/03-rollback.html">
+<meta property="og:image" content="https://godcin.com/assets/northstar-share-f0084951f0eb.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Northstar Desktop 真实产品会话画面">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="恢复点与回滚 · Northstar 产品介绍">
+<meta name="twitter:description" content="Northstar 的产品恢复点与配对需求分支回滚：恢复范围、执行过程和远端同步边界。">
+<meta name="twitter:image" content="https://godcin.com/assets/northstar-share-f0084951f0eb.jpg">
+<link rel="icon" href="../favicon.ico" sizes="32x32" type="image/x-icon">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="intro.css">
 <script src="intro.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main">跳转到正文</a>
 <div class="layout">
 <aside class="side">
 <a class="home" href="../">← 返回 Northstar 首页</a>
 <p class="brand">Northstar 产品介绍</p>
-<nav aria-label="产品介绍页面"><ul>
+<button class="contents-toggle" type="button" aria-expanded="false" aria-controls="intro-contents">章节目录 · 08 / 12<span>展开目录</span></button>
+<nav id="intro-contents" aria-label="产品介绍页面"><ul>
 <li><a href="index.html">01 · 产品概述</a></li>
 <li><a href="02-value.html">02 · 核心价值</a></li>
-<li><a href="03-rollback.html" aria-current="page">03 · 回滚能力</a></li>
-<li><a href="04-third-agent.html">04 · 三方 Agent 能力</a></li>
-<li><a href="05-card-interaction.html">05 · 卡片式交互</a></li>
-<li><a href="06-governance.html">06 · 流程与状态治理</a></li>
-<li><a href="07-knowledge.html">07 · 知识与版本一致性</a></li>
-<li><a href="08-execution.html">08 · 执行与失败恢复</a></li>
+<li><a href="05-card-interaction.html">03 · 卡片式交互</a></li>
+<li><a href="06-governance.html">04 · 流程与状态治理</a></li>
+<li><a href="07-knowledge.html">05 · 知识与版本一致性</a></li>
+<li><a href="04-third-agent.html">06 · 外部 Agent 委派与交付</a></li>
+<li><a href="08-execution.html">07 · 执行与失败恢复</a></li>
+<li><a href="03-rollback.html" aria-current="page">08 · 恢复点与回滚</a></li>
 <li><a href="09-architecture.html">09 · 架构与扩展</a></li>
-<li><a href="10-summary.html">10 · 总结与展望</a></li>
+<li><a href="10-evidence.html">10 · 结果核验与诊断</a></li>
+<li><a href="11-incident-response.html">11 · 线上问题定位与可靠性</a></li>
+<li><a href="10-summary.html">12 · 总结与展望</a></li>
 </ul></nav>
 </aside>
-<main>
-<h1>03 · 回滚能力</h1>
-<p class="lead">Northstar 在关键操作前保存恢复点，把代码、知识库与产品协作现场关联起来。当方向需要调整时，可以恢复整个产品现场，也可以只撤回某次需求分支交付。</p>
-<h2>恢复的不只是代码版本</h2>
-<p>代码回到了过去，文档、需求状态与聊天却仍停在后来，会让下一步工作失去依据。产品恢复点把这些相关材料绑定在一起，恢复后可以重新检查当时的角色、待办与确认步骤。</p>
-<p>恢复点对应具体操作开始前的现场。重复执行同一类操作会形成不同记录；同一次操作的重试沿用原来的恢复依据。</p>
-<h2>两种恢复范围</h2>
+<main id="main">
+<h1>08 · 恢复点与回滚</h1>
+<p class="lead">产品方向调整或一次修改需要撤回时，恢复点帮助用户找回此前的协作现场。Northstar 将受管代码、知识库和运行状态关联保存，让恢复后的工作有明确依据。</p>
+<h2>为关键操作保留操作前的现场</h2>
+<p>一项需求同时涉及文档、代码、角色待办和确认记录。恢复点将声明范围内的这些材料绑定起来，便于回到某次操作之前，再决定下一步怎样继续。</p>
+<p>每次新执行可以形成独立恢复点；同一次未完成操作的重试沿用原来的恢复依据。Desktop 入口展示可用记录、时间和对应操作，用户先核对范围再发起恢复。</p>
+<h2>按需要选择恢复范围</h2>
 <table>
-<thead><tr><th scope="col">方式</th><th scope="col">范围与使用场景</th></tr></thead>
+<thead><tr><th scope="col">方式</th><th scope="col">范围与场景</th></tr></thead>
 <tbody>
-<tr><td>产品现场恢复</td><td>恢复绑定的代码与知识库版本，以及 Northstar 管理的需求、流程记录、会话、记忆、审批、执行证据和产品运行配置。适合把协作现场整体回到此前状态。</td></tr>
-<tr><td>需求分支回滚</td><td>一起恢复代码与知识库的配对需求分支。main 和聊天保持当前状态，适合撤回需求开发中的一次交付。</td></tr>
+<tr><td>产品现场恢复</td><td>按恢复点覆盖范围，恢复绑定的仓库材料与 Northstar 管理的需求、会话、记忆、审批、执行证据和产品运行状态，适合调整整个协作现场。</td></tr>
+<tr><td>需求分支回滚</td><td>恢复代码仓与知识库仓配对的需求分支，适合撤回需求开发中的一次交付。此方式保留当前聊天及 main 基线。</td></tr>
 </tbody>
 </table>
-<h2>一次恢复怎样进行</h2>
+<p>恢复覆盖系统管理并纳入快照的材料。全局凭据、任意磁盘文件、外部服务和线上部署需要各自的恢复方式，已发布到 main 的改动也需要相应的反向交付流程。</p>
+<h2>一次恢复怎样完成</h2>
 <ol class="steps">
-<li><strong>核对记录</strong>：在 Desktop 的恢复点入口选择可用记录，查看时间、操作与恢复范围。</li>
-<li><strong>明确确认</strong>：系统停止相关任务并阻止旧执行继续写入，保存当前现场与分支备份。</li>
-<li><strong>恢复并校验</strong>：按绑定版本恢复材料，核验仓库与运行状态；配置了远端的仓库还需要同步恢复结果。</li>
-<li><strong>重新打开工作现场</strong>：恢复可续接的会话与待确认事项，再由用户决定接下来继续哪项工作。</li>
+<li><strong>核对恢复点</strong>：检查目标时间、对应操作、覆盖范围和当前条件。</li>
+<li><strong>确认并保存当前现场</strong>：停止相关执行、关闭旧任务写入入口，按恢复规则保存备份。</li>
+<li><strong>恢复并读回</strong>：恢复绑定材料，检查实际仓库版本与运行状态，记录需要继续同步或核对的事项。</li>
+<li><strong>重新进入工作</strong>：重新激活可续接的交互与确认事项，由用户选择下一步。</li>
 </ol>
-<p>历史执行不会因为恢复自动重跑。后续模型执行会使用新的执行聊天，避免旧执行结果继续改变已恢复的现场。</p>
-<h2>每个仓库都有可核对的结果</h2>
-<p>需求分支回滚分别报告代码仓与知识仓的结果：已回滚、尚未回滚、无改动或结果未知。一个仓库完成、另一个失败时，系统保留已经完成的一侧，后续继续核对剩余部分。</p>
-<p>遇到远端并发变化、权限错误或推送失败，恢复可能保持待处理状态。用户需要先核对实际结果，再继续恢复；不确定的结果会明确保留。</p>
-<h2>需要了解的边界</h2>
-<ul>
-<li>恢复入口目前在 Desktop；只有具备完整恢复依据的记录才能执行恢复。</li>
-<li>旧格式、缺少完整范围或证据的历史点可能只能查看。</li>
-<li>需求分支回滚不撤销已经进入 main 的发布；已发布改动需要新的反向交付。</li>
-<li>恢复覆盖 Northstar 管理的产品现场，全局凭据、任意磁盘文件与外部服务不属于这份快照。</li>
-<li>备份用于核对与排查，恢复过程中的未完成事项仍需要显式处理。</li>
-</ul>
-<p>针对一次操作中断后的续接方式，可以继续阅读 <a href="08-execution.html">执行与失败恢复</a>；它与选择历史恢复点属于不同的使用场景。</p>
-<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="02-value.html"><span class="label">← 上一页</span><span class="title">02 · 核心价值</span></a><a class="pager-item next" href="04-third-agent.html"><span class="label">下一页 →</span><span class="title">04 · 三方 Agent 能力</span></a></nav>
+<p>恢复后的执行使用新的身份，旧任务的迟到结果不能继续写入新现场。历史任务也不会仅因为恢复而自动重跑。</p>
+<h2>每一侧仓库分别确认结果</h2>
+<p>配对分支回滚记录代码仓与知识库仓各自的状态，包括完成、待处理、无改动或未知。一侧已完成、另一侧遇到权限或远端变化时，保留实际结果，再继续处理未完成部分。</p>
+<p>只有具备完整恢复依据的记录才能执行相应恢复。较早格式或缺少材料的历史记录可能只能查看；用户可以据此检查当时情况，再选择有效恢复点。</p>
+<h2>与任务续接如何配合</h2>
+<p><a href="08-execution.html">执行恢复</a> 帮助继续一项中断的工作；恢复点帮助撤回成果、调整方向。两者都依赖可核对的记录，分别覆盖任务执行和历史现场。</p>
+<nav class="pager" aria-label="页面翻页"><a class="pager-item prev" href="08-execution.html"><span class="label">← 上一页</span><span class="title">07 · 执行与失败恢复</span></a><a class="pager-item next" href="09-architecture.html"><span class="label">下一页 →</span><span class="title">09 · 架构与扩展</span></a></nav>
 </main>
 </div>
 </body>

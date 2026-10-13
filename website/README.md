@@ -62,6 +62,8 @@ NORTHSTAR_CHROMIUM="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome
 
 微信聊天直接粘贴普通网址可能只显示文本链接。页面元信息无法强制微信生成卡片；需要先在微信内打开网页，再使用右上角分享入口试验。定制微信分享内容通常需要有相应权限的公众号、JS 接口安全域名、微信 JS-SDK 和服务端签名，当前静态站点尚未接入。各平台会缓存预览，已经发送的消息不一定会随网站更新。
 
+分享标题包含“AI 研发协作，从需求到交付”，使只展示标题的卡片也能传达产品用途。微信朋友圈的 `updateTimelineShareData` 接口没有 `desc` 字段，不单独设置简介；Mac 微信原生分享入口是否采用网页简介由客户端决定。好友分享接口 `updateAppMessageShareData` 才提供 `desc`，详见 [微信 JS-SDK 使用说明](https://developers.weixin.qq.com/doc/service/guide/h5/jssdk.html)。
+
 ## 图标
 
 `vendor/lucide.min.js` 为本地固定版本的 Lucide 0.468.0，ISC 许可证见 `vendor/lucide-LICENSE`。页面无需访问第三方 CDN。

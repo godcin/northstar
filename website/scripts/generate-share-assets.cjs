@@ -1,4 +1,5 @@
 const assert = require('node:assert/strict')
+const { createHash } = require('node:crypto')
 const fs = require('node:fs/promises')
 const path = require('node:path')
 
@@ -42,8 +43,12 @@ async function main() {
       const bounds = element.getBoundingClientRect()
       return bounds.left >= 0 && bounds.top >= 0 && bounds.right <= 1200 && bounds.bottom <= 630
     })), 'Share image content must fit within the exported image')
-    await page.screenshot({ path: outputPath, type: 'jpeg', quality: 90, animations: 'disabled' })
+    const shareJpeg = await page.screenshot({ path: outputPath, type: 'jpeg', quality: 90, animations: 'disabled' })
+    const contentHash = createHash('sha256').update(shareJpeg).digest('hex').slice(0, 12)
+    const versionedPath = path.join(path.dirname(outputPath), `northstar-share-${contentHash}.jpg`)
+    await fs.writeFile(versionedPath, shareJpeg)
     console.log(`${path.relative(repoRoot, outputPath)}: ${(await fs.stat(outputPath)).size} bytes; 1200 x 630`)
+    console.log(`Share metadata image: ${path.relative(repoRoot, versionedPath)}`)
 
     const iconPage = await browser.newPage({ viewport: { width: 512, height: 512 }, deviceScaleFactor: 1 })
     await iconPage.setContent(`<html><head><title>Northstar Icon</title><style>body { margin: 0; background: #0d0e11; } img { display: block; width: 100vw; height: 100vh; }</style></head><body><img src="data:image/svg+xml;base64,${icon.toString('base64')}" alt="Northstar"></body></html>`)

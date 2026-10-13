@@ -48,7 +48,7 @@ window.NORTHSTAR_SITE = Object.freeze({ demoVideo: "assets/northstar-demo.mp4" }
 
 ## 链接预览
 
-首页在静态 HTML 的 `<head>` 中提供 Open Graph 和 Twitter Card 信息，供支持链接预览的聊天与社交平台抓取，不依赖 JavaScript。分享图为公开的 `assets/northstar-share.jpg`，1200 × 630，使用真实 Desktop 录像封面。
+首页在静态 HTML 的 `<head>` 中提供 Open Graph 和 Twitter Card 信息，供支持链接预览的聊天与社交平台抓取，不依赖 JavaScript。分享图为公开的 `assets/northstar-share-f0084951f0eb.jpg`，1200 × 630，使用真实 Desktop 录像封面。OG、Twitter 和 `image_src` 使用相同图片；文件名包含内容哈希，原始地址 `assets/northstar-share.jpg` 保留以兼容已分享的链接。
 
 同时提供方形 `assets/northstar-icon.png`、PNG/ICO 网站图标和 Apple Touch Icon，兼容不读取 OG 图片或不支持 SVG 图标的客户端。以上资源均由现有 Northstar 图标生成。微信是否采用这些图标由客户端决定；它们不会改变微信聊天卡片的点击行为。
 
@@ -59,6 +59,8 @@ NORTHSTAR_CHROMIUM="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome
 ```
 
 生成工具沿用 Viewer 图片脚本的 `NORTHSTAR_AGENT_ROOT` 与 `NORTHSTAR_PLAYWRIGHT_MODULE` 配置，仅在本地生成资源，网站运行无需这些依赖。
+
+更新封面后，将生成日志中的版本化图片地址同步到首页的 OG、Twitter、`image_src` 和静态微博分享链接。新地址可避免复用旧图片 URL 的缓存，但微信是否采用图片仍需实际分享验证，不能据此认定抓取问题已修复。
 
 微信聊天直接粘贴普通网址可能只显示文本链接。页面元信息无法强制微信生成卡片；需要先在微信内打开网页，再使用右上角分享入口试验。定制微信分享内容通常需要有相应权限的公众号、JS 接口安全域名、微信 JS-SDK 和服务端签名，当前静态站点尚未接入。各平台会缓存预览，已经发送的消息不一定会随网站更新。
 

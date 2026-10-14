@@ -48,7 +48,7 @@ Northstar / NS 的对外介绍页，纯静态 HTML、CSS 和 JavaScript，无构
 
 编码演示接续 `media-harbor` 的技术设计，从确认生成代码进入 Agent 工作台，查看执行进度并运行本地媒体浏览页面。随后通过截图反馈 HEIC 预览问题，修复后继续调整照片浏览、待打印收集等交互。
 
-- 视频：https://www.bilibili.com/video/BV1WspC6sEmW/
+- 视频：https://www.bilibili.com/video/BV1DBp26GEew/
 - B 站播放器时长：20:52；本地原片约 20:51，1920 × 1080。
 - 封面：`assets/video/dev-coding-workflow-poster.webp`，从真实录像开头的确认生成代码卡片提取。
 - 章节：00:00 确认生成代码；02:45 编码与验证进度；10:40 本地运行体验；12:10 截图反馈与 HEIC 修复；17:10 浏览与打印体验优化；20:00 查看优化结果。
